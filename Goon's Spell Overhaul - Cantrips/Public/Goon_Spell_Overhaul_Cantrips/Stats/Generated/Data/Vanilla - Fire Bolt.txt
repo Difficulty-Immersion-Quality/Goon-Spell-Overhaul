@@ -1,0 +1,239 @@
+// ==================================== Fire Bolt ====================================
+// Changes: Damage reduced from d10 to d8.
+// Changes: Creates a 1m fire surface for 2 turns when targetting the ground, corpses, or objects.
+// Changes: On a success against a creature Burning is applied for 1 turn.
+// Changes: Targetting unrestricted.
+
+new entry "Projectile_FireBolt"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_FireBolt"
+// data "Level" "0"
+// data "SpellSchool" "Evocation"
+// data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_DEADORITEM_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,Fire)"
+// data "TargetFloor" "-1"
+// data "TargetRadius" "18"
+// data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
+// data "SpellSuccess" "DealDamage(LevelMapValue(D10Cantrip),Fire,Magical)"
+data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Fire,Magical);ApplyStatus(BURNING,100,1)"
+// data "TargetConditions" "not Self() and not Dead()"
+data "TargetConditions" "not Self()"
+// data "ProjectileCount" "1"
+// data "Trajectories" "792ba497-a6ea-46bc-81cb-deb78e4dd9d3"
+// data "Icon" "Spell_Evocation_FireBolt"
+// Fire Bolt
+// data "DisplayName" "h7fddad46g70f6g4c7dg8109gab93722b0495;1"
+// Hurl a mote of fire.
+// data "Description" "h111ae255g55f1g4a55gb958g517af226971b;4"
+// Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a fire surface in a [1] radius for [2] turn instead.
+data "Description" "ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf;1"
+data "DescriptionParams" "Distance(1);2"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Fire)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Fire)"
+data "TooltipStatusApply" "ApplyStatus(BURNING,100,1)"
+// data "TooltipAttackSave" "RangedSpellAttack"
+// data "PrepareSound" "Spell_Prepare_Damage_Fire_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Prepare_Damage_Fire_Gen_L1to3_Loop"
+// data "CastSound" "Spell_Cast_Damage_Fire_FireBolt_L1to3"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "CycleConditions" "Enemy() and not Dead()"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful"
+// data "HitAnimationType" "MagicalDamage_External"
+// data "PrepareEffect" "c88e9cfa-df92-477a-ae75-cbfb932350b4"
+// data "CastEffect" "e235ca47-1bf5-4587-9475-cf191b6005f9"
+// data "DamageType" "Fire"
+data "CombatAIOverrideSpell" "Projectile_FireBolt_AI"
+
+new entry "Projectile_FireBolt_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_FireBolt"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+data "CombatAIOverrideSpell" ""
+
+// ==================================== Fire Bolt - Goblin
+
+new entry "Projectile_FireBolt_Goblin"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_FireBolt_Goblin"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;e7450b96-7921-4d05-bb38-76b36e4291a1,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+data "CombatAIOverrideSpell" ""
+
+// ==================================== Fire Bolt - Trap
+
+new entry "Projectile_FireBolt_Trap"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_FireBolt_Trap"
+// using "Projectile_FireBolt"
+// data "SpellRoll" "not SavingThrow(Ability.Dexterity, 12)"
+// data "SpellSuccess" "DealDamage(1d10,Fire,Magical)"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+// data "TooltipDamageList" "DealDamage(1d10,Fire)"
+// data "TooltipAttackSave" "Dexterity"
+// data "CycleConditions" "Character() and not Dead()"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsTrap;ImmediateCast"
+data "CombatAIOverrideSpell" ""
+
+// ==================================== Fire Bolt - Ogre
+
+new entry "Projectile_FOR_Ogre_FireBolt"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_FOR_Ogre_FireBolt"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+// data "CastTextEvent" "Cast"
+// data "SpellAnimation" "303ebd17-5b4e-46c6-ac4a-315c2aa29c6d,,;97e3b980-9905-428b-b682-68462777d628,,;f43888ef-1069-40d8-9159-ca0bc413fd5f,,;29574072-3390-485e-8257-5a65d6703e5f,,;,,;,,;,,;,,;,,"
+// data "RechargeValues" ""
+data "CombatAIOverrideSpell" ""
+
+// ==================================== Fire Bolt - Imp
+
+new entry "Projectile_Generic_Imp"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_Generic_Imp"
+// data "SpellProperties" ""
+// data "TargetRadius" "8"
+// data "SpellSuccess" "DealDamage(1d4,Fire)"
+data "SpellSuccess" "ApplyStatus(BURNING,100,1)"
+// data "TargetConditions" "not Self() and not Dead() and not Item()"
+// Fiery Bolt
+// data "DisplayName" "he69665e0g0282g4cffgbcbag2d4084a7b0c4;1"
+// data "DescriptionParams" "DealDamage(1d4,Fire)"
+// data "TooltipDamageList" "DealDamage(1d4,Fire)"
+// data "CastTextEvent" "Cast"
+// data "SpellAnimation" "38b07239-904d-4494-8a19-f32ac04df589,,;1c448125-b801-4ef8-8ebb-e21ebece26dc,,;3ca74081-2f86-4c11-bb5b-a6c26b9cbafb,,;2ad09ff0-8b24-4da4-acc2-9bb5606f8ebe,,;a5165a2a-3992-4a46-91fd-182a54fd2aff,,;,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "SpellAnimationIntentType" "Aggressive"
+// data "RechargeValues" ""
+
+// ==================================== Fire Bolt - Sorcerous Sundries performers
+
+new entry "Projectile_LOW_EastwayWizards_FireBolt"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_LOW_EastwayWizards_FireBolt"
+// data "SpellProperties" "GROUND:SurfaceChange(Ignite,,,,1);GROUND:SurfaceChange(Melt,,,,1)"
+data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
+// data "SpellSuccess" "DealDamage(1,Fire,Magical)"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+// data "Trajectories" "241dc8dd-537c-4324-a877-a12662bf671d"
+// data "PrepareSound" ""
+// data "PrepareLoopSound" ""
+// data "CastSound" "Spell_Cast_EastwayWizards_Fire_FireBolt_L1to3"
+// data "PrepareEffect" ""
+
+// ==================================== Fire Bolt - Incandescent Staff
+
+// new entry "Projectile_MAG_FireBolt_Staff"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+
+// ==================================== Firebolt?
+
+new entry "Projectile_WYR_Circus_MumblingStaff_FireBolt"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_WYR_Circus_MumblingStaff_FireBolt"
+// data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt);GROUND:IF(RollDieAgainstDC(DiceType.d20,20)):CreateExplosion(Projectile_Fireball)"
+// data "SpellSuccess" "DealDamage(1d10,Fire,Magical)"
+// Firebolt?
+// data "DisplayName" "hec926586g167eg4837gb029gf448e7441ea6;1"
+data "CombatAIOverrideSpell" "Projectile_WYR_Circus_MumblingStaff_FireBolt_AI"
+
+new entry "Projectile_WYR_Circus_MumblingStaff_FireBolt_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_WYR_Circus_MumblingStaff_FireBolt"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+data "CombatAIOverrideSpell" ""
+
+// ==================================== ???
+
+// new entry "Projectile_FireBolt_NoRecharge"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+// data "HitAnimationType" "MagicalDamage_External"
+// data "RechargeValues" ""
+
+// ==================================== Raphael - Igniting Spark
+// TODO: Surface stuff
+
+new entry "Projectile_LOW_Raphael_DancingFlame"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_LOW_Raphael_DancingFlame"
+// data "Level" "4"
+// data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt);GROUND:IF(HasStatus('LOW_RAPHAEL_MONSTER_FORM',context.Source)):CreateSurface(1, 2,Hellfire);"
+// data "AmountOfTargets" "1"
+// data "SpellRoll" "not SavingThrow(Ability.Dexterity, SourceSpellDC()) "
+// data "SpellSuccess" "DealDamage(6d6,Fire,Magical);ApplyStatus(BURNING,100,2);"
+// data "SpellFail" "DealDamage((6d6)/2,Fire,Magical);"
+// data "TargetConditions" "not Self() and not Dead() and Enemy()"
+// Igniting Spark
+// data "DisplayName" "hd60d072dg1f2fg45baga914g9fe2fc671a15;4"
+// Launch a mote of infernal flame to set a target alight and <LSTag Type="Status" Tooltip="BURNING
+// data "Description" "hfc09dc2eg98f2g4c42gac43g2757292bc409;3"
+// data "DescriptionParams" "DealDamage(6d6, Fire)"
+// data "TooltipDamageList" "DealDamage(6d6,Fire)"
+// data "TooltipAttackSave" "Dexterity"
+data "CombatAIOverrideSpell" ""
+
+// ====================================
+
+new entry "Projectile_Needles_Blight_Needle"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_FireBolt"
+using "Projectile_Needles_Blight_Needle"
+// data "Level" ""
+// data "SpellSchool" "None"
+// data "Cooldown" "None"
+// data "SpellProperties" ""
+// data "TargetRadius" "4"
+// data "DeathType" "Physical"
+// data "SpellRoll" "Attack(AttackType.RangedWeaponAttack)"
+// data "SpellSuccess" "DealDamage(2d8+UnarmedMeleeAbilityModifier,Piercing);DealDamage(1d4,Necrotic)"
+// data "TargetConditions" "Character()"
+// data "Trajectories" "51539990-846f-420d-830b-f924739da459"
+// data "Icon" "GenericIcon_DamageType_Physical"
+// Needles
+// data "DisplayName" "hc7fbf7a7gf0e4g4f84gb440g81c8e3f496ab;2"
+// Expel the needles from your body towards a creature.
+// data "Description" "hed99caf4g446cg4d8fga3d2gec5e17616226;4"
+// data "TooltipDamageList" "DealDamage(2d8+UnarmedMeleeAbilityModifier,Piercing);DealDamage(1d4,Necrotic)"
+// data "CastSound" "CrSpell_Cast_Needles"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "5b2ac937-f97e-4e68-91f8-bc46933d043e,,;cf44706b-942c-459b-b0dd-1b9f10ad4a19,,;ae87df78-63ed-4fe8-bd22-6951373eb99d,,;2c2f6be9-6dc8-41b3-814e-6097f64f246f,,;e180df43-74a9-4cd3-98a5-cd7472acbeb5,,;3ca7b7f5-589b-4b1a-b597-27b18beaf206,,;,,;,,;,,"
+// data "WeaponTypes" "None"
+// data "SpellFlags" "IsEnemySpell;IgnoreSilence;IsHarmful;IsSwarmAttack"
+// data "SpellAnimationIntentType" "Aggressive"
+// data "PrepareEffect" ""
+// data "CastEffect" "4cac8c55-9e69-41f6-a489-d8a64b7c5e46"
+// data "DamageType" "Piercing"
+// data "Sheathing" "DontChange"
+data "CombatAIOverrideSpell" ""

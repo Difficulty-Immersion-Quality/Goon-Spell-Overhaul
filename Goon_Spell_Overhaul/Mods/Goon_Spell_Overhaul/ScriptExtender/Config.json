@@ -1,5 +1,0 @@
-{
-    "RequiredVersion": 1,
-    "ModTable": "Goon_Spell_Overhaul",
-    "FeatureFlags": ["Lua"]
-}

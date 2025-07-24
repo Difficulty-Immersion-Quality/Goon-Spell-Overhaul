@@ -1,6 +1,6 @@
 // ==================================== All the Eldritch Blast variations from Scarlet Warlock ====================================
-// Changes: Can now slightly control the trajectory of the push based on cursor position on the target entity. 
-// Changes: Can target corpses.
+// Changes: Can now slightly control the trajectory of the push based on cursor position on the target entity.
+// Changes: Targetting unrestricted.
 
 new entry "Projectile_EldritchBlast_Force_Spell"
 type "SpellData"

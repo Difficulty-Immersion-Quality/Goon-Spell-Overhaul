@@ -1,14 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
 	<!-- CANTRIPS - VANILLA -->
-	<!-- "Projectile_FireBolt" --> <content contentuid="ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf" version="1">Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a Fire surface in a [1] radius for [2] turn instead.</content>
+	<!-- "Projectile_AcidSplash" --> <content contentuid="h3254d749gf9dfg4b3fg9395gf01ae8536048" version="1">Throw a bubble of acid that damages targets caught in its splash, and leaves behind a 1m diameter acid surface.</content>
 
-	<!-- "Shout_BladeWard" --> <content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Gain &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;, for a duration equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;When[1],[2], or[3] is taken from an attack, the duration of Blade Ward is reduced by 1.</content>
-	<!-- "BLADE_WARD" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.</content>
-	<!-- "GOON_BLADE_WARD_SPELL" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from &lt;LSTag Tooltip="AttackRoll"&gt;Attacks&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;When[1],[2], or[3] is taken from an attack, the duration of Blade Ward is reduced by 1.</content>
+	<!-- "Shout_BladeWard" --> <content contentuid="h60442a32g02d3g436eg9868g6017ab4102c5" version="1">Protect yourself against incoming damage, gaining &lt;LSTag Type="Status" Tooltip="GOON_BLADE_WARD_SPELL"&gt;Blade Ward&lt;/LSTag&gt; for a duration equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;. When Blade Ward reduces incoming damage the duration is reduced by 1.</content>
+	<!-- "Shout_BladeWard", "GOON_BLADE_WARD_SPELL" --> <content contentuid="hbca85f0ag8e50g48c0g9855gb1ad88811634" version="1">Blade Ward's duration can only be reduced once per turn by any individual entity.</content>
+	<!-- "BLADE_WARD" --> <content contentuid="hfcd7552bg4919g4273g8a43g3c4b18ce8ef2" version="1">Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from most sources.</content>
+	<!-- "GOON_BLADE_WARD_SPELL" --> <content contentuid="hf3d9a553gad9bg4878ga30cg5da8e854cfbf" version="1">Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from most sources. When Blade Ward reduces incoming damage the duration is reduced by 1.</content>
 
 	<!-- "Target_ChillTouch" --> <content contentuid="h2e9c2b10g1ebdg47c7gaa08g2dcf6667cbbd" version="1">Chill Touch</content>
+	<!-- "Target_ChillTouch" --> <content contentuid="h10d525bcg396eg4495g80dagc929c2c902b8" version="1">Grasp a target with a spectral hand, preventing them from healing until your next turn.&lt;br&gt;&lt;br&gt;An Undead target receives &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.</content>
 	<!-- "CHILL_TOUCH" --> <content contentuid="h1eae12c3g5f79g491fgaa61g1af469829dc7" version="1">Chill of the Grave</content>
+
+	<!-- "Target_DancingLights" --> <content contentuid="hc893a4f9g797eg4aabg965dg646020b6c70e" version="1">Summon swirling magical lights that illuminate a [1] radius.</content>
+
+	<!-- "Projectile_FireBolt" --> <content contentuid="ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf" version="1">Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a fire surface in a [1] radius for [2] turn instead.</content>
+
+	<!-- "Target_Friends" --> <content contentuid="h0617a1cdg0b57g4d4bg99aeg483c80883333" version="1">You subtly influence a non-hostile creature into giving you the benefit of the doubt. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against it.</content>
 
 	<!-- "Target_Friends" --> <content contentuid="h40d4759dga74ag4804gac41g65b19eb68b17" version="1">Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.</content>
 	<!-- "FRIENDS" --> <content contentuid="hd51d6e1bg6d7cg4309ga03bgc0eade9ef864" version="1">The caster of this charm has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against the creature.</content>

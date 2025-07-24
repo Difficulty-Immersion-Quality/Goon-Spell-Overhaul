@@ -1,0 +1,16 @@
+// ============================ Thunderclap ============================
+// Changes: Damage increased from d6 to d8.
+// Changes: No longer increases in die size at level 16.
+// TODO: Compare against latest entries.
+// TODO: Flavour text.
+
+new entry "Shout_Thunderclap"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Thunderclap"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D6Cantrip),Thunder,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Thunder,Magical)"
+data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Thunder,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D6Cantrip))/2,Thunder,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6/2,Thunder,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D8Cantrip))/2,Thunder,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Thunder)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Thunder)"

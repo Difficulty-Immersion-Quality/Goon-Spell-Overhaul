@@ -1,0 +1,193 @@
+// ==================================== Blade Ward ====================================
+// Bug Fix: The Blade Ward condition now ticks at the start of turns instead of end of turns, as to not waste duration like most other defensive conditions.
+// Changes: Now costs a Bonus Action instead of an Action.
+// Changes: Duration scales with Proficiency Bonus.
+// Changes: Whenever you take damage from a Bludgeoning, Piercing, or Slashing, the duration of the Blade Ward condition is reduced by 1 turn.
+// Changes: Duration can only be reduced once per turn by any individual entity dealing damage.
+
+new entry "Shout_BladeWard"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_BladeWard"
+// data "Level" "0"
+// data "SpellSchool" "Abjuration"
+// data "SpellProperties" "ApplyStatus(BLADE_WARD,100,2)"
+data "SpellProperties" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,ProficiencyBonus)"
+// data "TargetConditions" "Self()"
+// data "Icon" "Spell_Abjuration_BladeWard"
+// Blade Ward
+// data "DisplayName" "h77b9ae20ge545g4842gbe2fg8096e232c118;1"
+// Take only half the damage from Bludgeoning, Piercing, and Slashing attacks.
+// data "Description" "h44d589a1g7e6dg4975g9ebcgaa2e193d44e1;6"
+// Protect yourself against incoming damage, gaining &lt;LSTag Type="Status" Tooltip="GOON_BLADE_WARD_SPELL"&gt;Blade Ward&lt;/LSTag&gt; for a duration equal to your &lt;LSTag Tooltip="ProficiencyBonus"&gt;Proficiency Bonus&lt;/LSTag&gt;. When Blade Ward reduces incoming damage the duration is reduced by 1.
+data "Description" "h60442a32g02d3g436eg9868g6017ab4102c5;1"
+data "DescriptionParams" "DealDamage(,Bludgeoning);DealDamage(,Piercing);DealDamage(,Slashing)"
+// Blade Ward's duration can only be reduced once per turn by any individual entity.
+data "ExtraDescription" "hbca85f0ag8e50g48c0g9855gb1ad88811634;1"
+// data "TooltipStatusApply" "ApplyStatus(BLADE_WARD,100,2)"
+data "TooltipStatusApply" "ApplyStatus(GOON_BLADE_WARD_SPELL,100,ProficiencyBonus)"
+// data "PrepareSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Prepare_Damage_Radiant_Gen_L1to3_Loop"
+// data "CastSound" "Spell_Cast_Buff_BladeWard_L1to3"
+// data "TargetSound" "Spell_Impact_Buff_BladeWard_L1to3"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;4156d364-d2c0-4a01-908c-3552f78f434d,,;6f0a29b6-0ae8-4ebf-a1e4-8069c4a6ad16,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+// data "VerbalIntent" "Buff"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+// data "HitAnimationType" "MagicalNonDamage"
+// data "PrepareEffect" "33302a46-4a12-41dd-8845-6b7314d50022"
+// data "CastEffect" "1a4b0423-005b-4577-b376-815a08809675"
+
+new entry "BLADE_WARD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLADE_WARD"
+// Blade Ward
+// data "DisplayName" "h95b5ab2fgeef8g4901ga451g443b60887c04;1"
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against Bludgeoning, Piercing, and Slashing damage.
+// data "Description" "hbaec3368g3f8bg4577g8a7fg6c16b2059f18;4"
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from most sources.
+data "Description" "hfcd7552bg4919g4273g8a43g3c4b18ce8ef2;1"
+data "DescriptionParams" "DealDamage(,Bludgeoning);DealDamage(,Piercing);DealDamage(,Slashing)"
+// data "Icon" "Spell_Abjuration_BladeWard"
+// data "SoundLoop" "Spell_Status_Buff_MO"
+// data "StackId" "BLADE_WARD"
+// data "TickType" "EndTurn"
+data "TickType" "StartTurn"
+// data "Boosts" "WeaponDamageResistance(Bludgeoning);WeaponDamageResistance(Slashing);WeaponDamageResistance(Piercing)"
+// data "OnApplyFunctors" "AI_ONLY:IF(not HasStatus('BLADE_WARD')):ApplyStatus(AI_HELPER_BLADEWARD,100,2)"
+// data "StatusGroups" "SG_RemoveOnRespec"
+// data "StatusEffect" "c1e8b65e-f8ba-4b9a-ac55-f7edbb328633"
+// data "ManagedStatusEffectType" "Positive"
+// data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
+
+new entry "GOON_BLADE_WARD_SPELL"
+type "StatusData"
+data "StatusType" "BOOST"
+using "BLADE_WARD"
+// Has Resistance against Bludgeoning, Piercing, and Slashing damage.
+// data "Description" "hbaec3368g3f8bg4577g8a7fg6c16b2059f18;4"
+// Has &lt;LSTag Tooltip="Resistant"&gt;Resistance&lt;/LSTag&gt; against[1],[2], and[3] from most sources. When Blade Ward reduces incoming damage the duration is reduced by 1.
+data "Description" "hf3d9a553gad9bg4878ga30cg5da8e854cfbf;1"
+// Blade Ward's duration can only be reduced once per turn by any individual entity.
+data "ExtraDescription" "hbca85f0ag8e50g48c0g9855gb1ad88811634;1"
+data "Passives" "Goon_Blade_Ward_Spell"
+
+new entry "Goon_Blade_Ward_Spell"
+type "PassiveData"
+// data "Properties" "IsHidden;OncePerAttack"
+data "Properties" "IsHidden"
+data "StatsFunctorContext" "OnDamaged"
+data "Conditions" "IsDamageTypeBludgeoning() or IsDamageTypePiercing() or IsDamageTypeSlashing()"
+data "StatsFunctors" "IF(not HasStatus('GOON_BLADE_WARD_ATTACK_TECHNICAL',context.Source)):SetStatusDuration(GOON_BLADE_WARD_SPELL,-1,Add);ApplyStatus(SWAP,GOON_BLADE_WARD_ATTACK_TECHNICAL,100,1)"
+
+new entry "GOON_BLADE_WARD_ATTACK_TECHNICAL"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead;IgnoreResting;ApplyToDead"
+data "StackId" "GOON_BLADE_WARD_ATTACK_TECHNICAL"
+data "TickType" "EndTurn"
+data "RemoveEvents" "OnTurn"
+
+// ==================================== Blade Ward - 
+
+// new entry "MAG_BLADE_WARD"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "BLADE_WARD"
+// data "SoundLoop" ""
+// data "StackPriority" "10"
+// data "StackType" "Ignore"
+// data "StatusPropertyFlags" "IgnoreResting;ApplyToDead"
+// data "StatusGroups" ""
+// data "ManagedStatusEffectType" ""
+// data "ManagedStatusEffectGroup" ""
+
+new entry "MAG_MONK_MOUNTAIN_BLADE_WARD"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "MAG_BLADE_WARD"
+using "MAG_MONK_MOUNTAIN_BLADE_WARD"
+// data "TickType" ""
+data "TickType" "StartTurn"
+// data "RemoveConditions" "HasStatus('SG_Incapacitated')"
+// data "RemoveEvents" "OnStatusApplied"
+// data "StatusGroups" ""
+
+// new entry "MAG_PALADIN_PHYSICAL_RESISTANCE"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "BLADE_WARD"
+// Warding Hands
+// data "DisplayName" "h942770f0g17f2g48f3ga92eg21fe9a1b3ce2;1"
+// data "StackId" "MAG_PALADIN_PHYSICAL_RESISTANCE"
+// data "ManagedStatusEffectType" ""
+// data "ManagedStatusEffectGroup" ""
+
+// ==================================== Blade Ward - Sorcerous Sundries performers
+
+// new entry "Shout_LOW_EastwayWizards_BladeWard"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_BladeWard"
+// data "PrepareSound" ""
+// data "PrepareLoopSound" ""
+// data "CastSound" "Spell_Cast_EastwayWizards_BladeWard_L1to3"
+// data "TargetSound" "Spell_Impact_EastwayWizards_BladeWard_L1to3"
+// data "PrepareEffect" ""
+
+// ==================================== Blade Ward - Restore Bardic Inspiration
+
+// new entry "Shout_MAG_Restore_BardicInspiration"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_BladeWard"
+// data "Level" ""
+// data "SpellSchool" ""
+// data "ContainerSpells" ""
+// data "Cooldown" "OncePerRestPerItem"
+// data "AIFlags" ""
+// data "SpellProperties" "RestoreResource(BardicInspiration,1,0)"
+// data "TargetConditions" "Self()"
+// data "Icon" "Action_Bard_RestoreBardicInspiration"
+// Restore Bardic Inspiration
+// data "DisplayName" "h8d40ac67gfaf9g4a5cgae70ga8ee4bf86e38;1"
+// Play your instrument to restore one of your Bardic Inspiration slots.
+// data "Description" "h2772442bgd7c2g4318g9055g48906fc219d9;1"
+// data "TooltipStatusApply" ""
+// data "InstrumentComponentPrepareSound" "Instrument_Bard_BardicInspiration_Prepare"
+// data "InstrumentComponentLoopingSound" "Instrument_Bard_BardicInspiration_Loop"
+// data "InstrumentComponentCastSound" "Instrument_Bard_BardicInspiration_Cast"
+// data "InstrumentComponentImpactSound" "Instrument_Bard_BardicInspiration_Impact"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellFlags" "HasSomaticComponent;HasVerbalComponent"
+// data "Requirements" ""
+
+// ==================================== Blade Ward - Eternal Devotion
+
+// new entry "Shout_MAG_Restore_ChannelDivinity"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_BladeWard"
+// data "Level" ""
+// data "SpellSchool" ""
+// data "Cooldown" "OncePerRestPerItem"
+// data "AIFlags" ""
+// data "SpellProperties" "RestoreResource(ChannelOath,1,0)"
+// data "Icon" "Action_Paladin_EternalDevotion"
+// Eternal Devotion
+// data "DisplayName" "h1fecafa0g9bb7g48f6gbb42g63e5f136551d;1"
+// Recite your Oath to regain 1 &lt;LSTag Type="ActionResource" Tooltip="ChannelOath"&gt;Channel Oath Charge&lt;/LSTag&gt;.
+// data "Description" "h26f0e9dcg28b9g4344g863bgf33e8c70e68f;1"
+// data "TooltipStatusApply" ""
+// data "CastSound" "Action_Cast_Item_EternalDevotion"
+// data "TargetSound" "Action_Impact_Item_EternalDevotion"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "2de2c59c-7f42-4419-8b25-09931a8cd5e4,,;,,;3dcb99da-2687-4df9-b290-d0c5db40a974,,;34d0a8b6-5347-4486-8049-c5d9c1b66805,,;7b0adac6-a6a6-4664-9aa4-20106d74f4cc,,;,,;9bffe4ec-8f3a-4e92-be99-0557c783aab1,,;,,;,,"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent"
+// data "Requirements" ""
+// data "PrepareEffect" "c218f05b-1e12-4298-beff-e4d33a5fa5a5"
+// data "CastEffect" "fea4477f-692c-4039-b265-1efd625496a5"

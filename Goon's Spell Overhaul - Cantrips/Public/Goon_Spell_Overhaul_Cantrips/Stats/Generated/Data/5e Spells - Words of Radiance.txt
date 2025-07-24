@@ -1,0 +1,16 @@
+// ============================ Word of Radiance ============================
+// Changes: Damage increased from d6 to d8.
+// Changes: No longer increases in die size at level 16.
+// TODO: Compare against latest entries.
+// TODO: Flavour text.
+
+new entry "Shout_WordOfRadiance"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_WordOfRadiance"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D6Cantrip),Radiant,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d6,Radiant,Magical);"
+data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Radiant,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D6Cantrip))/2,Radiant,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6/2,Radiant,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D8Cantrip))/2,Radiant,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Radiant)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Radiant)"

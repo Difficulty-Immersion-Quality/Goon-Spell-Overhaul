@@ -1,0 +1,16 @@
+// ============================ Sword Burst ============================
+// Changes: Damage increased from d6 to d8.
+// Changes: No longer increases in die size at level 12.
+// TODO: Compare against latest entries.
+// TODO: Flavour text.
+
+new entry "Shout_SwordBurst"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_SwordBurst"
+// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(12)):DealDamage(LevelMapValue(D6Cantrip),Force,Magical);IF(CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d6,Force,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d6,Force,Magical)"
+data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Force,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(12)):DealDamage((LevelMapValue(D8Cantrip))/2,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(12) and not CharacterLevelGreaterThan(16)):DealDamage(3d6,Force,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6,Force,Magical)"
+data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D8Cantrip))/2,Force,Magical)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Force)"
+data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Force)"

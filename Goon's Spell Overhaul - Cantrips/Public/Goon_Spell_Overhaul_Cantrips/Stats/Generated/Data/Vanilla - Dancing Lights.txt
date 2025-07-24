@@ -1,0 +1,145 @@
+// ==================================== Dancing Lights ====================================
+// Bug Fix: The Moonmote spell from Selûne's Spear of Night no longer inherits the "TooltipStatusApply" of Dancing Lights, instead properly displaying its own condition.
+// Changes: Now costs a Bonus Action instead of an Action.
+// Changes: Removed the concentration requirement.
+// Changes: Lasts until long rest instead of 10 turns. 
+// Changes: Only one summon can exist per caster.
+// Changes: Hit animation removed, characters will no longer flail about as if they've been hit by something harmful.
+
+new entry "Target_DancingLights"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DancingLights"
+// data "Level" "0"
+// data "SpellSchool" "Evocation"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,DANCING_LIGHTS)"
+data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, -1,,,,DANCING_LIGHTS)"
+data "AIFlags" "UseAsSupportingActionOnly"
+// data "TargetRadius" "18"
+// data "Icon" "Spell_Evocation_DancingLights"
+// Dancing Lights
+// data "DisplayName" "hcff00306gc5eag4cbfg9929ge3e239fccdf5;1"
+// Illuminate a [1] radius.
+// data "Description" "h239cf118g09c9g46f1g99a1gc0ec4b11a6c6;2"
+// Summon swirling magical lights that illuminate a [1] radius.
+data "Description" "hc893a4f9g797eg4aabg965dg646020b6c70e;1"
+// data "DescriptionParams" "Distance(9)"
+// data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
+data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,-1)"
+// data "CastSound" "Spell_Cast_Utility_DancingLights_L0"
+// data "TargetSound" "Spell_Impact_Utility_DancingLights_L0"
+// data "VocalComponentSound" "Vocal_Component_Light"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;c0513845-6e0e-42e8-9a8c-baa5e2b6ead6,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+data "SpellAnimationIntentType" "Peaceful"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+// data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
+// data "CastEffect" "518bc78f-c169-43ba-b951-977d75429199"
+// data "PositionEffect" "12c0e505-2b3a-4f31-bbb8-c6aa6d4b4977"
+data "HitAnimationType" "None"
+
+new entry "DANCING_LIGHTS"
+type "StatusData"
+data "StatusType" "BOOST"
+using "DANCING_LIGHTS"
+data "IsUnique" "1"
+
+// ==================================== Dancing Lights - Komira's Locket
+
+// new entry "Target_DEN_DancingLights_Arabella_Locket"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DancingLights"
+// data "Cooldown" "OncePerTurn"
+
+// ==================================== Dancing Lights - Wildshape
+
+new entry "Target_DancingLights_DeepRothe"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_DancingLights_DeepRothe"
+// data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;7c194893-2879-4afe-84dc-9ea842fe0a43,,;a000af58-a7c7-48d4-a746-c19242ef00ac,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+// data "SpellFlags" "IsConcentration"
+data "SpellFlags" ""
+// data "SpellAnimationIntentType" "Peaceful"
+// data "PrepareEffect" "eae62993-679c-4cda-89d5-08a4337c2acc"
+// data "CastEffect" "2b3be96b-9797-4294-820a-958827291f71"
+// data "PositionEffect" "99e64454-0a59-4386-8319-f81b2f46118a"
+
+// ==================================== Dancing Lights - Sorcerous Sundries performers
+
+// Stop this inheriting of Long Rest duration so nutsack Sorcerous Sundries performers don't murder PCs with infinitely stacking Dancing Lights (It seems that "IsUnique" not being taken into account for the entitiy when cast via script, allowing them to stack.)
+new entry "Target_LOW_EastwayWizards_DancingLights"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_LOW_EastwayWizards_DancingLights"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, -1,,,,DANCING_LIGHTS)"
+data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,DANCING_LIGHTS)"
+// data "AIFlags" "UseAsSupportingActionOnly"
+data "AIFlags" ""
+// data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
+// data "CastSound" "Spell_Cast_EastwayWizards_DancingLights_L0"
+// data "TargetSound" "Spell_Impact_EastwayWizards_DancingLights_L0"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
+// data "PrepareEffect" ""
+
+// ====================================
+
+new entry "Target_LOW_CastPortal"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_LOW_CastPortal"
+// data "SpellSchool" "None"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, -1,,,,DANCING_LIGHTS)"
+data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,DANCING_LIGHTS)"
+// data "AIFlags" "UseAsSupportingActionOnly"
+data "AIFlags" ""
+// data "TargetRadius" "6"
+// data "TargetConditions" "not (Character() or Item()) "
+// Portal
+// data "DisplayName" "hf8893e6bgf025g4041g9bc4gf19259e97f44;2"
+// data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
+// data "CastSound" "Spell_Cast_Utility_Gen_Daylight"
+// data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;c0513845-6e0e-42e8-9a8c-baa5e2b6ead6,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
+// data "VerbalIntent" ""
+// data "SpellFlags" "CannotTargetCharacter;CannotTargetItems;IsSpell"
+// data "HitAnimationType" "None"
+// data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
+// data "CastEffect" "d96a454e-eb9b-4be9-bbb3-d21fab4ded25"
+// data "TargetEffect" ""
+
+// ====================================
+
+new entry "Target_SHA_SeluneBlessing_Moonfire"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_DancingLights"
+using "Target_SHA_SeluneBlessing_Moonfire"
+// data "Cooldown" "OncePerRestPerItem"
+// data "SpellProperties" "GROUND:Summon(2064328c-a090-454f-b3b8-b488bbe64567, 10,,,,MAG_SHA_SELUNE_BLESSING_MOONMOTE_AURA,MAG_SELUNE_SPEAR_MOONFIRE)"
+// data "AIFlags" "UseAsSupportingActionOnly"
+data "AIFlags" ""
+// data "AreaRadius" "9"
+// Moonmote
+// data "DisplayName" "h6afc6040g6189g4d65g9177ga06019e95d13;2"
+// Illuminate the area around you with wisps of moonish light that make movement difficult for enemies and bolster your allies' damage. 
+// data "Description" "hef065898ge958g4085gb33dg40078b0ee1f4;2"
+// data "DescriptionParams" "Distance(9);DealDamage(1d4, Radiant)"
+// At the start of their turn, each hostile creature within the light must succeed a Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or they must treat the lighted area as &lt;LSTag Type="Status" Tooltip="DIFFICULT_TERRAIN"&gt;Difficult Terrain&lt;/LSTag&gt;. Each ally within the light deals an additional [2] on a hit with melee attacks.
+// data "ExtraDescription" "h178f0080gd517g4d54ga81fgcc05500c6285;2"
+// data "ExtraDescriptionParams" "Distance(9);DealDamage(1d4, Radiant)"
+// data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(MAG_SHA_SELUNE_BLESSING_MOONMOTE_AURA,100,10)"
+// data "VerbalIntent" "Buff"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;CannotTargetItems;IsConcentration"
