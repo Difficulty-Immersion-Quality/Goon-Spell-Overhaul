@@ -1,5 +1,6 @@
 // ==================================== Guidance ====================================
 // Overview: It's now more effective for non-dialogue checks while exploring, as you don't have to cast it constantly. An extra 1d4 to help find those chests and traps!
+// Changes: Now costs a Bonus Action instead of an Action.
 // Changes: Lasts until long rest instead of 10 turns.
 // Changes: Range increased from 1.5m to 9.
 // Changes: Targetting unrestricted.
@@ -13,6 +14,7 @@ using "Target_Guidance"
 // data "SpellSchool" "Divination"
 // data "SpellProperties" "ApplyStatus(GUIDANCE, 100, 10)"
 data "SpellProperties" "ApplyStatus(GUIDANCE, 100, -1)"
+data "AIFlags" "UseAsSupportingActionOnly"
 // data "TargetRadius" "1.5"
 data "TargetRadius" "9"
 // data "TargetConditions" "Character() and Ally()"
@@ -33,6 +35,7 @@ data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, -1)"
 // data "PreviewCursor" "Cast"
 // data "CastTextEvent" "Cast"
 // data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
 // data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;236087a5-5597-4ee7-ab06-75b01147f596,,;ee0b6a78-c6b6-4852-aecb-d7c474a37d68,,"
 // data "VerbalIntent" "Buff"
 // data "SpellStyleGroup" "Class"
@@ -69,6 +72,7 @@ data "OnApplyFunctors" "ApplyStatus(GOON_GUIDANCE_FX,100,1)"
 // data "Boosts" "RollBonus(SkillCheck,1d4);RollBonus(RawAbility,1d4)"
 // data "StatusGroups" "SG_RemoveOnRespec"
 // data "ManagedStatusEffectType" "Positive"
+data "ManagedStatusEffectType" ""
 // data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 data "ManagedStatusEffectGroup" ""
 
@@ -80,14 +84,148 @@ data "SoundLoop" "Spell_Status_Guidance_MO"
 data "ManagedStatusEffectType" "Positive"
 data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
 
-// ==================================== Guidance
+// ==================================== ???
 
-// ==================================== Guidance
+// new entry "Target_Guidance_TalismanOfSelune"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Guidance"
+// data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;efbf3ee5-7340-4b29-8ab5-113b004a8e7b,,;,,"
 
-// ==================================== Guidance
+// ==================================== Silver Pendant - Guidance
 
-// ==================================== Guidance
+// new entry "Target_MAG_OutpostJewelry_Guidance"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Guidance"
 
-// ==================================== Guidance
+// ==================================== Circle of the Stars Druid - Cosmic Omen: Ability Check
+// Bug Fix: No longer stacks with itself.
+// Changes: All of the same changes as Guidance.
 
-// ==================================== Guidance
+new entry "Target_CosmicOmen_AbilityCheck"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Guidance"
+using "Target_CosmicOmen_AbilityCheck"
+// data "Level" ""
+// data "SpellSchool" ""
+// data "SpellProperties" "ApplyStatus(COSMICOMEN_ABILITY, 100, 10);ApplyStatus(COSMICOMEN,100,1);"
+data "SpellProperties" "ApplyStatus(COSMICOMEN_ABILITY, 100, -1);ApplyStatus(COSMICOMEN,100,1)"
+// Cosmic Omen: Ability Check
+// data "DisplayName" "ha82a4fdbg5936g4fecg9f94g6feaf4124779;2"
+// Give your allies a +[1] bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
+// data "Description" "h454ef413gf390g4cddg9e5ag232d870842e1;2"
+// You fortify a creature's resolve, granting it a +1d6 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
+data "Description" "hed1ad7f4g0538g4279g8ccfg1e8c2fb86df3;1"
+// data "DescriptionParams" "1d6"
+// data "TooltipStatusApply" "ApplyStatus(COSMICOMEN_ABILITY, 100, 10)"
+data "TooltipStatusApply" "ApplyStatus(COSMICOMEN_ABILITY, 100, -1)"
+// data "PrepareSound" "Action_Prepare_Druid_WildShapeStars"
+// data "PrepareLoopSound" "Action_Loop_Druid_CosmicOmens"
+// data "CastSound" "Action_Cast_Druid_CosmicOmens"
+// data "TargetSound" "Action_Impact_Druid_CosmicOmens"
+// data "UseCosts" "CosmicOmen:1"
+data "UseCosts" "BonusActionPoint:1;CosmicOmen:1"
+// data "SpellAnimation" "ce3864ff-f434-4346-9eb6-80a4334bb619,,;,,;2c8af70e-e83a-4a86-829b-a8f434a70907,,;19d69ecd-d0f1-46e3-bc11-e522988dcc3f,,;6b270150-6429-44b5-ad6c-7b618a0e2378,,;,,;ba44bc6c-8a81-44b7-8a4e-facff613aa31,,;,,;,,"
+// data "VerbalIntent" "Healing"
+// data "SpellStyleGroup" ""
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;IsMelee;Temporary"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsConcentration;Temporary"
+// data "PrepareEffect" "45fe0df3-305c-4626-ba87-871059176eaf"
+// data "CastEffect" "bba23245-a22a-41cc-a7a0-34840a54476e"
+// data "TargetEffect" "ab1b568e-8d0e-4f6f-a4d5-59549093366e"
+data "CombatAIOverrideSpell" "Target_CosmicOmen_AbilityCheck_AI"
+
+new entry "Target_CosmicOmen_AbilityCheck_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Target_CosmicOmen_AbilityCheck"
+// data "TargetConditions" "Character()"
+data "TargetConditions" "Character() and Ally()"
+data "CombatAIOverrideSpell" ""
+
+new entry "COSMICOMEN_ABILITY"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "GUIDANCE"
+using "COSMICOMEN_ABILITY"
+// Cosmic Omen: Ability Check
+// data "DisplayName" "hd730c045g3ca5g42c4g83cbgc4deddd56c34;1"
+// You gain a +1d6 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
+// data "Description" "heb4864cbgbe55g4239g8a74gf08ce157ff95;1"
+// data "StackId" ""
+data "StackId" "COSMICOMEN_ABILITY"
+// data "Boosts" "RollBonus(SkillCheck,1d6);RollBonus(RawAbility,1d6);"
+
+// ==================================== Bonesaw - Hand Me My Saw
+
+new entry "Target_SurgeryEnabler_Bonesaw_Nurse"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Guidance"
+using "Target_SurgeryEnabler_Bonesaw_Nurse"
+// data "SpellSchool" "None"
+// data "Cooldown" "OncePerTurn"
+// data "SpellProperties" "AI_ONLY:ApplyStatus(SELF,AI_HELPER_BUFF_LARGE,100,10); AI_IGNORE:ApplyStatus(SURGEON_ENABLE_ATTACK_BONESAW, 100, 1); AI_IGNORE:RemoveStatus(SELF,SURGEON_NURSE_REQUEST_BUFF); AI_IGNORE:RemoveStatus(SG_Incapacitated); AI_IGNORE:RemoveStatus(SG_Prone); AI_IGNORE:RemoveStatus(SG_Frightened)"
+data "AIFlags" ""
+// data "TargetRadius" "1.5"
+// data "AreaRadius" "8"
+// data "RequirementConditions" "HasStatus('SURGEON_NURSE_REQUEST_BUFF', context.Source)"
+// data "TargetConditions" "Character() and not Enemy() and not Dead() and Tagged('ACT2_TWN_HOSPITAL_SURGEON')"
+// data "Icon" "GenericIcon_Intent_Buff"
+// Hand Me My Saw
+// data "DisplayName" "h22ce2525ga3bdg4b00ga4fage9e111c18de1;2"
+// Equips the Surgeon with a gory, jagged bonesaw, allowing him to cast &lt;LSTag Type="Spell" Tooltip="Target_SurgeryAttack_Bonesaw_Surgeon"&gt;Bloody Bonesaw&lt;/LSTag&gt;.
+// data "Description" "h4521a835g32c2g4987gaaa1g6d4409d1c5da;2"
+// data "TooltipDamageList" "DealDamage(3d8,Piercing)"
+// data "TooltipStatusApply" "ApplyStatus(SURGEON_ENABLE_ATTACK_BONESAW, 100, 1)"
+// data "CastSound" "CrSpell_Cast_NightmareNurse_Enable"
+// data "TargetSound" ""
+// data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" ",,;41fd6d03-e140-4263-ac00-2f4477b6b444,,;8780bc17-e500-43a4-ac0e-0098956d0b2a,,;602f3fb2-722c-42b1-9d9a-440dcc7c7aa2,,;,,;a22d2a3f-ed4f-48b1-8204-0ca5db5d0b88,,;,,;,,;,,"
+// data "SpellStyleGroup" ""
+// data "WeaponTypes" "Melee"
+// data "SpellFlags" "HasSomaticComponent;IsEnemySpell;IsHarmful"
+// data "RechargeValues" ""
+// data "HitAnimationType" "AnimationSetOverride"
+// data "SpellAnimationIntentType" "Aggressive"
+// data "MaximumTargets" ""
+// data "MemoryCost" ""
+// data "PrepareEffect" ""
+// data "CastEffect" "2bffa757-88a2-43c3-917b-2a9ee3a753b6"
+// data "TargetEffect" "9c63470a-c741-4cfa-bd63-e2e4fa2b246a"
+// data "Sheathing" "Melee"
+data "CombatAIOverrideSpell" ""
+
+// ==================================== Malus Thorm - Request Surgical Instrument
+
+new entry "Target_SurgeryInstruRequest_Surgeon"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Guidance"
+using "Target_SurgeryInstruRequest_Surgeon"
+// data "SpellSchool" "None"
+// data "Cooldown" "OncePerTurn"
+// data "SpellProperties" "AI_ONLY:ApplyStatus(SELF,AI_STATUS_FAKE,100,10);AI_IGNORE:ApplyStatus(SURGEON_NURSE_REQUEST_BUFF,100,1)"
+data "AIFlags" ""
+// data "TargetRadius" "8"
+// data "RequirementConditions" "not (HasStatus('SURGEON_ENABLE_ATTACK_BONESAW', context.Source) or HasStatus('SURGEON_ENABLE_ATTACK_LEECH', context.Source) or HasStatus('SURGEON_ENABLE_ATTACK_SYRINGE', context.Source) or HasStatus('SURGEON_ENABLE_ATTACK_TREPAN', context.Source)) and not (HasStatus('SG_Incapacitated',context.Target) or HasStatus('SG_Paralyzed',context.Target) or HasStatus('SG_Fleeing',context.Target) or HasStatus('SG_Stunned',context.Target) or HasStatus('SG_Restrained',context.Target))"
+// data "TargetConditions" "not Item() and not Dead() and not Enemy() and Tagged('ACT2_TWN_HOSPITAL_NURSE') and not Unarmed()"
+// data "Icon" "GenericIcon_Intent_Utility"
+// Request Surgical Instrument
+// data "DisplayName" "h207d3613gea11g4056gb057g1cedbb315a98;2"
+// Request a tool for advanced surgery.
+// data "Description" "h96883555g9131g4c99ga212g312e5a6ba3cf;2"
+// data "TooltipStatusApply" "ApplyStatus(SURGEON_NURSE_REQUEST_BUFF, 100, 1)"
+// data "CastSound" "CrSpell_Cast_Surgeon_SurgeryInstruRequest"
+// data "TargetSound" "CrSpell_Impact_Surgeon_SurgeryInstruRequest"
+// data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" ",,;,,;871d852a-e0e8-41d5-a448-86932479cf44,,;7d4d98a7-06cc-4db4-8a27-12f1fd24e3a3,,;,,;,,;,,;,,;,,"
+// data "SpellFlags" "HasVerbalComponent;IsEnemySpell;CannotTargetTerrain"
+// data "RechargeValues" ""
+// data "MemoryCost" ""
+// data "PrepareEffect" ""
+// data "CastEffect" "805ad56f-457f-45ff-955c-a6c636da85a0"
+// data "TargetEffect" "2068ccca-6ce7-4dc7-b3c3-b9c5de43fac6"
+data "CombatAIOverrideSpell" ""
