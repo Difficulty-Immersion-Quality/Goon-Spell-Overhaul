@@ -1,0 +1,88 @@
+// ==================================== Mage Hand + Summons ====================================
+// Changes: Once per short rest cooldown removed.
+
+new entry "Target_MageHand"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MageHand"
+// data "Level" "0"
+// data "SpellSchool" "Conjuration"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+// data "AIFlags" "CanNotUse"
+// data "SpellProperties" "GROUND:IF(not HasPassive('MageHandLegerdemain', context.Source)):Summon(eddf2b83-21d3-4d6f-b958-c30f00dbbb92, 10,,,'MageHandStack',UNSUMMON_ABLE_MAGEHAND,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(HasPassive('MageHandLegerdemain', context.Source)):Summon(eddf2b83-21d3-4d6f-b958-c30f00dbbb92,Permanent,,,'MageHandStack',INVISIBLE_MAGEHAND,MAGEHAND_REST,UNSUMMON_ABLE_MAGEHAND,SHADOWCURSE_SUMMON_CHECK)"
+// data "TargetRadius" "18"
+// data "RequirementConditions" "TutorialSummonBlockCheck()"
+// data "RequirementEvents" "OnStatusRemoved;OnStatusApplied"
+// data "TargetConditions" "CanStand('eddf2b83-21d3-4d6f-b958-c30f00dbbb92') and not Character() and not Self()"
+// data "Icon" "Spell_Conjuration_MageHand"
+// Mage Hand
+// data "DisplayName" "h446e0ad1gfd15g47a2gb144ge583b869f0f1;1"
+// Create a spectral hand that can manipulate and interact with objects.
+// data "Description" "h66d1a314gd11fg4c49g9dc2g7ecaa5dd064f;1"
+// data "CastSound" "Spell_Cast_Utility_MageHand_L1to3"
+// data "TargetSound" "Spell_Impact_Utility_MageHand_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;605d49b4-03b9-47f6-96e9-7f80e6be7514,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+// data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
+// data "CastEffect" "518bc78f-c169-43ba-b951-977d75429199"
+
+// new entry "Target_Shove_MageHand"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Shove"
+// data "TargetConditions" "not Self() and CanShoveWeight() and IsMovable() and not Grounded() and not Tagged('GASEOUS_FORM') and not (not Player(context.Source) and Combat(context.Source) and Character() and not (Enemy() or HasStatus('SG_Unconscious')))"
+
+// new entry "Target_CRE_MageHand_AutoShove"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Shove_MageHand"
+// data "SpellRoll" ""
+
+// ==================================== Githyanki Psionics: Mage Hand
+// Changes: No longer considered a spell, or as having a somatic or verbal component.
+
+new entry "Target_MageHand_GithyankiPsionics"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_MageHand"
+using "Target_MageHand_GithyankiPsionics"
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" ""
+// data "Cooldown" "OncePerRest"
+// data "AIFlags" "CanNotUse"
+// data "SpellProperties" "GROUND:Summon(eddf2b83-21d3-4d6f-b958-c30f00dbbb92,10,,,'MageHandStack',UNSUMMON_ABLE_MAGEHAND,INVISIBLE_MAGEHAND,SHADOWCURSE_SUMMON_CHECK)"
+// Githyanki Psionics: Mage Hand
+// data "DisplayName" "hd70c07ebg0f4dg437fgb650gde04a68a0d54;1"
+// Create an invisible spectral hand that can manipulate and interact with objects.
+// data "Description" "hb5f49f20g846bg4f26gaf95g12a612d0547e;1"
+// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+data "SpellFlags" "HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+
+// ==================================== Djinni Ring - Mage Hand
+
+// new entry "Target_MAG_Djinni_MageHand"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_MageHand"
+// data "Cooldown" "OncePerShortRestPerItem"
+// data "SpellProperties" "GROUND:IF(not HasPassive('MageHandLegerdemain', context.Source)):Summon(eddf2b83-21d3-4d6f-b958-c30f00dbbb92, 10,,,,UNSUMMON_ABLE_MAGEHAND,MAG_DJINNI_MAGE_HAND,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(HasPassive('MageHandLegerdemain', context.Source)):Summon(eddf2b83-21d3-4d6f-b958-c30f00dbbb92, 10,,,,INVISIBLE,UNSUMMON_ABLE_MAGEHAND,MAG_DJINNI_MAGE_HAND,SHADOWCURSE_SUMMON_CHECK)"
+
+// ==================================== Cut Raphael summon
+
+// new entry "Target_LOW_DiabolicalThrall"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_MageHand"
+// data "Cooldown" "OncePerRest"
+// data "SpellProperties" "GROUND:Summon(1f01da1b-06a9-4b04-a83e-4d6854ea9e1a,-1,Projectile_AiHelper_Summon_Strong);"
+// data "TargetConditions" "CanStand('1f01da1b-06a9-4b04-a83e-4d6854ea9e1a')"
+// data "Icon" "GenericIcon_Intent_Summon"
+// Diabolical Ally
+// data "DisplayName" "he97059c2gc227g454dga278gb40615ad0308;2"
+// Summon the crafty devil Raphael to fight alongside you.
+// data "Description" "h254e109dgf362g4334g8cfbg8191217417ba;3"
+// data "SpellFlags" "HasVerbalComponent;HasHighGroundRangeExtension;IsConcentration;CannotTargetCharacter;CannotTargetItems"
