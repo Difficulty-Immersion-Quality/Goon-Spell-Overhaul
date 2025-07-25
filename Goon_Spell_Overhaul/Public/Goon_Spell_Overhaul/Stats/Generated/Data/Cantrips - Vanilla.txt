@@ -405,9 +405,6 @@ using "Target_ShockingGrasp"
 data "TargetConditions" "not Self() and not Dead()"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Thaumatergy ====================================
-// No changes for now.
-
 // ==================================== Thorn Whip ====================================
 // Changes: Damage increased from 1d6 to 1d10.
 // Changes: Can now slightly control the trajectory of the pull based on cursor position on the target entity. 

@@ -48,7 +48,7 @@ data "StatusType" "BOOST"
 using "DANCING_LIGHTS"
 data "IsUnique" "1"
 
-// ==================================== Dancing Lights - Komira's Locket
+// ==================================== Komira's Locket - Dancing Lights
 
 // new entry "Target_DEN_DancingLights_Arabella_Locket"
 // type "SpellData"
@@ -56,7 +56,7 @@ data "IsUnique" "1"
 // using "Target_DancingLights"
 // data "Cooldown" "OncePerTurn"
 
-// ==================================== Dancing Lights - Wildshape
+// ==================================== Wildshape - Dancing Lights
 
 new entry "Target_DancingLights_DeepRothe"
 type "SpellData"
@@ -72,7 +72,7 @@ data "SpellFlags" ""
 // data "CastEffect" "2b3be96b-9797-4294-820a-958827291f71"
 // data "PositionEffect" "99e64454-0a59-4386-8319-f81b2f46118a"
 
-// ==================================== Dancing Lights - Sorcerous Sundries performers
+// ==================================== Sorcerous Sundries performers - Dancing Lights
 
 // Stop this inheriting of Long Rest duration so nutsack Sorcerous Sundries performers don't murder PCs with infinitely stacking Dancing Lights (It seems that "IsUnique" not being taken into account for the entitiy when cast via script, allowing them to stack.)
 new entry "Target_LOW_EastwayWizards_DancingLights"
@@ -92,7 +92,7 @@ data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
 data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;HasHighGroundRangeExtension;CannotTargetItems"
 // data "PrepareEffect" ""
 
-// ====================================
+// ==================================== ???
 
 new entry "Target_LOW_CastPortal"
 type "SpellData"
@@ -119,7 +119,7 @@ data "TooltipStatusApply" "ApplyStatus(DANCING_LIGHTS,100,10)"
 // data "CastEffect" "d96a454e-eb9b-4be9-bbb3-d21fab4ded25"
 // data "TargetEffect" ""
 
-// ====================================
+// ==================================== Selûne's Spear of Night - Moonmote
 
 new entry "Target_SHA_SeluneBlessing_Moonfire"
 type "SpellData"
