@@ -1,6 +1,6 @@
 // ==================================== Fire Bolt ====================================
 // Changes: Damage reduced from d10 to d8.
-// Changes: Creates a 1m fire surface for 2 turns when targetting the ground, corpses, or objects.
+// Changes: Creates a 1m diameter fire surface for 2 turns when targetting the ground, corpses, or objects.
 // Changes: On a success against a creature Burning is applied for 1 turn.
 // Changes: Targetting unrestricted.
 
@@ -11,7 +11,7 @@ using "Projectile_FireBolt"
 // data "Level" "0"
 // data "SpellSchool" "Evocation"
 // data "SpellProperties" "GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
-data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_DEADORITEM_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,Fire)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_ITEMORDEAD_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,Fire)"
 // data "TargetFloor" "-1"
 // data "TargetRadius" "18"
 // data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
@@ -26,7 +26,7 @@ data "TargetConditions" "not Self()"
 // data "DisplayName" "h7fddad46g70f6g4c7dg8109gab93722b0495;1"
 // Hurl a mote of fire.
 // data "Description" "h111ae255g55f1g4a55gb958g517af226971b;4"
-// Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a fire surface in a [1] radius for [2] turn instead.
+// Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create a fire surface in a [1] radius for [2] turns instead.
 data "Description" "ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf;1"
 data "DescriptionParams" "Distance(1);2"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Fire)"
@@ -178,7 +178,7 @@ data "CombatAIOverrideSpell" ""
 // data "RechargeValues" ""
 
 // ==================================== Raphael - Igniting Spark
-// TODO: Surface stuff
+// Changes: Clarified the tooltip.
 
 new entry "Projectile_LOW_Raphael_DancingFlame"
 type "SpellData"
@@ -194,9 +194,12 @@ using "Projectile_LOW_Raphael_DancingFlame"
 // data "TargetConditions" "not Self() and not Dead() and Enemy()"
 // Igniting Spark
 // data "DisplayName" "hd60d072dg1f2fg45baga914g9fe2fc671a15;4"
-// Launch a mote of infernal flame to set a target alight and <LSTag Type="Status" Tooltip="BURNING
+// Launch a mote of infernal flame to set a target alight and &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burn&lt;/LSTag&gt; it.
 // data "Description" "hfc09dc2eg98f2g4c42gac43g2757292bc409;3"
+// Launch a mote of infernal flame to set a target alight, causing it to &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burn&lt;/LSTag&gt; for [1] turns.
+data "Description" "h5d3b4ce0gcfaag4ffdgada4g2b965a0ed9b7;1"
 // data "DescriptionParams" "DealDamage(6d6, Fire)"
+data "DescriptionParams" "2"
 // data "TooltipDamageList" "DealDamage(6d6,Fire)"
 // data "TooltipAttackSave" "Dexterity"
 data "CombatAIOverrideSpell" ""

@@ -1,0 +1,146 @@
+// ==================================== Produce Flame ====================================
+// Bug Fix: Tooltip now displays appropriate scaling cantrip damage.
+// Changes: Creates a 2m diameter fire surface for 2 turns when targetting the ground, corpses, or objects.
+// Changes: On a success against a creature Burning is applied for 1 turn, and a 1m diameter fire surface is created for 2 turns.
+// Changes: Summoning now costs a Bonus Action instead of an Action.
+// Changes: Dismissing now has no cost instead of an Action.
+// Changes: Produce Flame: Hurl can be used indefinitely until the flame is extinguished, instead of only once.
+// Changes: There is no longer a free hurl after summoning the flame.
+// Changes: Targetting unrestricted.
+// TODO: Have Asmodeus Tiefling's get a racial version that uses Charisma.
+
+new entry "Shout_ProduceFlame"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_ProduceFlame"
+// data "Level" "0"
+// data "SpellSchool" "Conjuration"
+// data "SpellProperties" "ApplyStatus(PRODUCE_FLAME,100,-1);ApplyStatus(PRODUCE_FLAME_HURL_FREE,100,1)"
+data "SpellProperties" "ApplyStatus(PRODUCE_FLAME,100,-1);ApplyStatus(PRODUCE_FLAME_HURL,100,-1)"
+// data "TargetConditions" "Self()"
+// data "Icon" "Spell_Conjuration_ProduceFlame_Light"
+// Produce Flame
+// data "DisplayName" "hfd755f83gdef4g4c34g9b6fg44ab3fd26c96;1"
+// A flame in your hand sheds a light in a [1] radius and deals [2] when thrown.
+// data "Description" "hbc3e6f17g63f2g461eg9454g5115c0d2ece3;5"
+// Conjure a flame in your hand that sheds a light in a [1] radius.&lt;br&gt;&lt;br&gt;While the flame is alive you can throw it using &lt;LSTag Type="Spell" Tooltip="Projectile_ProduceFlame_Hurl"&gt;Produce Flame: Hurl&lt;/LSTag&gt;.
+data "Description" "h1b9fe533ge9ebg4cccgbb25g381a13e7851d;1"
+// data "DescriptionParams" "Distance(9);DealDamage(1d8,Fire)"
+data "DescriptionParams" "Distance(9);DealDamage(LevelMapValue(D8Cantrip),Fire)"
+// Throwing the flame immediately after you conjure it does not cost an &lt;LSTag Tooltip="Action"&gt;action&lt;/LSTag&gt;. Extinguishing or throwing it on subsequent turns costs an action.
+// data "ExtraDescription" "h3d22c029ga2beg404dgba7eg8c54d0ceb0c9;1"
+// The flame can be extinguished at any time using &lt;LSTag Type="Spell" Tooltip="Shout_ProduceFlame_Dismiss"&gt;Produce Flame: Dismiss&lt;/LSTag&gt;.
+data "ExtraDescription" "h2b02dbf0gf80ag4e1fg9a10gd434d0b77081;1"
+// data "TooltipStatusApply" "ApplyStatus(PRODUCE_FLAME,100,-1)"
+// data "CastSound" "Spell_Cast_Damage_Fire_ProduceFlame_L1to3"
+// data "VocalComponentSound" "Vocal_Component_Light"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;29cc8ef2-e45e-4513-8f98-085d0dad7bc1,,;bb428832-db99-4236-8a81-a2737b81d0cc,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent"
+// data "PrepareEffect" "7b26059d-9a0a-46f5-b269-3df00842ecd2"
+// data "CastEffect" "715ae090-ae24-4b93-9543-d431e7aaefb9"
+// data "DamageType" "None"
+
+new entry "Shout_ProduceFlame_Dismiss"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_ProduceFlame_Dismiss"
+// data "Level" "0"
+// data "SpellSchool" "Conjuration"
+// data "SpellProperties" "RemoveStatus(PRODUCE_FLAME);RemoveStatus(PRODUCE_FLAME_HURL);RemoveStatus(PRODUCE_FLAME_HURL_FREE)"
+// data "TargetConditions" "Self()"
+// data "Icon" "Spell_Conjuration_ProduceFlame_Dismiss"
+// Produce Flame: Dismiss
+// data "DisplayName" "ha026fd7bg4999g44f2g9772gbfcfaf95e43e;1"
+// Put out the conjured flame in your hand.
+// data "Description" "h3cded52eg9330g4c80g8f18g5f0074153a52;3"
+// data "CastSound" "Spell_Cast_Damage_ProduceFlameDismiss_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" ""
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;c0513845-6e0e-42e8-9a8c-baa5e2b6ead6,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;Temporary"
+// data "PrepareEffect" "d814b674-ab81-4e6a-8c14-c23e0b92487a"
+// data "CastEffect" "a8a47473-49e4-43dc-a1db-06faeb6a4a51"
+// data "FollowUpOriginalSpell" "Shout_ProduceFlame"
+
+new entry "Projectile_ProduceFlame_Hurl"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ProduceFlame_Hurl"
+// data "Level" "0"
+// data "SpellSchool" "Conjuration"
+// data "SpellProperties" "GROUND:RemoveStatus(SELF,PRODUCE_FLAME);GROUND:RemoveStatus(SELF,PRODUCE_FLAME_HURL);GROUND:RemoveStatus(SELF,PRODUCE_FLAME_HURL_FREE);GROUND:SurfaceChange(Ignite);GROUND:SurfaceChange(Melt)"
+data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_ITEMORDEAD_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck() or not Goon_CreateSurfaceSpellCheck()):CreateSurface(2,2,Fire)"
+// data "TargetFloor" "-1"
+// data "TargetRadius" "9"
+// data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
+// data "SpellSuccess" "IF(not HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip),Fire,Magical);IF(HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip)+(max(0, WisdomModifier)),Fire,Magical)"
+data "SpellSuccess" "IF(not HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip),Fire,Magical);IF(HasPassive('PotentSpellcasting',context.Source)):DealDamage(LevelMapValue(D8Cantrip)+(max(0, WisdomModifier)),Fire,Magical);ApplyStatus(BURNING,100,1);GROUND:CreateSurface(1,2,Fire)"
+// data "TargetConditions" "not Self() and not Dead()"
+data "TargetConditions" "not Self()"
+// data "ProjectileCount" "1"
+// data "Trajectories" "6a2ef1c3-cdd3-4dd3-a023-16a26f5c1a99,870be4b8-ce79-3ed6-ddb9-85e02be0002b,c5b17c30-f3f0-8609-265e-e24e70c7153a"
+// data "Icon" "Spell_Conjuration_ProduceFlame_Hurl"
+// Produce Flame: Hurl
+// data "DisplayName" "hee8ed7f6g8973g4669g833fg99b4e7fcaf25;2"
+// Hurl the conjured flame in your hand at a target and let it sizzle out.
+// data "Description" "h4505ac3dg66edg4954gb6b5g4455b4c1d951;8"
+// Hurl the conjured flame in your hand &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burning&lt;/LSTag&gt; your target for [1], and creating a fire surface in a [1] radius for [2] turns.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create a fire surface in a [3] radius for [2] turns instead.
+data "Description" "hfecd7851g15e9g4e85g8d10gfbe63f65fcd7;1"
+data "DescriptionParams" "Distance(1);2;Distance(2)"
+// data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Fire)"
+// data "TooltipAttackSave" "RangedSpellAttack"
+// data "CastSound" "Spell_Cast_Damage_ProduceFlameHurl_L1to3"
+// data "CastTextEvent" "Cast"
+// data "CycleConditions" "Enemy() and not Dead()"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellFlags" "IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;Temporary"
+// data "HitAnimationType" "MagicalDamage_External"
+// data "PrepareEffect" "61382e69-8e1a-4235-afed-8681082f3c42"
+// data "CastEffect" "f395c8b1-41a2-4cc6-9f56-2b0bcf86e761"
+// data "DamageType" "Fire"
+// data "FollowUpOriginalSpell" "Shout_ProduceFlame"
+data "CombatAIOverrideSpell" "Projectile_ProduceFlame_Hurl_AI"
+
+new entry "Projectile_ProduceFlame_Hurl_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_ProduceFlame_Hurl"
+// data "TargetConditions" "not Self()"
+data "TargetConditions" "not Self() and not Dead()"
+data "CombatAIOverrideSpell" ""
+
+// new entry "PRODUCE_FLAME"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Produce Flame
+// data "DisplayName" "h7f98a506g5911g4ae3gb91cg0d4bc7ee4371;2"
+// A flickering flame sheds light around the creature.
+// data "Description" "h1a2c2de9g6bf4g4e6cg91b3g816e9777153b;1"
+// data "Icon" "Spell_Conjuration_ProduceFlame_Light"
+// data "SoundLoop" "Spell_Status_ProduceFlame_MO"
+// data "SoundStop" "Spell_Status_ProduceFlame_MO_Stop"
+// data "StackId" "PRODUCE_FLAME"
+// data "Boosts" "UnlockSpell(Shout_ProduceFlame_Dismiss);GameplayLight(9,false,0.1)"
+// data "OnApplyFunctors" "AI_ONLY:IF(not HasStatus('PRODUCE_FLAME')):ApplyStatus(AI_HELPER_PRODUCEFLAME, 100, 3)"
+// data "StatusGroups" "SG_Light;SG_RemoveOnRespec"
+// data "StatusEffect" "7b9c612c-3780-45eb-a146-fc472c37c2c4"
+
+// new entry "PRODUCE_FLAME_HURL"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "PRODUCE_FLAME"
+// data "SoundLoop" ""
+// data "SoundStop" ""
+// data "StackId" "PRODUCE_FLAME_HURL"
+// data "Boosts" "UnlockSpell(Projectile_ProduceFlame_Hurl,,,,Wisdom)"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+// data "ApplyEffect" "2b8afc18-6f42-4012-b876-b5fabcddfe35"
+// data "StatusEffect" "d327715f-f86c-4884-954d-f451bb762692"
