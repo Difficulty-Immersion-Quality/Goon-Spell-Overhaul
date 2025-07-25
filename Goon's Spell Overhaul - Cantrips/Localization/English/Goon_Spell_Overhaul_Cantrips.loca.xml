@@ -24,7 +24,7 @@
 	<!-- "Target_Guidance" --> <content contentuid="h885641ecg0703g48f2ga90fg4fbc87b6691f" version="1">You fortify a creature's resolve, granting it a +1d4 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
 	<!-- "Target_CosmicOmen_AbilityCheck" --> <content contentuid="hed1ad7f4g0538g4279g8ccfg1e8c2fb86df3" version="1">You fortify a creature's resolve, granting it a +1d6 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.</content>
 
-	<!-- "Projectile_PoisonSpray" --> <content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, leaving behind a cloud of poison.</content>
+	<!-- "Projectile_PoisonSpray" --> <content contentuid="h1be0ac47g18f5g4945g85b9g41ab74c32552" version="1">Project a cone of noxious gas, creating a poison cloud for [1] turns and &lt;LSTag Type="Status" Tooltip="POISONED"&gt;Poisoning&lt;/LSTag&gt; creatures that fail a &lt;LSTag Tooltip="Constitution"&gt;Constitution&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt;.</content>
 	
 	<!-- "Target_SacredFlame" --> <content contentuid="h910058dcg21d0g4f89ga09cg47bd468ece71" version="1">Engulf a target in a flame-like radiance that burns them with &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt; for [1] turn.&lt;br&gt;&lt;br&gt;If your target is the ground, create a small Holy Fire surface for [1] turn instead.</content>
 	
