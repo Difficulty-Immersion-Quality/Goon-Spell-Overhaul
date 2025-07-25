@@ -1,0 +1,71 @@
+// ==================================== Minor Illusion ====================================
+// Changes: Lasts until long rest instead of 10 turns.
+
+new entry "Target_MinorIllusion"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_MinorIllusion"
+// data "Level" "0"
+// data "SpellSchool" "Illusion"
+// data "AIFlags" "CanNotUse"
+// data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, 10,,,'MinorIllusionStack',MINOR_ILLUSION)"
+data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, -1,,,'MinorIllusionStack',MINOR_ILLUSION)"
+// data "TargetRadius" "18"
+// data "AreaRadius" "18"
+// data "TargetConditions" "CanStand('63a52705-056b-4736-91ee-66b839de2afe') and not Character() and not Self()"
+// data "Icon" "Spell_Illusion_MinorIllusion"
+// Minor Illusion
+// data "DisplayName" "h6d2db94cgbc70g4cdcgaf76gb7bd76bd0a8c;1"
+// Create an illusion that compels nearby creatures to investigate.
+// data "Description" "he5909fe4g02b6g43c9gbc1cgedd73ac97791;2"
+// You can remain hidden while casting this spell.&lt;br&gt;&lt;br&gt;This spell can be cast while you are &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenced&lt;/LSTag&gt;.
+// data "ExtraDescription" "hbb926a88gbe41g450egbe24g07efa6160c0e;2"
+// data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,10)"
+data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,-1)"
+// data "CastSound" "Spell_Cast_Utility_MinorIllusion_L1to3"
+// data "TargetSound" "Spell_Impact_Utility_MinorIllusion_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;605d49b4-03b9-47f6-96e9-7f80e6be7514,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;cc5b0caf-3ed1-4711-a50d-11dc3f1fdc6a,,;,,;1715b877-4512-472e-9bd0-fd568a112e90,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellStyleGroup" "Class"
+// data "SpellFlags" "HasSomaticComponent;IsSpell;IgnoreSilence;Stealth;Invisible;CannotTargetCharacter;CannotTargetItems"
+// data "PrepareEffect" "7121a488-7c9a-4ba1-a585-f79aaa77e97c"
+// data "CastEffect" "518bc78f-c169-43ba-b951-977d75429199"
+
+// ==================================== Illusion School Wizard - Improved Minor Illusion
+// Bug Fix: Descriptions no longer links to itself infinitely, and instead uses the same description as the base Minor Illusion spell.
+
+new entry "Target_ImprovedMinorIllusion"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_MinorIllusion"
+using "Target_ImprovedMinorIllusion"
+// data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, 20,,,'MinorIllusionStack',MINOR_ILLUSION);"
+data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, -1,,,'MinorIllusionStack',MINOR_ILLUSION)"
+// data "Icon" "PassiveFeature_ImprovedMinorIllusion"
+// Improved Minor Illusion
+// data "DisplayName" "h31c9feb0g580fg44a2gafb7g5d8ad9c8b962;2"
+// You can cast &lt;LSTag Type="Spell" Tooltip="Target_ImprovedMinorIllusion"&gt;Minor Illusion&lt;/LSTag&gt; as a bonus action.
+// data "Description" "h0079b0b5ga25dg4cf8g9aaeg8f0e92933326;1"
+// Create an illusion that compels nearby creatures to investigate.
+data "Description" "he5909fe4g02b6g43c9gbc1cgedd73ac97791;2"
+// data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,20)"
+data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,-1)"
+// data "UseCosts" "BonusActionPoint:1"
+
+// ==================================== Minor Illusion - Sorcerous Sundries performers
+
+new entry "Target_LOW_EastwayWizards_MinorIllusion"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_MinorIllusion"
+using "Target_LOW_EastwayWizards_MinorIllusion"
+// data "SpellProperties" "GROUND:Summon(a4d03902-0382-4f88-866d-3bb2225a69a3, 10,,,'MinorIllusionStack',LOW_EASTWAYWIZARD_MINOR_ILLUSION)"
+// data "TargetConditions" "not Character() and not Self()"
+// data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,10)"
+// data "CastSound" "Spell_Cast_EastwayWizards_MinorIllusion_L1to3"
+// data "TargetSound" "Spell_Impact_EastwayWizards_MinorIllusion_L1to3"
+// data "SpellFlags" "HasSomaticComponent;IsSpell;IgnoreSilence;Stealth;Invisible"
+// data "PrepareEffect" ""
