@@ -214,63 +214,6 @@ data "SpellAnimation" "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;,,;35b644cf-5c13-4
 data "Sheathing" "Melee"
 data "MaximumTargets" ""
 
-// ==================================== Shocking Grasp ====================================
-// Changes: Damage increased from 1d8 to 1d10. 
-// Changes: Can now target corpses.
-// Changes: Surfaces are only elecrified if you target them directly or successfully hit your target.
-
-new entry "Target_ShockingGrasp"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_ShockingGrasp"
-// data "Level" "0"
-// data "SpellSchool" "Evocation"
-// data "SpellProperties" "GROUND:SurfaceChange(Electrify)"
-data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);GROUND:IF(not HasStatus('GOON_SURFACE_CHECK',context.Source)):SurfaceChange(Electrify)"
-// data "TargetRadius" "1.5"
-// data "SpellRoll" "Attack(AttackType.MeleeSpellAttack,HasMetalArmor() or IsMetalCharacter())"
-// data "SpellSuccess" "ApplyStatus(SHOCKING_GRASP,100,1);DealDamage(LevelMapValue(D8Cantrip),Lightning,Magical)"
-data "SpellSuccess" "ApplyStatus(SHOCKING_GRASP,100,1);DealDamage(LevelMapValue(D10Cantrip),Lightning,Magical);GROUND:SurfaceChange(Electrify)"
-// data "TargetConditions" "not Self() and not Dead()"
-data "TargetConditions" "not Self()"
-// data "Icon" "Spell_Evocation_ShockingGrasp"
-// Shocking Grasp
-// data "DisplayName" "h83428213g0a17g4b04g9dbfg2cde3aed8b78;1"
-// The target cannot use reactions. This spell has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on creatures with metal armour.
-// data "Description" "h08fcd063g2c1dg4837g9e49g66fa8a27b8ae;3"
-// On a success your target cannot use &lt;LSTag Type="ActionResource" Tooltip="ReactionActionPoint"&gt;Reactions&lt;/LSTag&gt;. This spell has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on conductive entities.
-data "Description" "he3a1757agc32bg4db3gbf8fgdfa84b434294;1"
-// data "DescriptionParams" "DealDamage(LevelMapValue(D8Cantrip),Lightning)"
-data "DescriptionParams" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
-// data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Lightning)"
-data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Lightning)"
-// data "TooltipAttackSave" "MeleeSpellAttack"
-// data "TooltipStatusApply" "ApplyStatus(SHOCKING_GRASP,100,1)"
-// data "PrepareSound" "Spell_Prepare_Damage_Lightning_Gen_L1to3"
-// data "PrepareLoopSound" "Spell_Prepare_Damage_Lightning_Gen_L1to3_Loop"
-// data "CastSound" "Spell_Cast_Damage_Lightning_ShockingGrasp_L0"
-// data "TargetSound" "Spell_Impact_Damage_Lightning_ShockingGrasp_L0"
-// data "CastTextEvent" "Cast"
-// data "CycleConditions" "Enemy() and not Dead()"
-// data "UseCosts" "ActionPoint:1"
-// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;c17a3562-3758-4c4a-96e8-790cebed1df4,a1227ad0-1db2-4941-836b-0a8d85b87a0b,aef20313-abe9-4abb-8ecf-65c22d25ea80;a8012b19-b279-45ec-89b0-86a1b73ad584,92b2bf7e-5fd5-4016-acb9-dae833b7c2e2,a6874259-8dd1-46fa-99f8-6a19ebb19087;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;efbf3ee5-7340-4b29-8ab5-113b004a8e7b,,;95c387b6-3756-4bb5-accf-75a117eefb5f,,"
-// data "VerbalIntent" "Damage"
-// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsMelee;IsHarmful"
-// data "HitAnimationType" "MagicalDamage_Electric"
-// data "PrepareEffect" "77241e8c-ae8d-4402-92d8-a871ce64d86f"
-// data "CastEffect" "10fc784a-4312-47a8-a6b8-6b529c646ac4"
-// data "TargetEffect" "a3e2368b-f486-4cfc-b04a-b02e23383280"
-// data "DamageType" "Lightning"
-data "CombatAIOverrideSpell" "Target_ShockingGrasp_AI"
-
-new entry "Target_ShockingGrasp_AI"
-type "SpellData"
-data "SpellType" "Projectile"
-using "Target_ShockingGrasp"
-// data "TargetConditions" "not Self()"
-data "TargetConditions" "not Self() and not Dead()"
-data "CombatAIOverrideSpell" ""
-
 // ==================================== Thorn Whip ====================================
 // Changes: Damage increased from 1d6 to 1d10.
 // Changes: Can now slightly control the trajectory of the pull based on cursor position on the target entity. 
