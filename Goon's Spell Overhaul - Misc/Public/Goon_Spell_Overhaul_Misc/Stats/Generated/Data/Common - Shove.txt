@@ -1,0 +1,42 @@
+// ============================ Shove ============================
+// Changes: Can now slightly control the trajectory of the push based on cursor position on the target entity.
+// TODO: See if restrictions on shoving stuff should be changed at all.
+
+new entry "Target_Shove"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Shove"
+// data "SpellProperties" "RemoveStatus(SLEEP);RemoveStatus(SLEEPING);RemoveStatus(SG_Sleeping);"
+// data "TargetCeiling" "0"
+// data "TargetFloor" ".25"
+// data "TargetRadius" "1.5"
+// data "SpellRoll" "ShoveCheck()"
+// data "SpellSuccess" "IF(not Ally()):Force(ShoveDistance,OriginToEntity,Aggressive);IF(Ally()):Force(ShoveDistance,OriginToEntity,Friendly)"
+data "SpellSuccess" "IF(not Ally()):Force(ShoveDistance,OriginToTarget,Aggressive);IF(Ally()):Force(ShoveDistance,OriginToTarget,Friendly)"
+// data "SpellFail" "ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)"
+// data "TargetConditions" "not Self() and CanShoveWeight() and IsMovable() and not Grounded() and not Tagged('GASEOUS_FORM') and not (not Player(context.Source) and Combat(context.Source) and Character() and not (Enemy() or HasStatus('SG_Unconscious'))) and not Tagged('CANT_SHOVE_THROW')"
+// data "Icon" "Action_Shove"
+// Shove
+// data "DisplayName" "h566b606eg4e52g452eg9313g703c8f77a44b;1"
+// Try to push a target away. Your chances depend on your Athletics, and are higher if you're hidden or invisible. 
+// data "Description" "h3921ea48g1ac9g4310gbd52gb7041dcee29f;7"
+// The shove distance depends on your &lt;LSTag Tooltip="Strength"&gt;Strength&lt;/LSTag&gt; and the target's weight.
+// data "ExtraDescription" "h0907f7c8g694cg45c2ga77fg06cc883b7a9d;3"
+// data "PrepareSound" "Generic_GeneralAction_Start"
+// data "PrepareLoopSound" "Generic_GeneralAction_Loop"
+// data "CastSound" "Action_Cast_Shove"
+// data "PreviewCursor" "Melee"
+// data "CastTextEvent" "Cast"
+// data "CycleConditions" "CanShoveWeight() and not Grounded()"
+// data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "0319ca29-4024-4649-9278-3c1f20c5f023,,;a71e11ca-95ab-463d-a4bf-fe8094126b61,,;352c3a89-f99c-4472-8424-58c0ffb15e55,,;a57fc614-ed20-4574-936b-bdcc6cebd36a,,;b24b3f23-6d3a-43ce-ae3a-abfb44d26082,,;200ab854-a989-4a6a-8ac9-4b20aecaccda,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "IsMelee;AddFallDamageOnLand;IsHarmful;CombatLogSetSingleLineRoll"
+// data "SpellActionType" "Shove"
+// data "HitAnimationType" "PhysicalDamage"
+// data "SpellAnimationIntentType" "Peaceful"
+// data "PrepareEffect" "c512042e-a04f-4a02-af7a-16f30e11ed95"
+// data "CastEffect" "3fdf3e73-59a3-4518-9521-35f40374d048"
+// data "TargetEffect" "5d8c64e3-f9ff-4ee0-b0b6-2a081c7244a8"
+// data "SpellSoundMagnitude" "Small"
+// data "Sheathing" "Sheathed"
