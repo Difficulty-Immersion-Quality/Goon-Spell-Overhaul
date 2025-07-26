@@ -92,7 +92,7 @@ data "StackId" "GOON_BLADE_WARD_ATTACK_TECHNICAL"
 data "TickType" "EndTurn"
 data "RemoveEvents" "OnTurn"
 
-// ==================================== Blade Ward - 
+// ==================================== Other Blade Ward conditions
 
 // new entry "MAG_BLADE_WARD"
 // type "StatusData"
@@ -127,7 +127,7 @@ data "TickType" "StartTurn"
 // data "ManagedStatusEffectType" ""
 // data "ManagedStatusEffectGroup" ""
 
-// ==================================== Blade Ward - Sorcerous Sundries performers
+// ==================================== Sorcerous Sundries performers - Blade Ward
 
 // new entry "Shout_LOW_EastwayWizards_BladeWard"
 // type "SpellData"
@@ -139,7 +139,7 @@ data "TickType" "StartTurn"
 // data "TargetSound" "Spell_Impact_EastwayWizards_BladeWard_L1to3"
 // data "PrepareEffect" ""
 
-// ==================================== Blade Ward - Restore Bardic Inspiration
+// ==================================== Restore Bardic Inspiration
 
 // new entry "Shout_MAG_Restore_BardicInspiration"
 // type "SpellData"
@@ -166,7 +166,7 @@ data "TickType" "StartTurn"
 // data "SpellFlags" "HasSomaticComponent;HasVerbalComponent"
 // data "Requirements" ""
 
-// ==================================== Blade Ward - Eternal Devotion
+// ==================================== Eternal Devotion
 
 // new entry "Shout_MAG_Restore_ChannelDivinity"
 // type "SpellData"

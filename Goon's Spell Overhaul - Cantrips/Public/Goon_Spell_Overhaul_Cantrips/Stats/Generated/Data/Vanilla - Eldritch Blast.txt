@@ -50,7 +50,7 @@ using "Projectile_EldritchBlast"
 data "TargetConditions" "not Self() and not Dead()"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Eldritch Blast - Trap
+// ==================================== Trap - Eldritch Blast
 
 new entry "Projectile_EldritchBlast_Trap"
 type "SpellData"
@@ -66,7 +66,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;AddFallDamageOnLand;IsTrap;ImmediateCast"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Eldritch Blast - Vengeful Imp
+// ==================================== Vengeful Imp - Eldritch Blast
 
 new entry "Projectile_LOW_RaphaelImp_EldritchBlast"
 type "SpellData"
@@ -78,7 +78,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellAnimation" "20bc8606-6406-4f04-a0f7-ec458125b663,,;8f5c3b68-2383-4470-bb15-ca3e9b6c5819,,;36fcebc4-6813-48f0-81f0-c473b79782b7,,;6e5625e7-7912-450f-9375-d42491d31335,,;7a4db7bc-d962-4e4c-9ac8-c2f03b96a370,,;,,;f2849708-05fa-405a-ba15-3bacbe1a3d56,,;,,;,,"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Eldritch Blast - Ch'r'ai Tska'an (Vlaakith Undead Warlock)
+// ==================================== Ch'r'ai Tska'an (Vlaakith Undead Warlock) - Eldritch Blast
 
 new entry "Projectile_TWN_EldritchBlast_VlaakithKillers_1soul"
 type "SpellData"

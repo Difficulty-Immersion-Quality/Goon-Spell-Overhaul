@@ -57,7 +57,7 @@ using "Projectile_AcidSplash"
 data "TargetConditions" "not Self() and not Dead()"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Acid Splash - Goblin
+// ==================================== Goblin - Acid Splash
 
 new entry "Projectile_AcidSplash_Goblin"
 type "SpellData"
@@ -69,7 +69,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;cd5e5d4a-38e1-4d4d-b346-3fbc1e4c3c90,,;141f48d9-9615-496a-8737-9240f0dba60d,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;,,;,,;,,"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Acid Splash - Trap
+// ==================================== Trap - Acid Splash
 
 new entry "Projectile_AcidSplash_Trap"
 type "SpellData"
@@ -86,7 +86,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellFlags" "IsHarmful;CanAreaDamageEvade;IsTrap;ImmediateCast"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Acid Splash - Bulette
+// ==================================== Bulette - Corrosive Phlegm
 
 new entry "Projectile_ToxicSpit_Bulette"
 type "SpellData"

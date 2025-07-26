@@ -54,7 +54,7 @@ data "Description" "he5909fe4g02b6g43c9gbc1cgedd73ac97791;2"
 data "TooltipStatusApply" "ApplyStatus(MINOR_ILLUSION,100,-1)"
 // data "UseCosts" "BonusActionPoint:1"
 
-// ==================================== Minor Illusion - Sorcerous Sundries performers
+// ==================================== Sorcerous Sundries performers - Minor Illusion
 
 new entry "Target_LOW_EastwayWizards_MinorIllusion"
 type "SpellData"

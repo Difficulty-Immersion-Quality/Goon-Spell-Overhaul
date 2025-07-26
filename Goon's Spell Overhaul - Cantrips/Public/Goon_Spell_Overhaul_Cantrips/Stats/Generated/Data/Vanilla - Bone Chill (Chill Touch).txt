@@ -74,7 +74,7 @@ data "OnApplyConditions" "Character() or Tagged('FUNGUS')"
 // data "Boosts" "BlockRegainHP(Living;Undead); IF(Tagged('UNDEAD', context.Source)):Disadvantage(AttackRoll)"
 // data "StatusPropertyFlags" "TickingWithSource"
 
-// ==================================== Balthazar
+// ==================================== Balthazar - Bone Chill
 
 new entry "Target_SHA_Necromancer_ChillTouch"
 type "SpellData"
@@ -86,7 +86,7 @@ using "Target_SHA_Necromancer_ChillTouch"
 // data "PrepareLoopSound" "Spell_Prepare_Damage_Necrotic_Gen_L1to3_Loop"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Abdirak
+// ==================================== Abdirak - Bone Chill
 
 new entry "Target_GOB_PainPriest_ChillTouch"
 type "SpellData"
@@ -105,7 +105,7 @@ data "TargetConditions" "not Self() and not Dead() and (Character() or Tagged('F
 // data "PrepareLoopSound" "Spell_Prepare_Damage_Necrotic_Gen_L1to3_Loop"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Cut Gur guy content?
+// ==================================== Cut Gur guy content? - Bone Chill
 
 new entry "Target_TWN_RegretfulHunter_SoulRelease"
 type "SpellData"
@@ -265,7 +265,7 @@ using "Target_SHA_Skeleton_WitheringTouch"
 // data "MemoryCost" ""
 data "CombatAIOverrideSpell" ""
 
-// ==================================== 
+// ==================================== Untenable Secret
 
 new entry "Target_SHA_Justiciar_UntenableSecret"
 type "SpellData"

@@ -42,7 +42,7 @@ using "Target_BoomingBlade_5e"
 // data "TargetEffect" "288e0f80-7d7c-4f36-b748-17182318180e"
 data "DamageType" "Thunder"
 
-// ==================================== Booming Blade - Blasting Blade ???
+// ==================================== Blasting Blade ???
 
 // new entry "Target_BoomingBladeEx"
 // type "SpellData"

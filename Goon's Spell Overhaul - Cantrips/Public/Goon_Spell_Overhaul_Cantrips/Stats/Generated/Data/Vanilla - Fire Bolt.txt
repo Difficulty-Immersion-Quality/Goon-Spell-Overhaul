@@ -57,7 +57,7 @@ using "Projectile_FireBolt"
 data "TargetConditions" "not Self() and not Dead()"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Fire Bolt - Goblin
+// ==================================== Goblin - Fire Bolt
 
 new entry "Projectile_FireBolt_Goblin"
 type "SpellData"
@@ -69,7 +69,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;e7450b96-7921-4d05-bb38-76b36e4291a1,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Fire Bolt - Trap
+// ==================================== Trap - Fire Bolt
 
 new entry "Projectile_FireBolt_Trap"
 type "SpellData"
@@ -86,7 +86,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsTrap;ImmediateCast"
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Fire Bolt - Ogre
+// ==================================== Ogre - Fire Bolt
 
 new entry "Projectile_FOR_Ogre_FireBolt"
 type "SpellData"
@@ -100,7 +100,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "RechargeValues" ""
 data "CombatAIOverrideSpell" ""
 
-// ==================================== Fire Bolt - Imp
+// ==================================== Imp - Fiery Bolt
 
 new entry "Projectile_Generic_Imp"
 type "SpellData"
@@ -121,7 +121,7 @@ data "SpellSuccess" "ApplyStatus(BURNING,100,1)"
 // data "SpellAnimationIntentType" "Aggressive"
 // data "RechargeValues" ""
 
-// ==================================== Fire Bolt - Sorcerous Sundries performers
+// ==================================== Sorcerous Sundries performers - Fire Bolt
 
 new entry "Projectile_LOW_EastwayWizards_FireBolt"
 type "SpellData"
@@ -139,7 +139,7 @@ data "TargetConditions" "not Self() and not Dead()"
 // data "CastSound" "Spell_Cast_EastwayWizards_Fire_FireBolt_L1to3"
 // data "PrepareEffect" ""
 
-// ==================================== Fire Bolt - Incandescent Staff
+// ==================================== Incandescent Staff - Fire Bolt
 
 // new entry "Projectile_MAG_FireBolt_Staff"
 // type "SpellData"
@@ -204,7 +204,7 @@ data "DescriptionParams" "2"
 // data "TooltipAttackSave" "Dexterity"
 data "CombatAIOverrideSpell" ""
 
-// ====================================
+// ==================================== Needles
 
 new entry "Projectile_Needles_Blight_Needle"
 type "SpellData"
