@@ -24,7 +24,7 @@ data "TargetConditions" "Character()"
 // data "DisplayName" "h3957297bgfba0g4683gb07cg8565d13fb4ab;1"
 // The target gains a +1d4 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
 // data "Description" "h9897a57cg0f50g4a5fg911fg9eb5b05064d3;4"
-// You fortify a creature's resolve, granting it a +1d4 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
+// Fortify a creature's resolve, granting it a +1d4 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
 data "Description" "h885641ecg0703g48f2ga90fg4fbc87b6691f;1"
 // data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, 10)"
 data "TooltipStatusApply" "ApplyStatus(GUIDANCE, 100, -1)"
@@ -116,7 +116,7 @@ data "SpellProperties" "ApplyStatus(COSMICOMEN_ABILITY, 100, -1);ApplyStatus(COS
 // data "DisplayName" "ha82a4fdbg5936g4fecg9f94g6feaf4124779;2"
 // Give your allies a +[1] bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
 // data "Description" "h454ef413gf390g4cddg9e5ag232d870842e1;2"
-// You fortify a creature's resolve, granting it a +1d6 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
+// Fortify a creature's resolve, granting it a +1d6 bonus to &lt;LSTag Tooltip="AbilityCheck"&gt;Ability Checks&lt;/LSTag&gt;.
 data "Description" "hed1ad7f4g0538g4279g8ccfg1e8c2fb86df3;1"
 // data "DescriptionParams" "1d6"
 // data "TooltipStatusApply" "ApplyStatus(COSMICOMEN_ABILITY, 100, 10)"

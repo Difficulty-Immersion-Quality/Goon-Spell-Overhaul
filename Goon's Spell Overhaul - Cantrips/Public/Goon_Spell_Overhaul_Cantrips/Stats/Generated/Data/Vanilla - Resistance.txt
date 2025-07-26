@@ -1,0 +1,116 @@
+// ==================================== Resistance ====================================
+// Overview: Mirrors changes to Guidance.
+// Changes: Now costs a Bonus Action instead of an Action.
+// Changes: Lasts until long rest instead of 10 turns.
+// Changes: Range increased from 1.5m to 9.
+// Changes: Targetting unrestricted.
+// Changes: VFX and SFX only last for 1 round after the intitial application.
+
+new entry "Target_Resistance"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_Resistance"
+// data "Level" "0"
+// data "SpellSchool" "Abjuration"
+// data "SpellProperties" "ApplyStatus(RESISTANCE,100,10)"
+data "SpellProperties" "ApplyStatus(RESISTANCE, 100, -1)"
+data "AIFlags" "UseAsSupportingActionOnly"
+// data "TargetRadius" "1.5"
+data "TargetRadius" "9"
+// data "TargetConditions" "Character() and Ally()"
+data "TargetConditions" "Character()"
+// data "Icon" "Spell_Abjuration_Resistance"
+// Resistance
+// data "DisplayName" "ha4efa9c9gaae7g402agbd92ga49a5dad4932;1"
+// Make a target more resistant to spell effects and conditions: it receives a +[1] bonus to &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.
+// data "Description" "h608c0341ga508g4b7bgba8egc80bf71f58c0;4"
+// Fortify a creature's resilience, granting it a +1d4 bonus to &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.
+data "Description" "h2cdef5e4g4824g41c2g9639g4ebcfeae0feb;1"
+// data "DescriptionParams" "1d4"
+// data "TooltipStatusApply" "ApplyStatus(RESISTANCE,100,10)"
+data "TooltipStatusApply" "ApplyStatus(RESISTANCE, 100, -1)"
+// data "PrepareSound" "Spell_Prepare_Buff_Gen_L1to3_01"
+// data "PrepareLoopSound" "Spell_Prepare_Buff_Gen_L1to3_01_Loop"
+// data "CastSound" "Spell_Cast_Buff_Resistance_L1to3"
+// data "TargetSound" "Spell_Impact_Buff_Resistance_L1to3"
+// data "VocalComponentSound" "Vocal_Component_ResistanceGeneric"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;8252328a-66dd-4dc0-bbe0-00eea3204922,,;982d842b-5d44-4ef6-ab33-14d5ae514a50,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;2f5d8e0b-35f3-416f-99e9-1cc9d942204e,,;f2ec369f-4a3b-451e-b954-2ab0a53d51d6,,"
+// data "VerbalIntent" "Buff"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;IsMelee"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell"
+// data "HitAnimationType" "MagicalNonDamage"
+// data "PrepareEffect" "c238f860-37c1-47b1-8030-14fa6a1bdfa1"
+// data "CastEffect" "bcd66fb0-b0bc-41d0-abba-ad443d63dd72"
+// data "TargetEffect" "fb919edf-4dce-45d8-9338-91f26bccec31"
+data "CombatAIOverrideSpell" "Target_Resistance_AI"
+
+new entry "Target_Resistance_AI"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Target_Resistance"
+// data "TargetConditions" "Character()"
+data "TargetConditions" "Character() and Ally()"
+data "CombatAIOverrideSpell" ""
+
+new entry "RESISTANCE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "RESISTANCE"
+// Resistance
+// data "DisplayName" "h1afac00ag5f88g47d9gb095g54fd18427730;1"
+// Gains a +1d4 bonus to &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.
+// data "Description" "h90ee288agee24g45f5gb69cgf531c15b8179;3"
+// data "Icon" "Spell_Abjuration_Resistance"
+// data "StackId" "RESISTANCE"
+// data "TickType" "StartTurn"
+data "OnApplyFunctors" "ApplyStatus(GOON_RESISTANCE_FX,100,1)"
+// data "Boosts" "RollBonus(SavingThrow,1d4);RollBonus(DeathSavingThrow,1d4)"
+// data "StatusGroups" "SG_RemoveOnRespec"
+// data "StatusEffect" "95231805-3d66-4061-9cf6-8cbbc48d6732"
+data "StatusEffect" ""
+// data "ManagedStatusEffectType" "Positive"
+data "ManagedStatusEffectType" ""
+// data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
+data "ManagedStatusEffectGroup" ""
+
+// TODO: Maybe annoying reactive VFX, couldn't see an ability equivulent.
+// data "Passives" "Goon_Resistance_FX_Passive"
+
+// new entry "Goon_Resistance_FX_Passive"
+// type "PassiveData"
+// data "Properties" "IsHidden"
+// data "Conditions" "IsSavingThrow()"
+// data "StatsFunctorContext" "OnAttacked;OnStatusApplied;OnStatusRemoved"
+// data "StatsFunctors" "IF(IsLastConditionRollSuccess(ConditionRollType.ConditionSavingThrow)):ApplyStatus(GOON_RESISTANCE_FX,100,1)"
+
+new entry "GOON_RESISTANCE_FX"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog"
+data "StatusEffect" "95231805-3d66-4061-9cf6-8cbbc48d6732"
+data "ManagedStatusEffectType" "Positive"
+data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
+
+// ==================================== ???
+
+// new entry "Target_MAG_Resistance"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Resistance"
+
+// ==================================== Armour of Persistence - Resistance
+
+// new entry "MAG_END_GAME_RESISTANCE"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "RESISTANCE"
+// data "StackPriority" "10"
+// data "StackType" "Ignore"
+// data "StatusPropertyFlags" "IgnoreResting;ApplyToDead"
+// data "StatusEffect" ""
+// data "ManagedStatusEffectType" ""
+// data "ManagedStatusEffectGroup" ""

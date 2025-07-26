@@ -14,7 +14,7 @@ using "Target_Friends"
 // data "DisplayName" "h8f8a19a6gb008g490dgb644gb10fe05748fc;1"
 // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature.
 // data "Description" "h21bab19cg2de1g46f5g9805g7fb58680f3ff;2"
-// You subtly influence a non-hostile creature into giving you the benefit of the doubt. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against it.
+// Subtly influence a non-hostile creature into giving you the benefit of the doubt. Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="Charisma"&gt;Charisma&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against it.
 data "Description" "h0617a1cdg0b57g4d4bg99aeg483c80883333;1"
 // This spell can be cast while you are &lt;LSTag Type="Status" Tooltip="SILENCED"&gt;Silenced&lt;/LSTag&gt;.
 // data "ExtraDescription" "h7eac983dg27b7g46d4g8821ga217d9f33411;4"
