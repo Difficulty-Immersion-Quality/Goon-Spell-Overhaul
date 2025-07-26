@@ -1,7 +1,7 @@
 // ==================================== Produce Flame ====================================
 // Bug Fix: Tooltip now displays appropriate scaling cantrip damage.
 // Changes: Creates a 2m diameter fire surface for 2 turns when targetting the ground, corpses, or objects.
-// Changes: On a success against a creature Burning is applied for 1 turn, and a 1m diameter fire surface is created for 2 turns.
+// Changes: A successful cast now applies Burning for 1 turn, and a 1m diameter fire surface is created for 2 turns.
 // Changes: Summoning now costs a Bonus Action instead of an Action.
 // Changes: Dismissing now has no cost instead of an Action.
 // Changes: Produce Flame: Hurl can be used indefinitely until the flame is extinguished, instead of only once.

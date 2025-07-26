@@ -11,7 +11,7 @@ function OnUsingSpellAtPosition(casterGuid, x, y, z, spell)
         -- Parameters for surface creation
         local surfaceType = "SurfaceHolyFire"
         local radius = 1
-        local lifetime = 18
+        local lifetime = 12
 
         -- Debug check for parameter values
         if type(radius) ~= "number" or type(lifetime) ~= "number" then

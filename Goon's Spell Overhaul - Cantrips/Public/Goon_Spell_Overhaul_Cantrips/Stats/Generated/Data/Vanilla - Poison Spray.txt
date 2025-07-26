@@ -1,6 +1,7 @@
 // ==================================== Poison Spray ====================================
 // Changes: Swapped magic school from Conjuration to Necromancy. 
 // Changes: Damage reduced from d12 to d10.
+// Changes: A successful cast now applies Poisoned for 1 turn.
 // Changes: Now a "Zone" spell instead of a "Projectile". 
 // Changes: Damages targets in a 5m legnth 60 degree cone.
 // Changes: Creates a poison cloud for 2 turns, same AOE as the cone.

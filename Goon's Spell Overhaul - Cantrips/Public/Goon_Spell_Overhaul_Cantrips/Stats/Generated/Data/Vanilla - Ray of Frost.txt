@@ -24,8 +24,9 @@ data "TargetConditions" "not Self()"
 // data "DisplayName" "hb948d03cg36b4g4428gbbbbg8f9de9ef46c0;1"
 // Reduces the target's &lt;LSTag Tooltip="MovementSpeed"&gt;movement speed&lt;/LSTag&gt; by [1].
 // data "Description" "h2af8dfb6g7f9ag4feag8c69gc290977fad80;8"
-// Fire a beam of frost to hinder your target's mobility, reducing its &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; by [1].
+// Fire a beam of frost to hinder your target's mobility, reducing its &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; by [1].&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create a frozen surface in a [1] radius for [2] turns instead.
 data "Description" "ha70648e8g3006g49cagb504gaf9876c83733;1"
+data "DescriptionParams" "Distance(1);2"
 // data "DescriptionParams" "Distance(3)"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Cold)"
 // data "TooltipAttackSave" "RangedSpellAttack"
