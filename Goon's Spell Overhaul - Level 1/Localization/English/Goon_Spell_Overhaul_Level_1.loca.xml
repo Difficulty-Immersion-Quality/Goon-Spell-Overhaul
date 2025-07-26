@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+	<!-- "Shout_ExpeditiousRetreat" --> <content contentuid="h235a94bfg1488g4339gaa9agecbb6e05f805" version="1">Gain &lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; immediately and as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; on each of your turns until this spell ends.</content>
+	<!-- "EXPEDITIOUS_RETREAT" --> <content contentuid="he4966810gdfbcg4cfdgb8fagda4a19648c1e" version="1">&lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; available as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.</content>
+
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+</contentList>
