@@ -16,6 +16,8 @@ data "SpellType" "Projectile"
 using "Projectile_Fly"
 data "SpellActionTypePriority" "2"
 
+// WSO_Projectile_Fly_Bird
+
 new entry "Projectile_TAD_Levitate"
 type "SpellData"
 data "SpellType" "Projectile"
