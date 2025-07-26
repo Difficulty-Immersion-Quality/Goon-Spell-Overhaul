@@ -32,7 +32,7 @@ data "Description" "h9e33ef27g4b4eg46c6gb365g6694c23fb2f0;1"
 data "DescriptionParams" "DealDamage(,Bludgeoning)"
 // Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.
 data "ExtraDescription" "h0a786089g363fg4238g8dc4g50df52125740;1"
-data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d10+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d12+SpellCastingAbilityModifier,Bludgeoning);DealDamage(2d6+SpellCastingAbilityModifier,Bludgeoning)"
+data "ExtraDescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d10+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d12+SpellCastingAbilityModifier,Bludgeoning);DealDamage(2d6+SpellCastingAbilityModifier,Bludgeoning)"
 data "TooltipDamageList" "DealDamage(LevelMapValue(GoonShillelagh)+SpellCastingAbilityModifier, Bludgeoning)"
 // data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, 10)"
 data "TooltipStatusApply" "ApplyStatus(SHILLELAGH, 100, -1)"
@@ -74,7 +74,7 @@ new entry "SHILLELAGH"
 type "StatusData"
 data "StatusType" "BOOST"
 using "SHILLELAGH"
-// Weapon is magical and deals [5]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.
+// Weapon is magical and deals[5]. &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; use the wielder's &lt;LSTag Tooltip="SpellcastingAbilityModifier"&gt;Spellcasting Ability Modifier&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;Damage begins at [1], increasing to [2] at level 5, [3] at level 11, and [4] at level 17.
 data "Description" "hab375000gaeb1g47dfg9d34ga2a778b28194;1"
 // data "DescriptionParams" "DealDamage(1d8+SpellCastingAbility, Bludgeoning)"
 data "DescriptionParams" "DealDamage(1d8+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d10+SpellCastingAbilityModifier,Bludgeoning);DealDamage(1d12+SpellCastingAbilityModifier,Bludgeoning);DealDamage(2d6+SpellCastingAbilityModifier,Bludgeoning);DealDamage(,Bludgeoning)"
