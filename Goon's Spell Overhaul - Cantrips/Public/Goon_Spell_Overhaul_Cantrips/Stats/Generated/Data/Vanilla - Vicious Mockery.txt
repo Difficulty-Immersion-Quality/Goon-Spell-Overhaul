@@ -1,5 +1,6 @@
 // ==================================== Vicious Mockery ====================================
-// Bug Fix: The hidden status "SAVED_AGAINST_HOSTILE_SPELL" will now apply. 
+// Bug Fix: The hidden status "SAVED_AGAINST_HOSTILE_SPELL" will now apply.
+// Bug Fix: The Vicious Mockery condition is no longer innapropriately removed from taking actions that are not attacks.
 // Changes: Damage increased from 1d4 to 1d8.
 // Changes: Can now target objects and allies, AI will only target hostile characters.
 
@@ -55,6 +56,26 @@ using "Target_ViciousMockery"
 // data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 data "TargetConditions" "Character() and not Ally()"
 data "CombatAIOverrideSpell" ""
+
+new entry "VICIOUSMOCKERY"
+type "StatusData"
+data "StatusType" "BOOST"
+using "VICIOUSMOCKERY"
+// Vicious Mockery
+// data "DisplayName" "h0404636bg6212g4bc3gbdb3g4c14177887d9;2"
+// &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on the next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
+// data "Description" "h51e7bbd5gf0dfg498bga1b5g02894692b693;1"
+// data "Icon" "Spell_Enchantment_ViciousMockery"
+// data "StillAnimationType" "Mental"
+// data "StillAnimationPriority" "Mental"
+// data "SoundLoop" "Spell_Status_ViciousMockery_MO"
+// data "SoundStop" "Spell_Status_ViciousMockery_MO_Stop"
+// data "StackId" "VICIOUSMOCKERY"
+// data "TickType" "EndTurn"
+// data "Boosts" "Disadvantage(AttackRoll)"
+// data "RemoveEvents" "OnAttack"
+data "RemoveConditions" "IsAttack()"
+// data "StatusEffect" "73b389af-5604-41de-92f2-bf7cb7b09304"
 
 new entry "GOON_VICIOUSMOCKERY_NOTOFFENDED"
 type "StatusData"
