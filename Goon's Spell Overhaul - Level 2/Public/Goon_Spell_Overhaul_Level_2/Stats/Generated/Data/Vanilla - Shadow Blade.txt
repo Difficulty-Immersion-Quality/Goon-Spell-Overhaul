@@ -54,9 +54,9 @@ data "Damage" "1d6"
 // data "Weapon Properties" "Finesse;Light;Melee;Dippable"
 // data "Proficiency Group" "Shortswords;SimpleWeapons"
 
-new entry "ShadowBlade_Passive"
-type "PassiveData"
-using "ShadowBlade_Passive"
+// new entry "ShadowBlade_Passive"
+// type "PassiveData"
+// using "ShadowBlade_Passive"
 // Shadow Blade
 // data "DisplayName" "h0160e9efg8974g43d6gb3fcg8d4e9d200a3c;4"
 // You have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against Lightly or Heavily Obscured targets when using this blade.

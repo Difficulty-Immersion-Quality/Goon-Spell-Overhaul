@@ -35,6 +35,7 @@ using "FLAME_BLADE"
 data "DescriptionParams" "DealDamage(1d6,Fire);Distance(3);Distance(6)"
 // data "Boosts" "IF(Item(context.Source)):WeaponProperty(Unstowable);Attribute(InventoryBound);GameplayLight(3,false,0.1);BlockAbilityModifierDamageBonus();WeaponAttackTypeOverride(MeleeSpellAttack)"
 data "Boosts" "Attribute(InventoryBound);IntrinsicSummonerProficiency();WeaponAttackRollAbilityOverride(SpellCastingAbility);WeaponProperty(Unstowable);GameplayLight(3,false,0.1)"
+data "IsUnique" "1"
 
 new entry "FLAME_BLADE_MEPHISTOPHELES"
 type "StatusData"

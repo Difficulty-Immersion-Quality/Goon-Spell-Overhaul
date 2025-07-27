@@ -1,0 +1,79 @@
+// ==================================== Searing Smite ====================================
+// Bug Fix: The upcasting description no longer innapropriately refers to "initial" damage, instead just stating that damage is increased like most other spells.
+// Bug Fix: The Searing Smite condition is hyperlinked appropriately in the spell's tooltip.
+// Changes: Added a custom "TooltipOnMiss" that states "Does not consume a Bonus Action or Spell Slot." to clarify functionality.
+// Changes: Description now states the duration of 10 turns that the Searing Smite condition is applied for.
+// TODO: Maybe force Honour ruleset changes to damage riders not functioning as DRS.
+
+new entry "Target_Smite_Searing"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_MainHandAttack"
+using "Target_Smite_Searing"
+// data "Level" "1"
+// data "SpellSchool" "Evocation"
+// data "TargetRadius" "MeleeMainWeaponRange"
+// data "SpellRoll" "Attack(AttackType.MeleeWeaponAttack)"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(1d6, Fire,Magical); ApplyStatus(SEARING_SMITE, 100, 10)"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(1d6, Fire,Magical,,0,,true,false); ApplyStatus(SEARING_SMITE, 100, 10)"
+// data "Icon" "Spell_Evocation_SearingSmite"
+// Searing Smite
+// data "DisplayName" "h34f9400ag765dg4854ga064g934f247033b5;1"
+// Deal an extra [1] and set your target on fire: it takes [2] every turn.
+// data "Description" "h322c23a7g6c1ag4ad9g8b8dgd7ae4c194acf;4"
+// Deal an additional [1] and set your target &lt;LSTag Type="Status" Tooltip="SEARING_SMITE"&gt;ablaze&lt;/LSTag&gt; for [2] turns.
+data "Description" "h69cc494cgac3eg4d2ag9416g424f6e8d7500;1"
+// data "DescriptionParams" "DealDamage(1d6,Fire);DealDamage(1d6,Fire)"
+data "DescriptionParams" "DealDamage(1d6,Fire);10"
+// data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(1d6,Fire)"
+// Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
+data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipAttackSave" "MeleeWeaponAttack"
+// data "TooltipStatusApply" "ApplyStatus(SEARING_SMITE, 100, 10)"
+// The initial damage increases by [1] per level.
+// data "TooltipUpcastDescription" "81d5554a-e990-4737-9072-78104cd4bbda"
+// Deals an additional [1] per level.
+data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
+// data "TooltipUpcastDescriptionParams" "DealDamage(1d6, Fire)"
+// data "PrepareSound" "CrSpell_Prepare_Azer_SearingSmite"
+// data "PrepareLoopSound" "CrSpell_Loop_Azer_SearingSmite"
+// data "CastSound" "Spell_Cast_Damage_SearingSmite_L1to3"
+// data "TargetSound" "Spell_Impact_Damage_SearingSmite_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:1"
+// data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "DualWieldingSpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellFlags" "IsConcentration;IsHarmful;HasVerbalComponent;IsSpell"
+// data "HitAnimationType" "MagicalDamage_External"
+// data "MemoryCost" "1"
+// data "PrepareEffect" "d2ed4f24-55f8-4c70-9bd1-8da22deb8e83"
+// data "CastEffect" "b5b24254-75d3-4575-af9f-ba3575a2f8b7"
+// data "TargetEffect" "d5f54cd9-9252-4bcd-9e04-7e63d071eac6"
+// data "DamageType" "Fire"
+
+// ==================================== Legacy of Avernus: Searing Smite ====================================
+// Bug Fix: The Searing Smite condition is hyperlinked appropriately in the spell's tooltip.
+// Changes: Added a custom "TooltipOnMiss" that states "Does not consume a Bonus Action or Spell Slot." to clarify functionality.
+// Changes: Description now states the duration of 10 turns that the Searing Smite condition is applied for.
+
+new entry "Target_Smite_Searing_ZarielTiefling"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Searing_2"
+using "Target_Smite_Searing_ZarielTiefling"
+// data "Cooldown" "OncePerRest"
+// Legacy of Avernus: Searing Smite
+// data "DisplayName" "h8a417403g2d09g4cc7g8284gece97a4ce30c;1"
+// Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
+data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipUpcastDescription" ""
+// data "TooltipUpcastDescriptionParams" ""
+// data "HitCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "8b8bb757-21ce-4e02-a2f3-97d55cf2f90b,,;6606c30b-be1c-4f17-ae6b-1a591c80b18c,,;f4ac302b-1569-404f-bd52-1fe443e265df,,;e8a5c57f-855b-4227-acaa-11e8ce8d7d64,,;7bb52cd4-0b1c-4926-9165-fa92b75876a3,,;2b81c18b-9698-4262-a623-932c2bb1296d,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "SpellFlags" "IsConcentration;IsHarmful;HasVerbalComponent;IsSpell;NoCooldownOnMiss"
+// data "MemoryCost" "0"
+// data "RootSpellID" ""
+// data "PowerLevel" ""
+// data "PrepareEffect" "c38b5f9f-b754-4a98-8957-d4cf62b4504b"

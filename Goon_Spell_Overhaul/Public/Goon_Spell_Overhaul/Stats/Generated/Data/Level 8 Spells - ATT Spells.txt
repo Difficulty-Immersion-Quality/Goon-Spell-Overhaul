@@ -18,7 +18,7 @@ using "Target_ATT_IncendiaryCloud_Recast"
 data "SpellProperties" "GROUND:Summon(fc12b3c7-d413-49dd-886f-cb626bb4e958,10,Projectile_AiHelper_Silence,,,ATT_INCENDIARY_CLOUD_AURA);ApplyStatus(ATT_INCENDIARY_CLOUD_TECHNICAL,100,1);GROUND:CreateSurface(6,10,DarknessCloud,true);GROUND:ApplyStatus(SELF,ATT_INCENDIARY_CLOUD_CASTER,100,10)"
 
 // ======================= Sunburst =======================
-// Increase damage to 12d8. Allies have Advantage on the Saving Throw. New icon.
+// Increase damage to 12d8. Allies have Advantage on the Saving Throw.
 
 new entry "Target_Sunburst"
 type "SpellData"
