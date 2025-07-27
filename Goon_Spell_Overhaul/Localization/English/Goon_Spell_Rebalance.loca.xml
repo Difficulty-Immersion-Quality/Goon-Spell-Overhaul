@@ -8,18 +8,10 @@
 	<!-- "Projectile_ArcaneShot_SeekingArrow" --> <content contentuid="" version="1">This arrow always hits its target. The &lt;LSTag Tooltip="SpellDifficultyClass"&gt;Spell Save DC&lt;/LSTag&gt; of Arcane Shots increase with your &lt;LSTag Tooltip="Intelligence"&gt;Intelligence&lt;/LSTag&gt; &lt;LSTag Tooltip="AbilityModifier"&gt;Modifier&lt;/LSTag&gt;.</content>
 	<!-- "WEAPON_BOND" --> <content contentuid="h80265c57geff1g46fegbe9dg082f562211b0" version="1">Ritually bound to its wielder. &lt;br&gt;&lt;br&gt;The weapon gains the &lt;LSTag Tooltip="Thrown"&gt;Thrown&lt;/LSTag&gt; property, can't be knocked out of the wielder's hand, and automatically returns to the wielder when &lt;LSTag Type="Spell" Tooltip="Throw_Throw"&gt;Thrown&lt;/LSTag&gt;.</content>
 
-	<!-- LEVEL 1 - Vanilla -->
-	<!-- "Shout_ExpeditiousRetreat" --> <content contentuid="h235a94bfg1488g4339gaa9agecbb6e05f805" version="1">Gain &lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; immediately and as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; on each of your turns until this spell ends.</content>
-	<!-- "EXPEDITIOUS_RETREAT" --> <content contentuid="he4966810gdfbcg4cfdgb8fagda4a19648c1e" version="1">&lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; available as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.</content>
-
     <!-- LEVEL 3 - 5E SPELLS -->
 	<!-- "Target_MotivationalSpeech" --> <content contentuid="" version="1">Three creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
 	
 	<!-- "ShadowBlade_Passive" --> <content contentuid="h1eec2cd1gc17dg48cdg8982g879f95483b05" version="1">Your &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; against Lightly or Heavily Obscured targets.</content>
-
-	<!-- Common Actions -->
-	<!-- "Shout_Dash" --> <content contentuid="h2a75359bgcb09g45aagbbf8g1c0994bb70f8" version="1">Cover more distance this turn: double your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt;.</content>
-	<!-- "DASH" --> <content contentuid="h5e59f401g38feg4baagbf36ga8d3d8479b90" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; is doubled.</content>
 
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>

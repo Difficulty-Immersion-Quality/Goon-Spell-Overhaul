@@ -1,41 +1,88 @@
-// ==================================== Other summons ====================================
-// TODO: Figure out a way of making the summon death place a technical on the summoner, to determine cooldown. Probably more SE for that.
-
-new entry "Target_FindFamiliar"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_FindFamiliar"
-// data "Cooldown" "OncePerShortRest"
-data "Cooldown" "OncePerCombat"
-
-new entry "Target_RangersCompanion"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_RangersCompanion"
-// data "Cooldown" "OncePerShortRest"
-data "Cooldown" "OncePerCombat"
-
-// ==================================== Special summons ====================================
+// ==================================== Unique summons ====================================
+// Changes: No longer has a once per short rest cooldown.
+// Changes: Now has a unique stack, and can be used alongside other summons.
+// Changes: Can no longer be used inside of combat.
 
 new entry "Target_FindFamiliar_Boo"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_FindFamiliar_Boo"
+// data "ContainerSpells" ""
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
 // data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
-data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'BooStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'Goon_BooStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+// data "TargetRadius" "18"
+// data "TargetConditions" "CanStand('6f65f77f-4583-4dd7-be15-b737d0175061') and not Character() and not Self()"
+// data "Icon" "Spell_Conjuration_FindFamiliar_Boo"
+// Find Familiar: Boo
+// data "DisplayName" "h04c0e4abge278g4e5cgb847gd1e2978a0881;2"
+// Summon your adorable, occasionally violent, and above all faithful companion, Boo.
+// data "Description" "h8394d2ffgd1f3g4080g866aged80a770cd53;4"
+// data "CastSound" "Spell_Cast_Summon_FindFamiliarDog_L1to3"
+// data "TargetSound" "Spell_Impact_Utility_FindFamiliarBoo_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
 data "Requirements" "!Combat"
+// data "SpellAnimation" "85f63b1e-1fe6-4228-863d-71f43a945b46,,;,,;551b8855-805c-45fa-973f-88df0cbe646a,,;394f93b4-106a-44e4-8e08-2feae2881df1,,;db52441a-8a80-4630-bcb8-0f220e1b8323,,;,,;f588875b-9a5f-4e05-ac41-3f3e73cdb4e4,,;,,;,,"
+// data "VerbalIntent" "Summon"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+// data "PrepareEffect" "a7a07a38-1968-4704-9dbf-550f8a4847ce"
+// data "CastEffect" "b4dcaf81-4947-41c5-a809-5c0e75570cfd"
+// data "PositionEffect" "a39ccc75-4fca-46b8-b52b-74fc4b6250ab"
+
+// ==================================== Find Familiar: Scratch
 
 new entry "Target_FindFamiliar_Dog"
 type "SpellData"
 data "SpellType" "Target"
+// using "Target_FindFamiliar"
 using "Target_FindFamiliar_Dog"
+// data "ContainerSpells" ""
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
 // data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
-data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'ScratchStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'Goon_ScratchStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+// data "RequirementConditions" "not Tagged('IN_CAMP') and not HasStatus('EPI_SCRATCH_BLOCKED')"
+// data "TargetConditions" "CanStand('b5deaa14-03b5-41c6-8372-7a9d758b4dfb') and not Character() and not Self()"
+// data "Icon" "Spell_Conjuration_FindFamiliar_Dog"
+// Find Familiar: Scratch
+// data "DisplayName" "h56b9e3ffg35a9g4593g90fbg44163f03152a;2"
+// Summon the best boy. Scratch's keen nose can discover many things hidden around the world. 
+// data "Description" "h30de9810g42e4g472bga451g7c5a5fc65c8e;4"
+// data "PrepareSound" "Spell_Prepare_Summon_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Prepare_Summon_Gen_L1to3_Loop"
+// data "CastSound" "Spell_Cast_Summon_FindFamiliarDog_L1to3"
+// data "TargetSound" "Spell_Impact_Summon_FindFamiliarDog_L1to3_02"
+// data "UseCosts" "ActionPoint:1"
+// data "RitualCosts" "ActionPoint:1"
 data "Requirements" "!Combat"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+// data "MemoryCost" ""
+// data "PrepareEffect" "239d0263-eb26-4d7e-9683-4d7be6b6a1cf"
+// data "CastEffect" "111a8b8c-b395-46d0-b2f0-a10ac6f9731f"
+
+// ==================================== Find Familiar: Cheeky Quasit
+
+new entry "Target_FOR_ThayanCellar_SummonQuasit"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Summon_Quasit"
+using "Target_FOR_ThayanCellar_SummonQuasit"
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+// data "SpellContainerID" ""
+// data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE)"
+data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'Goon_CheekyQuasitStack',UNSUMMON_ABLE)"
+// data "TargetConditions" "CanStand('000c1be8-615a-4324-b59d-1f0f5637df36') and not Character() and not Self()"
+// Find Familiar: Cheeky Quasit
+// data "DisplayName" "h2a5824beg994bg4bdcg9519gad472f453a0a;2"
+// data "RitualCosts" "ActionPoint:1"
+data "Requirements" "!Combat"
+// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+// data "MemoryCost" "0"
+
+// ==================================== Conjure Us
 
 new entry "Target_ConjureIntellectDevour"
 type "SpellData"
@@ -43,14 +90,24 @@ data "SpellType" "Target"
 using "Target_ConjureIntellectDevour"
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
+// data "SpellProperties" "GROUND:Summon(27b9089b-9aef-44e9-aaf7-100e3e320823, -1,,,'IntellectDevourStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+// data "TargetRadius" "18"
+// data "TargetConditions" "CanStand('27b9089b-9aef-44e9-aaf7-100e3e320823') and not Character() and not Self()"
+// data "Icon" "Spell_ConjureUs"
+// Conjure Us
+// data "DisplayName" "h71c08839ga8ccg45e7g825ag5b57ac274b1e;3"
+// Conjure Us to fight by your side.
+// data "Description" "h98f722e0g7e6ag4649gb48bg2b8ca4e0fd69;3"
+// data "PrepareSound" "Spell_Prepare_Summon_ConjureElemental_Air_L4to5"
+// data "PrepareLoopSound" "Spell_Loop_Summon_ConjureMinorElementals_Azer_L4to5"
+// data "CastSound" "Spell_Cast_Summon_ConjureElemental_HigherLevel_L6to8"
+// data "TargetSound" "CrSpell_Impact_DevourIntellect"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1"
 data "Requirements" "!Combat"
-
-new entry "Target_FOR_ThayanCellar_SummonQuasit"
-type "SpellData"
-data "SpellType" "Target"
-using "Target_FOR_ThayanCellar_SummonQuasit"
-// data "Cooldown" "OncePerShortRest"
-data "Cooldown" ""
-// data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE)"
-data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'CheekyQuasitStack',UNSUMMON_ABLE)"
-data "Requirements" "!Combat"
+// data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;605d49b4-03b9-47f6-96e9-7f80e6be7514,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
+// data "VerbalIntent" "Summon"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;CannotTargetItems;CannotTargetCharacter"
+// data "PrepareEffect" "239d0263-eb26-4d7e-9683-4d7be6b6a1cf"
+// data "CastEffect" "111a8b8c-b395-46d0-b2f0-a10ac6f9731f"
