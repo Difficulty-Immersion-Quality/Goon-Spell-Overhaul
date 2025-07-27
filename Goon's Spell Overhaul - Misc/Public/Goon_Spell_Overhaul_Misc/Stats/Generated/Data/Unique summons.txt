@@ -32,6 +32,9 @@ data "Requirements" "!Combat"
 // data "PositionEffect" "a39ccc75-4fca-46b8-b52b-74fc4b6250ab"
 
 // ==================================== Find Familiar: Scratch
+// Changes: No longer has a once per short rest cooldown.
+// Changes: Now has a unique stack, and can be used alongside other summons.
+// Changes: Can no longer be used inside of combat.
 
 new entry "Target_FindFamiliar_Dog"
 type "SpellData"
@@ -63,6 +66,9 @@ data "Requirements" "!Combat"
 // data "CastEffect" "111a8b8c-b395-46d0-b2f0-a10ac6f9731f"
 
 // ==================================== Find Familiar: Cheeky Quasit
+// Changes: No longer has a once per short rest cooldown.
+// Changes: Now has a unique stack, and can be used alongside other summons.
+// Changes: Can no longer be used inside of combat.
 
 new entry "Target_FOR_ThayanCellar_SummonQuasit"
 type "SpellData"
@@ -83,6 +89,8 @@ data "Requirements" "!Combat"
 // data "MemoryCost" "0"
 
 // ==================================== Conjure Us
+// Changes: No longer has a once per short rest cooldown.
+// Changes: Can no longer be used inside of combat.
 
 new entry "Target_ConjureIntellectDevour"
 type "SpellData"
