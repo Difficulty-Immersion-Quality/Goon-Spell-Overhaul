@@ -1,5 +1,5 @@
 // ==================================== Searing Smite ====================================
-// Bug Fix: The upcasting description no longer innapropriately refers to "initial" damage, instead just stating that damage is increased like most other spells.
+// Bug Fix: The upcasting description no longer inappropriately refers to "initial" damage, instead just stating that damage is increased like most other spells.
 // Bug Fix: The Searing Smite condition is hyperlinked appropriately in the spell's tooltip.
 // Changes: Added a custom "TooltipOnMiss" that states "Does not consume a Bonus Action or Spell Slot." to clarify functionality.
 // Changes: Description now states the duration of 10 turns that the Searing Smite condition is applied for.

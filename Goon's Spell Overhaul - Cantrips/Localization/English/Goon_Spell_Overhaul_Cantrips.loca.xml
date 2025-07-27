@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+	<!-- CANTRIPS - 5E SPELLS -->
+	<!-- "Target_Frostbite" --> <content contentuid="h14b33f96gb504g4c48ga26fg049298769296" version="1">Cause a numbing frost to form, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on a target creature's next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create an ice surface in a [1] radius for [2] turns instead.</content>
+
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	
 	<!-- CANTRIPS - VANILLA -->
 	<!-- "Projectile_AcidSplash" --> <content contentuid="h3254d749gf9dfg4b3fg9395gf01ae8536048" version="1">Throw a bubble of acid that damages targets caught in its splash, and leaves behind a 1m diameter acid surface.</content>
 
@@ -56,6 +64,8 @@
 	<!-- "GOON_VICIOUSMOCKERY_NOTOFFENDED" --> <content contentuid="h39505cfcga0d3g430bg93degbed42f5ff652" version="1">You question the impact your words have had upon the object.</content>
 	<!-- "GOON_VICIOUSMOCKERY_NOTOFFENDED" --> <content contentuid="h9d0ca952g02fag464bgac97g14194b425390" version="1">You question the impact your words have had upon the corpse.</content>
 
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 </contentList>

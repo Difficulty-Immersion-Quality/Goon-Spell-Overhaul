@@ -1,16 +1,38 @@
 // ============================ Thunderclap ============================
 // Changes: Damage increased from d6 Thunder damage to d8 Thunder damage.
 // Changes: No longer increases in die size at level 16.
-// TODO: Compare against latest entries.
-// TODO: Flavour text.
 
 new entry "Shout_Thunderclap"
 type "SpellData"
 data "SpellType" "Shout"
 using "Shout_Thunderclap"
-// data "SpellSuccess" "IF(not CharacterLevelGreaterThan(16)):DealDamage(LevelMapValue(D6Cantrip),Thunder,Magical);IF(CharacterLevelGreaterThan(16)):DealDamage(4d8,Thunder,Magical)"
+// data "Level" "0"
+// data "SpellSchool" "Evocation"
+// data "AreaRadius" "2"
+// data "SpellRoll" "not SavingThrow(Ability.Constitution, SourceSpellDC())"
+// data "SpellSuccess" "DealDamage(LevelMapValue(D6Cantrip),Thunder,Magical)"
 data "SpellSuccess" "DealDamage(LevelMapValue(D8Cantrip),Thunder,Magical)"
-// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source) and not CharacterLevelGreaterThan(16)):DealDamage((LevelMapValue(D6Cantrip))/2,Thunder,Magical);IF(HasPassive('PotentCantrip',context.Source) and CharacterLevelGreaterThan(16)):DealDamage(4d6/2,Thunder,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D6Cantrip))/2,Thunder,Magical)"
 data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D8Cantrip))/2,Thunder,Magical)"
+// data "TargetConditions" "not Dead() and not Self() and not (HasPassive('SculptSpells', context.Source) and Ally())"
+// data "Icon" "Spell_Evocation_Thunderclap"
+// Thunderclap
+// data "DisplayName" "h6a0999c9g19f0g4a2bg8247g0c5f78a66703;1"
+// Create a burst of thunderous sound that affects nearby creatures.
+// data "Description" "h180d07d5g197ag4a19gb1f6g224adaa7ca02;1"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Thunder)"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Thunder)"
+// data "TooltipAttackSave" "Constitution"
+// data "CastTextEvent" "Cast"
+// data "PrepareSound" "Spell_Prepare_Damage_Thunder_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Loop_Damage_Thunder_Gen_L1to3"
+// data "CastSound" "Spell_Cast_Damage_Thunder_Shatter_L1to3"
+// data "TargetSound" "Spell_Impact_Damage_Thunder_Shatter_L1to3"
+// data "HitAnimationType" "MagicalDamage_External"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellAnimation" "5e57443f-284e-47b2-915e-5b6417db269c,,;d8b7f668-db2b-43b0-9707-5da2ed2cf27e,,;7521e279-1bb3-4105-b32d-8206234836a3,,;d172e037-7041-4352-9a20-5f4b185f9ef1,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;IsHarmful"
+// data "PrepareEffect" "49dd385f-fd25-4372-8628-30b775af7c79"
+// data "CastEffect" "2550e2bb-c9f9-4440-9cd4-146a03f2e9bc"
+// data "DamageType" "Thunder"

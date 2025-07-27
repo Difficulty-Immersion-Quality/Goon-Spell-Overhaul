@@ -1,7 +1,5 @@
 // ==================================== Prestidigitation ====================================
 // TODO: AOE version of "Target_Prestidigitation_Fire" for lighting room fulls of candles and shit.
-// TODO: Compare against latest entries.
-// TODO: Flavour text.
 
 // new entry "Target_Prestidigitation"
 // type "SpellData"
@@ -11,7 +9,9 @@
 // data "SpellSchool" "Transmutation"
 // data "TargetRadius" "3"
 // data "Icon" "Spell_Transmutation_Prestidigitation"
+// Prestidigitation
 // data "DisplayName" "hdb65ca99gdf3dg4492g9daag28bf7861dcef;1"
+// Perform minor magical tricks that light or snuff out fire on some items, cleans certain surfaces or creatures and creates musical notes that can distract others.
 // data "Description" "he8442688g04f1g4751ga863gfe05abc86b89;1"
 // data "TooltipStatusApply" "ApplyStatus(PRESTIDIGITATION,100,1)"
 // data "PreviewCursor" "Cast"
@@ -27,6 +27,8 @@
 // data "CastEffect" "60682975-b896-4740-8ae8-08e43bba3b16"
 // data "PositionEffect" "68b1219a-ccc2-4b29-bb42-b18996de3b4d"
 
+// ==================================== Prestidigitation: Clean
+
 // new entry "Target_Prestidigitation_Clean"
 // type "SpellData"
 // data "SpellType" "Target"
@@ -34,10 +36,27 @@
 // data "SpellContainerID" "Target_Prestidigitation"
 // data "SpellProperties" "TARGET:IF(Character()):ApplyStatus(PRESTIDIGITATION,100,1);TARGET:IF(Character()):ApplyStatus(SOAP_WASH,100,1);GROUND:IF(not Character() and (Surface('SurfaceWater') or Surface('SurfaceWaterElectrified') or Surface('SurfaceBlood') or Surface('SurfaceBloodElectrified') or Surface('SurfacePoison') or Surface('SurfaceOil') or Surface('SurfaceGrease') or Surface('SurfaceWeb') or Surface('SurfaceAcid') or Surface('SurfaceAlienoil') or Surface('SurfaceMud') or Surface('SurfaceAlcohol') or Surface('SurfaceBloodSilver') or Surface('SurfaceAsh'))):CreateSurface(2,,None)"
 // data "TargetConditions" "Character() or (Surface('SurfaceWater') or Surface('SurfaceWaterElectrified') or Surface('SurfaceBlood') or Surface('SurfaceBloodElectrified') or Surface('SurfacePoison') or Surface('SurfaceOil') or Surface('SurfaceGrease') or Surface('SurfaceWeb') or Surface('SurfaceAcid') or Surface('SurfaceAlienoil') or Surface('SurfaceMud') or Surface('SurfaceAlcohol') or Surface('SurfaceBloodSilver') or Surface('SurfaceAsh'))"
+// Prestidigitation: Clean
 // data "DisplayName" "hbb5d0712ged38g4402gb6f6ge1dfbbc3106c;1"
+// Instantly clean a creature of blood, sweat and dirt or remove certain surfaces.
 // data "Description" "h36de362ag85f3g4a80gbabcgc990ea33b6a3;1"
 // data "ExtraDescription" "h71e2740cg0198g4cf1gabe2gcb4f338a9bde;1"
 // data "TooltipStatusApply" "ApplyStatus(PRESTIDIGITATION,100,1)"
+
+// new entry "PRESTIDIGITATION"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Prestidigitation
+// data "DisplayName" "hdb65ca99gdf3dg4492g9daag28bf7861dcef;1"
+// Cleaned of blood, dirt and sweat.
+// data "Description" "hcdda5d73gea05g4742g9cd5g4b9beb7e7417;1"
+// data "Icon" "Spell_Transmutation_Prestidigitation"
+// data "StackId" "PRESTIDIGITATION"
+// data "SplatterDirtAmount" "-2.5"
+// data "SplatterBloodAmount" "-2.5"
+// data "SplatterSweatAmount" "-2.5"
+
+// ==================================== Prestidigitation: Musical
 
 // new entry "Target_Prestidigitation_Distract"
 // type "SpellData"
@@ -46,8 +65,23 @@
 // data "SpellContainerID" "Target_Prestidigitation"
 // data "SpellProperties" "GROUND:Summon(b9a2fca3-112e-4f31-83bc-1c856c6b2ca3, 1,,,'PrestidigitationStack',PRESTIDIGITATION_VFX,CRIME_DISTRACTION)"
 // data "TargetConditions" "CanStand('b9a2fca3-112e-4f31-83bc-1c856c6b2ca3')"
+// Prestidigitation: Musical
 // data "DisplayName" "hcdbc4e09g3d74g43e5g9d16ge465dabf3406;1"
+// Create music that possibly distracts creatures nearby.
 // data "Description" "h6ae73b47g47d2g4213gb583g6afe2c552b16;1"
+
+// new entry "PRESTIDIGITATION_VFX"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "PERFORM_POSITIVE_THEPOWER"
+// data "Boosts" "Proficiency(MusicalInstrument);Invulnerable();IgnoreLeaveAttackRange();IncreaseMaxHP(999);AC(90);Resistance(Bludgeoning,Immune);Resistance(Slashing,Immune);Resistance(Piercing,Immune);Resistance(Acid,Immune);Resistance(Cold,Immune);Resistance(Fire,Immune);Resistance(Force,Immune);Resistance(Lightning,Immune);Resistance(Necrotic,Immune);Resistance(Poison,Immune);Resistance(Psychic,Immune);Resistance(Radiant,Immune);Resistance(Thunder,Immune);StatusImmunity(SG_Condition);StatusImmunity(SG_Blinded);StatusImmunity(SG_Charmed);StatusImmunity(SG_Cursed);StatusImmunity(SG_Disease);StatusImmunity(SG_Exhausted);StatusImmunity(SG_Frightened);StatusImmunity(SG_Incapacitated);StatusImmunity(SG_Invisible);StatusImmunity(SG_Poisoned);StatusImmunity(SG_Prone);StatusImmunity(SG_Restrained);StatusImmunity(SG_Stunned);StatusImmunity(SG_Unconscious);StatusImmunity(SG_Polymorph);StatusImmunity(SG_Paralyzed);StatusImmunity(SG_Petrified);StatusImmunity(SG_Drunk);StatusImmunity(SG_Sleeping);StatusImmunity(SG_CanBePickedUp);StatusImmunity(SG_Approaching);StatusImmunity(SG_Taunted);StatusImmunity(SG_Dominated);StatusImmunity(SG_Fleeing);StatusImmunity(SG_Confused);StatusImmunity(SG_Mad);Tag(SUMMON);ActionResourceBlock(ActionPoint);ActionResourceBlock(BonusActionPoint);ActionResourceBlock(ReactionActionPoint);ActionResourceBlock(Movement);"
+// data "StackId" "PRESTIDIGITATION_VFX"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;Performing;UnsheathInstrument"
+// data "RemoveConditions" ""
+// data "RemoveEvents" ""
+// data "StatusEffect" "VFX_Status_CounterCharm_BodyFX_Overlay_01"
+
+// ==================================== Prestidigitation: Fire
 
 // new entry "Target_Prestidigitation_Fire"
 // type "SpellData"
@@ -56,5 +90,7 @@
 // data "SpellContainerID" "Target_Prestidigitation"
 // data "SpellProperties" "TARGET:IF(Item() and HasStatus('BURNING')):RemoveStatus(BURNING);TARGET:IF(Item() and not HasStatus('BURNING')):ApplyStatus(BURNING,100,-1);TARGET:IF(Character() and (HasStatus('DIPPED_FIRE',GetActiveWeapon()) or HasStatus('BURNING',GetActiveWeapon()))):ApplyEquipmentStatus(MainHand,BURNING_REMOVAL,100,0)"
 // data "TargetConditions" "(Character() and (HasStatus('DIPPED_FIRE',GetActiveWeapon()) or HasStatus('BURNING',GetActiveWeapon()))) or Item()"
+// Prestidigitation: Fire
 // data "DisplayName" "h791afe39g7f77g48dega27fgc0472f2177a5;1"
+// Light or snuff out fire on a weapon or object such as a torch.
 // data "Description" "hd579d008g05dbg4a4bg9c9cg8ee61d667897;1"
