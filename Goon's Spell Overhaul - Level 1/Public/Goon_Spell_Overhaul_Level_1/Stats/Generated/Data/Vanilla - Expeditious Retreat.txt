@@ -1,6 +1,5 @@
 // ==================================== Expeditious Retreat ====================================
-// Bug Fix: Tooltip hyperlinks.
-// Changes: Allowed it to stack up to 10 times, just to compensate for mods providing more means of Dashing, actions etc. (Same as Dash)
+// Changes: Now stacks up to 10 times. Just to compensate for mods potentially providing more means of Dashing.
 
 new entry "Shout_ExpeditiousRetreat"
 type "SpellData"

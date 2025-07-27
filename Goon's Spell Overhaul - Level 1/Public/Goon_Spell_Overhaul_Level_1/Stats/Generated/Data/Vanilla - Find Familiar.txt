@@ -1,5 +1,5 @@
 // ==================================== Find Familiar ====================================
-// Changes: Once per short rest cooldown removed.
+// Changes: No longer has a once per short rest cooldown.
 
 new entry "Target_FindFamiliar"
 type "SpellData"

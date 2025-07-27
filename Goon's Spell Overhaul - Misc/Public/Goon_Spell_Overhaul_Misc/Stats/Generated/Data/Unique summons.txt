@@ -2,6 +2,7 @@
 // Changes: No longer has a once per short rest cooldown.
 // Changes: Now has a unique stack, and can be used alongside other summons.
 // Changes: Can no longer be used inside of combat.
+// TODO: 3/4 of these aren't actually spells right?
 
 new entry "Target_FindFamiliar_Boo"
 type "SpellData"
