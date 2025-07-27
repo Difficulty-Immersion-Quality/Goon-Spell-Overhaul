@@ -1,10 +1,11 @@
 // ==================================== Poison Spray ====================================
 // Changes: Swapped magic school from Conjuration to Necromancy. 
-// Changes: Damage reduced from d12 to d10.
+// Changes: Damage reduced from d12 Poison damage to d10 Poison damage.
 // Changes: A successful cast now applies Poisoned for 1 turn.
 // Changes: Now a "Zone" spell instead of a "Projectile". 
-// Changes: Damages targets in a 5m legnth 60 degree cone.
+// Changes: Damages targets in a 5m length 60 degree cone.
 // Changes: Creates a poison cloud for 2 turns, same AOE as the cone.
+// TODO: Probably keep the original spell and make this a new one, or turn the base spell into a container with variations.
 
 new entry "Projectile_PoisonSpray"
 type "SpellData"

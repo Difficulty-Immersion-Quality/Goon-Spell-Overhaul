@@ -2,7 +2,7 @@
 // Bug Fix: The Blade Ward condition now ticks at the start of turns instead of end of turns, as to not waste duration like most other defensive conditions.
 // Changes: Now costs a Bonus Action instead of an Action.
 // Changes: Duration scales with Proficiency Bonus.
-// Changes: Whenever you take damage from a Bludgeoning, Piercing, or Slashing, the duration of the Blade Ward condition is reduced by 1 turn.
+// Changes: Whenever you take Bludgeoning, Piercing, or Slashing from most sources, the duration of the Blade Ward condition is reduced by 1 turn.
 // Changes: Duration can only be reduced once per turn by any individual entity dealing damage.
 
 new entry "Shout_BladeWard"

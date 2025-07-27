@@ -1,5 +1,5 @@
 // ==================================== Thorn Whip ====================================
-// Changes: Damage increased from a d6 to a d8.
+// Changes: Damage increased from d6 Piercing damage to d8 Piercing damage.
 // Changes: A successful cast now applies Bleeding for 1 turn.
 // Changes: Increased pull range from 3m to 5m.
 // Changes: Can now slightly control the trajectory of the pull based on cursor position on the target entity. 

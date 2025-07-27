@@ -1,6 +1,6 @@
 // ==================================== Eldritch Blast ====================================
 // Changes: Can now slightly control the trajectory of the push based on cursor position on the target entity. (Repelling Blast)
-// Changes: Targetting unrestricted.
+// Changes: Targeting unrestricted.
 
 new entry "Projectile_EldritchBlast"
 type "SpellData"

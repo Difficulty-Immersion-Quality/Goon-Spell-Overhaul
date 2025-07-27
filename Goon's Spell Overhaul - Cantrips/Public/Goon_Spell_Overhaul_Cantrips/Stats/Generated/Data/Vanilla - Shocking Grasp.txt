@@ -1,6 +1,7 @@
 // ==================================== Shocking Grasp ====================================
-// Changes: Damage increased from a d8 to a d10.
-// Changes: Surfaces are only elecrified if you target them directly or successfully hit your target.
+// Changes: Damage increased from d8 Lightning damage to d10 Lightning damage.
+// Changes: Surfaces are only electrified if you target them directly or successfully hit your target.
+// Changes: Targeting unrestricted.
 
 new entry "Target_ShockingGrasp"
 type "SpellData"

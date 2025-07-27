@@ -1,8 +1,8 @@
 // ==================================== Fire Bolt ====================================
-// Changes: Damage reduced from d10 to d8.
+// Changes: Damage reduced from d10 Fire damage to d8 Fire damage.
 // Changes: A successful cast now applies Burning for 1 turn.
-// Changes: Creates a 1m diameter fire surface for 2 turns when targetting the ground, corpses, or objects.
-// Changes: Targetting unrestricted.
+// Changes: Creates a 1m diameter fire surface for 2 turns when targeting the ground, corpses, or objects.
+// Changes: Targeting unrestricted.
 
 new entry "Projectile_FireBolt"
 type "SpellData"

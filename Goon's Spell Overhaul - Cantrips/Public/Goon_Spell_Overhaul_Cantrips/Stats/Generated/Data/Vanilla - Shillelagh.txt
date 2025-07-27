@@ -1,10 +1,10 @@
 // ==================================== Shillelagh ====================================
 // Changes: Is now a "Target" spell instead of a "Shout", allowing you to target allies and weapons that aren't equipped.
-// Changes: Scales from 1d8 to 1d10 at level 5, 1d12 at level 11, and 2d6 at level 17.
+// Changes: Scales from 1d8 Bludgeoning Damage to 1d10 Bludgeoning Damage at level 5, 1d12 Bludgeoning Damage at level 11, and 2d6 Bludgeoning Damage at level 17.
 // Changes: Works with Clubs, Greatclubs, Quarterstaffs, Maces, Javelins, Darts, Spears and Tridents.
 // Changes: Lasts until long rest instead of 10 turns, the caster can only have one Shillelagh active at a time.
 // Changes: The wielder can cancel the effect at will (AI will not cancel the effect).
-// TODO: Strengthened Shillelagh can be exploited by summoning multiple Dryads and buffing the whole party. They should probably just use vanilla functionality, only buffing themselves. Or have the enchantment specify that only Dryad's benefit from the outrageous 4d8 damage.
+// TODO: Strengthened Shillelagh can be exploited by summoning multiple Dryads and buffing the whole party. They should probably just use vanilla functionality, only buffing themselves. Or have the enchantment specify that only Dryad's benefit from the outrageous 4d8 Bludgeoning damage.
 // TODO: Clean up entries.
 
 new entry "Shout_Shillelagh"

@@ -1,4 +1,5 @@
 // ==================================== Friends ====================================
+// Changes: Description made more flavourful.
 
 new entry "Target_Friends"
 type "SpellData"
@@ -48,7 +49,7 @@ data "Description" "h0617a1cdg0b57g4d4bg99aeg483c80883333;1"
 // data "TargetConditions" "Character() and not Self()"
 // // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature.
 // // data "Description" "h21bab19cg2de1g46f5g9805g7fb58680f3ff;2"
-// // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targetting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.
+// // Gain &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Charisma &lt;LSTag Tooltip="AbilityCheck"&gt;Checks&lt;/LSTag&gt; against a non-hostile creature in dialogue. When targeting a hostile creature in combat, they must succeed a &lt;LSTag Tooltip="Wisdom"&gt;Wisdom&lt;/LSTag&gt; &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or suffer &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; against you.
 // data "Description" "h40d4759dga74ag4804gac41g65b19eb68b17;1"
 // // data "UseCosts" "ActionPoint:1"
 // data "UseCosts" "BonusActionPoint:1"

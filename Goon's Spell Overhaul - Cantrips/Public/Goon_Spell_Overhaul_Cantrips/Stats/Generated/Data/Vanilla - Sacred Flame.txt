@@ -1,7 +1,7 @@
 // ==================================== Sacred Flame ====================================
-// Changes: Damage increased from a d8 to a d10.
+// Changes: Damage increased from d8 Radiant damage to a d10 Radiant damage.
 // Changes: A successful cast now applies Holy Fire for 1 turn.
-// Changes: Targetting unrestricted.
+// Changes: Targeting unrestricted.
 
 new entry "Target_SacredFlame"
 type "SpellData"

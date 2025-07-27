@@ -1,7 +1,7 @@
 // ==================================== Acid Splash ====================================
 // Changes: Swapped magic school from Conjuration to Evocation. 
 // Changes: Creates a 1m diameter acid surface for 2 turns.
-// Changes: Targetting unrestricted.
+// Changes: Targeting unrestricted.
 // TODO: Figure out why it appears to be hardcoding the target conditions to creatures and the ground.
 
 new entry "Projectile_AcidSplash"

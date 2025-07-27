@@ -2,7 +2,7 @@
 // Changes: "Bone Chill" is now named "Chill Touch".
 // Changes: The "Bone Chilled" condition is now named "Chill of the Grave".
 // Changes: Deals 1d4 Necrotic and 1d4 Cold damage instead of 1d8 Necrotic damage.
-// Changes: Targetting unrestricted.
+// Changes: Targeting unrestricted.
 
 new entry "Target_ChillTouch"
 type "SpellData"

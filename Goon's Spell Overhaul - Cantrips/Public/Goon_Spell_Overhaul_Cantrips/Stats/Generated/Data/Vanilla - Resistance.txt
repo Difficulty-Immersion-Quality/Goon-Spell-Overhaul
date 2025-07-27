@@ -3,8 +3,8 @@
 // Changes: Now costs a Bonus Action instead of an Action.
 // Changes: Lasts until long rest instead of 10 turns.
 // Changes: Range increased from 1.5m to 9.
-// Changes: Targetting unrestricted.
-// Changes: VFX and SFX only last for 1 round after the intitial application.
+// Changes: Targeting unrestricted.
+// Changes: VFX and SFX only last for 1 round after the initial application.
 
 new entry "Target_Resistance"
 type "SpellData"
