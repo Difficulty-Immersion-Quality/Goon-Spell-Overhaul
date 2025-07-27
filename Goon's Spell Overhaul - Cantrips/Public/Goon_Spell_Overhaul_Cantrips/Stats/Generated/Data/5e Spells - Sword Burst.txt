@@ -1,5 +1,5 @@
 // ============================ Sword Burst ============================
-// Changes: Damage increased from d6 to d8.
+// Changes: Damage increased from d6 Force damage to d8 Force damage.
 // Changes: No longer increases in die size at level 12.
 // TODO: Compare against latest entries.
 // TODO: Flavour text.

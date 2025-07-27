@@ -1,6 +1,7 @@
 // ==================================== Eldritch Blast ====================================
 // Changes: Can now slightly control the trajectory of the push based on cursor position on the target entity. (Repelling Blast)
 // Changes: Targeting unrestricted.
+// Bonus: Natively supports Eldritch Blast Overhaul (Scarlet Warlock).
 
 new entry "Projectile_EldritchBlast"
 type "SpellData"

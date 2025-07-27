@@ -1,5 +1,5 @@
 // ============================ Thunderclap ============================
-// Changes: Damage increased from d6 to d8.
+// Changes: Damage increased from d6 Thunder damage to d8 Thunder damage.
 // Changes: No longer increases in die size at level 16.
 // TODO: Compare against latest entries.
 // TODO: Flavour text.
