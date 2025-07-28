@@ -1,0 +1,3 @@
+function Goon_BladeCantripAttack()
+	return Attack(AttackType.MeleeWeaponAttack)
+end

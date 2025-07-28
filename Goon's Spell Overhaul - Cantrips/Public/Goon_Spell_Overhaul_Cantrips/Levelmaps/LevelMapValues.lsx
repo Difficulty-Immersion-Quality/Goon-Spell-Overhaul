@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <save>
-    <version major="4" minor="7" revision="1" build="3"/>
+    <version major="4" minor="0" revision="8" build="612"/>
     <region id="LevelMapValues">
         <node id="root">
             <children>
@@ -27,6 +27,13 @@
                     <attribute id="Level20" type="LSString" value="2d6"/>
                     <attribute id="Name" type="FixedString" value="GoonShillelagh"/>
                     <attribute id="UUID" type="guid" value="65e0f371-6acb-4b72-b24c-2f4d2a16653b"/>
+                </node>
+                <node id="LevelMapSeries">
+                    <attribute id="Level5" type="LSString" value="1d8"/>
+                    <attribute id="Level10" type="LSString" value="2d8"/>
+                    <attribute id="Level17" type="LSString" value="3d8"/>
+                    <attribute id="Name" type="FixedString" value="Goon_BladeCantrips"/>
+                    <attribute id="UUID" type="guid" value="a70ffcf3-e72a-46f1-bb33-cff784b592de"/>
                 </node>
             </children>
         </node>
