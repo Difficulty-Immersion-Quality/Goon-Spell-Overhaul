@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+    <!-- LEVEL 3 - 5E SPELLS -->
+	<!-- "Target_MotivationalSpeech" --> <content contentuid="h38571638g79a7g4ae6g8380g34d54cf06253" version="1">Three target creatures in the area gain [1] and have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on Wisdom &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. If hit by an attack, an affected creature has &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; on its next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt; during combat.</content>
+
+    <!-- LEVEL 3 - VANILLA -->
+	<!-- "Target_Smite_Blinding" --> <content contentuid="h82888909gf34cg4ddeg94d3g3883e31c0b4d" version="1">Evoke a heavenly flare and possibly &lt;LSTag Type="Status" Tooltip="BLINDING_SMITE_BLINDED"&gt;Blind&lt;/LSTag&gt; your target for [1] turns.</content>
+
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+</contentList>

@@ -1,0 +1,155 @@
+// ==================================== Crusader's Mantle ====================================
+// Bug Fix: Expansion's level 7-9 upcasts now have the appropriate "TooltipUpcastDescription"; "Casting this spell at a higher level doesn't grant any additional benefits."
+// Changes: Disabled combat log output for the aura's condition being applied and removed, to prevent spam.
+
+// new entry "Shout_CrusadersMantle"
+// type "SpellData"
+// data "SpellType" "Shout"
+// data "Level" "3"
+// data "SpellSchool" "Evocation"
+// data "SpellProperties" "AI_IGNORE:ApplyStatus(CRUSADERS_MANTLE,100,10);AI_ONLY:IF(not HasStatus('CRUSADERS_MANTLE')):ApplyStatus(AI_HELPER_BUFF_LARGE,100,4)"
+// data "AreaRadius" "9"
+// data "TargetConditions" "Self()"
+// data "Icon" "Spell_Evocation_CrusadersMantle"
+// Crusader's Mantle
+// data "DisplayName" "he5aa806dg40feg44bfg9c9bgc2a92ac86179;1"
+// Radiate a holy power that emboldens you and nearby allies. You and your allies' weapon attacks deal an additional [1].
+// data "Description" "h907ce69agfbe1g4ce9gb7fegb8e2b11e590e;5"
+// data "DescriptionParams" "DealDamage(1d4,Radiant)"
+// data "TooltipStatusApply" "ApplyStatus(CRUSADERS_MANTLE,100,10)"
+// data "CastSound" "Spell_Cast_Buff_CrusadersMantle_L1to3"
+// data "TargetSound" "Spell_Impact_Buff_CrusadersMantle_L1to3"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:3"
+// data "SpellAnimation" "03496c4a-49e0-4132-b585-3e5ecd1ad8e5,,;,,;5e7e63e1-0e69-46e7-ade7-fe3dadcc9184,,;e9ad50df-e7f1-43a0-b782-4c08f92b0f5a,,;a9682ef9-5d9e-4ac0-8144-2c7fe6eb868c,,;,,;32fb4d91-7fde-4b05-9144-ea87b9a4284a,,;,,;,,"
+// data "VerbalIntent" "Buff"
+// data "SpellStyleGroup" "Class"
+// data "SpellFlags" "HasVerbalComponent;IsSpell;IsConcentration"
+// data "HitAnimationType" "MagicalNonDamage"
+// data "PrepareEffect" "747ac7e5-c52e-4e5a-be78-1f9de85b55ea"
+// data "CastEffect" "ab2f9793-28a8-4cd1-a519-dc00947d8f58"
+
+new entry "CRUSADERS_MANTLE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CRUSADERS_MANTLE"
+// Crusader's Mantle Aura
+// data "DisplayName" "h498a228bg3f88g44a1g8195g887e90bf8678;2"
+// Emitting a holy aura. Your and your nearby allies' weapon attacks deal an additional [1].
+// data "Description" "h1ee748b0gdfaeg467aga8e8g237f719b9196;3"
+// data "DescriptionParams" "DealDamage(1d4,Radiant)"
+// data "Icon" "Spell_Evocation_CrusadersMantle"
+data "StatusPropertyFlags" "DisableCombatlog"
+// data "StackId" "CRUSADERS_MANTLE"
+// data "StackPriority" "10"
+// data "AuraRadius" "9"
+// data "AuraStatuses" "TARGET:IF(Character() and not Dead() and not Enemy()):ApplyStatus(CRUSADERS_MANTLE_AURA,100,1)"
+data "AuraStatuses" "TARGET:IF(Character() and not Dead() and not Enemy()):ApplyStatus(CRUSADERS_MANTLE_AURA)"
+// data "Boosts" "CharacterWeaponDamage(1d4,Radiant)"
+
+// new entry "CRUSADERS_MANTLE_AURA"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Crusader's Mantle
+// data "DisplayName" "h614c6e20gddcfg4e2fgb3c6g436212ea6f85;2"
+// Near a paladin's holy aura. Weapon attacks deal an additional [1].
+// data "Description" "h922e4665g6424g4d03gafffgd2c1ea37c374;2"
+// data "DescriptionParams" "DealDamage(1d4,Radiant)"
+// data "Icon" "Spell_Evocation_CrusadersMantle"
+// data "StackId" "CRUSADERS_MANTLE"
+// data "StackPriority" "5"
+// data "Boosts" "CharacterWeaponDamage(1d4,Radiant)"
+// data "StatusEffect" "d97ef273-66ce-43b1-9020-f39ab3de80f1"
+
+// ==================================== Upcasting - Crusader's Mantle - 4
+
+// new entry "Shout_CrusadersMantle_4"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "4"
+
+// ==================================== Upcasting - Crusader's Mantle - 5
+
+// new entry "Shout_CrusadersMantle_5"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "5"
+
+// ==================================== Upcasting - Crusader's Mantle - 6
+
+// new entry "Shout_CrusadersMantle_6"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "6"
+
+// ==================================== Upcasting - Crusader's Mantle - 7
+
+new entry "Shout_CrusadersMantle_7"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+using "Shout_CrusadersMantle_7"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "7"
+
+// ==================================== Upcasting - Crusader's Mantle - 7
+
+new entry "Shout_CrusadersMantle_8"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+using "Shout_CrusadersMantle_8"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "8"
+
+// ==================================== Upcasting - Crusader's Mantle - 6
+
+new entry "Shout_CrusadersMantle_9"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+using "Shout_CrusadersMantle_9"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Shout_CrusadersMantle"
+// data "PowerLevel" "9"
+
+// ==================================== Mantle of the Holy Warrior - Crusader's Mantle
+
+// new entry "Shout_MAG_CrusadersMantle"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+// data "Cooldown" "OncePerShortRestPerItem"
+// data "UseCosts" "ActionPoint:1"
+
+// ==================================== Flaming Fist Clerics - Crusader's Mantle
+
+// new entry "Shout_LOW_FlamingFist_Cleric_CrussadersMantle_4"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_CrusadersMantle"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" ""

@@ -1,0 +1,136 @@
+// ==================================== Blinding Smite ====================================
+// Bug Fix: Expansion's level 7-9 upcasts now have the appropriate "TooltipUpcastDescription"; "Casting this spell at a higher level doesn't grant any additional benefits."
+// Bug Fix: Added a custom "TooltipOnMiss" that matches the functionality "Does not consume a Bonus Action or Spell Slot."
+// Changes: Forced Honour ruleset changes to damage riders not functioning as damage rider sources.
+// Changes: Description now states the duration of 10 turns that Blinded is applied for.
+
+new entry "Target_Smite_Blinding"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_MainHandAttack"
+using "Target_Smite_Blinding"
+// data "Level" "3"
+// data "SpellSchool" "Evocation"
+// data "SpellProperties" "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);GROUND:ExecuteWeaponFunctors(MainHand);IF(not Player(context.Source)):ApplyStatus(SELF,AI_HELPER_EXTRAATTACK,100,1);GROUND:DealDamage(3d8,Radiant)"
+// data "SpellRoll" "Attack(AttackType.MeleeWeaponAttack)"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// data "TargetConditions" "not Self() and Character()"
+// data "Icon" "Spell_Evocation_BlindingSmite"
+// Blinding Smite
+// data "DisplayName" "h8a44e5a9g1396g471fgb4afgbb351beefb55;2"
+// Evoke a heavenly flare and possibly &lt;LSTag Type="Status" Tooltip="BLINDING_SMITE_BLINDED"&gt;Blind&lt;/LSTag&gt; your target.
+// data "Description" "hec1e0a79g535cg42a8gb247ga676b74f3657;7"
+// Evoke a heavenly flare and possibly &lt;LSTag Type="Status" Tooltip="BLINDING_SMITE_BLINDED"&gt;Blind&lt;/LSTag&gt; your target for [1] turns.
+data "Description" "h82888909gf34cg4ddeg94d3g3883e31c0b4d;1"
+// data "DescriptionParams" ""
+data "DescriptionParams" "10"
+// data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(3d8,Radiant)"
+// Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
+data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipAttackSave" "MeleeWeaponAttack;Constitution"
+// data "TooltipStatusApply" "ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// data "CastSound" "Spell_Cast_Damage_Radiant_BlindingSmite_L1to3"
+// data "TargetSound" "Spell_Impact_Damage_Radiant_BlindingSmite_L1to3"
+// data "DualWieldingUseCosts" ""
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:3"
+// data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;48beee2b-7124-4fa1-b820-dab4d89198d4,,;bcecc5ce-e7c9-4391-b4b6-5f93872ba2e6,,;9add032c-e500-4e88-a2ea-ef6c905bd656,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;d9feef5a-3726-4e23-95e5-6ec295efdc96,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "DualWieldingSpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;48beee2b-7124-4fa1-b820-dab4d89198d4,,;bcecc5ce-e7c9-4391-b4b6-5f93872ba2e6,,;9add032c-e500-4e88-a2ea-ef6c905bd656,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;d9feef5a-3726-4e23-95e5-6ec295efdc96,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "DualWieldingSpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellStyleGroup" "Class"
+// data "SpellFlags" "IsMelee;IsHarmful;IsSpell;HasVerbalComponent"
+// data "PrepareEffect" "3dd8cb62-d04e-449c-bd94-ed59f472ec5a"
+// data "CastEffect" "da03ffe6-2e75-4070-be9d-a637666f2e9e"
+// data "TargetEffect" "efbd2c87-105c-46da-8501-8a47a85d20f9"
+// data "DamageType" "Radiant"
+// data "SpellSoundMagnitude" "Big"
+
+// ==================================== Upcasting - Blinding Smite - 4
+
+new entry "Target_Smite_Blinding_4"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_4"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "4"
+
+// ==================================== Upcasting - Blinding Smite - 5
+
+new entry "Target_Smite_Blinding_5"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_5"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "5"
+
+// ==================================== Upcasting - Blinding Smite - 6
+
+new entry "Target_Smite_Blinding_6"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_6"
+// data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "6"
+
+// ==================================== Upcasting - Blinding Smite - 7
+
+new entry "Target_Smite_Blinding_7"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_7"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "7"
+
+// ==================================== Upcasting - Blinding Smite - 8
+
+new entry "Target_Smite_Blinding_8"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_8"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "8"
+
+// ==================================== Upcasting - Blinding Smite - 9
+
+new entry "Target_Smite_Blinding_9"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_Smite_Blinding"
+using "Target_Smite_Blinding_9"
+data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand);DealDamage(3d8,Radiant,Magical,,0,,true,false);IF(not SavingThrow(Ability.Constitution, SourceSpellDC())):ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Target_Smite_Blinding"
+// data "PowerLevel" "9"
