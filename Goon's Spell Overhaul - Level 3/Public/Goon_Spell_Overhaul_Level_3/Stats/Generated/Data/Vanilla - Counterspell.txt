@@ -1,8 +1,9 @@
 // ==================================== Counterspell ====================================
 // Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level.
 // Bug Fix: Interrupts can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
+// Changes: Can no longer interrupt spells while Blinded.
 // Changes: Can now be used by Invisible player characters.
-// Changes: Spells with the "Stealth" spell flag can no longer be Counterspelled, if the caster is Invisible or Hidden.
+// Changes: If the caster is Invisible or Hidden, spells with the "Stealth" flag cannot be interrupted.
 
 // new entry "Target_Counterspell"
 // type "SpellData"
@@ -47,7 +48,7 @@ data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',con
 // data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:3"
 // data "InterruptDefaultValue" "Ask;Enabled"
 // data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
-data "EnableCondition" "not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()"
+data "EnableCondition" "(not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()) and not HasStatus('SG_Blinded')"
 // data "EnableContext" "OnStatusApplied;OnStatusRemoved"
 data "InterruptFlags" "InterruptWhileInvisible"
 
