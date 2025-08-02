@@ -2,7 +2,6 @@
 // Bug Fix: Expansion's level 7-9 upcasts now have the appropriate "TooltipUpcastDescription"; "Casting this spell at a higher level doesn't grant any additional benefits."
 // Bug Fix: Added a custom "TooltipOnMiss" that matches the functionality "Does not consume a Bonus Action or Spell Slot."
 // Changes: Forced Honour ruleset changes to damage riders not functioning as damage rider sources.
-// Changes: Description now states the duration of 10 turns that Blinded is applied for.
 
 new entry "Target_Smite_Blinding"
 type "SpellData"

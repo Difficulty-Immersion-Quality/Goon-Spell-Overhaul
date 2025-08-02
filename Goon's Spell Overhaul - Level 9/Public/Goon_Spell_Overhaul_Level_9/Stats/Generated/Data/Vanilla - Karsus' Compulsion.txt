@@ -1,5 +1,5 @@
 // ==================================== Karsus' Compulsion ====================================
-// Bug Fix: Can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
+// Bug Fix: Can be used while under the effects of non-hostile and non-spellcasting restricted Polymorphs.
 
 new entry "Target_END_Mindflayer_CrownDomination"
 type "SpellData"
