@@ -187,22 +187,29 @@ data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); Exe
 
 // ==================================== Absolute's Smite - Searing Smite
 
-// new entry "Target_FOR_Smite_Searing_DeathOfATrueSoul"
-// type "SpellData"
-// data "SpellType" "Target"
+new entry "Target_FOR_Smite_Searing_DeathOfATrueSoul"
+type "SpellData"
+data "SpellType" "Target"
 // using "Target_Smite_Searing"
+using "Target_FOR_Smite_Searing_DeathOfATrueSoul"
 // data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(1d6, Fire,Magical,,0,,true,false); ApplyStatus(SEARING_SMITE, 100, 10)"
 // data "Cooldown" "OncePerShortRestPerItem"
+// Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.
+data "TooltipOnMiss" "8b0c9dc7-cfb4-43ff-9514-9acc807fc663"
 // data "UseCosts" "ActionPoint:1"
+data "MemoryCost" ""
 
 // ==================================== Skybreaker - Searing Smite
 
-// new entry "Target_UND_Smite_Searing_DuergarBlacksmithHammer"
-// type "SpellData"
-// data "SpellType" "Target"
+new entry "Target_UND_Smite_Searing_DuergarBlacksmithHammer"
+type "SpellData"
+data "SpellType" "Target"
 // using "Target_Smite_Searing"
+using "Target_UND_Smite_Searing_DuergarBlacksmithHammer"
 // data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(1d6, Fire,Magical,,0,,true,false); ApplyStatus(SEARING_SMITE, 100, 10)"
 // data "Cooldown" "OncePerRestPerItem"
+// Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.
+data "TooltipOnMiss" "8b0c9dc7-cfb4-43ff-9514-9acc807fc663"
 // data "UseCosts" "ActionPoint:1"
 // data "MemoryCost" ""
 
