@@ -1,7 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+    <!-- LEVEL 2 - VANILLA -->
+	<!-- "Target_Smite_Branding", "Projectile_Smite_Branding" --> <content contentuid="h90e52afbg7c16g45feg9e29ge7bc2ed38dc2" version="1">Strike with your weapon wreathed in golden light, illuminating your target and preventing it from turning &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; for [1] turns.</content>
+
 	<!-- "Target_MistyStep_Githyanki" --> <content contentuid="h30a19fc9g42a5g4614g8d16g099883f06889" version="1">Githyanki Psionics: Misty Step</content>
+
 	<!-- "ShadowBlade_Passive" --> <content contentuid="h1eec2cd1gc17dg48cdg8982g879f95483b05" version="1">Your &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; with this blade have &lt;LSTag Tooltip="Advantage"&gt;Advantage&lt;/LSTag&gt; against Lightly or Heavily Obscured targets.</content>
+
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
