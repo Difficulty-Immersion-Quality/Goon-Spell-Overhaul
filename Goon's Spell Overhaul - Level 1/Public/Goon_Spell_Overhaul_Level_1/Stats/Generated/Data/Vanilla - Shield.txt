@@ -1,0 +1,532 @@
+// ==================================== Shield ====================================
+// Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level. This applies to Sorcerer and Warlock versions of the spell too.
+// Bug Fix: Can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
+// Changes: Can now be used by Invisible player characters.
+
+// ==================================== Wizard - Shield ====================================
+
+new entry "Shout_Shield_Wizard"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Shield_Wizard"
+// data "Level" "1"
+// data "SpellSchool" "Abjuration"
+// data "TargetConditions" "Self()"
+// data "Icon" "Spell_Shield"
+// Shield
+// data "DisplayName" "h04b3ae90g1599g41daga3a5gdd2a8f2c80d4;2"
+// When you are about to be hit by an enemy, increase your &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; by 5. You take no damage from &lt;LSTag Type="Spell" Tooltip="Projectile_MagicMissile"&gt;Magic Missile&lt;/LSTag&gt;.
+// data "Description" "h75dacf68gdf75g498fg8e8dge0e9085685cf;4"
+// data "DescriptionParams" "5"
+// data "TooltipStatusApply" "ApplyStatus(SHIELD,100,1)"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:1"
+// data "SpellAnimation" "9122eb08-93f1-4010-a275-f5ae3ec7c76e,,;,,;2860e825-ec12-4008-8471-d797fc00abc4,,;b6540e92-9e06-4695-9d8e-552d5eac45c2,,;5301d674-b7da-47b6-b4cf-2802ba33a9e9,,;,,;86b3cf93-21fb-4a3d-bed9-97d0a567d084,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsLinkedSpellContainer"
+// data "MemoryCost" "1"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard"
+
+new entry "Interrupt_Shield_Wizard"
+type "InterruptData"
+using "Interrupt_Shield_Wizard"
+// Shield
+// data "DisplayName" "hc0b6ad5cgc7f0g408dg9817g013b8c4893a8;1"
+// When you are about to be hit by an enemy, increase your &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; by 5. You take no damage from &lt;LSTag Type="Spell" Tooltip="Projectile_MagicMissile"&gt;Magic Missile&lt;/LSTag&gt;.
+// data "Description" "h175cbc1bg9509g40bfg80e4gf38b264a28b7;1"
+// data "Icon" "PassiveFeature_Shield"
+// data "InterruptContext" "OnPostRoll;OnPreDamage"
+// data "InterruptContextScope" "Self"
+// data "Container" "YesNoDecision"
+// data "Conditions" "not HasVerbalComponentBlocked(context.Observer) and not HasSpellCastBlocked(context.Observer) and IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and ((HasInterruptedAttack() and IsFlatValueInterruptInteresting(5, context.Source)) or MagicMissileSpellCheck()) and not AnyEntityIsItem() and not HasStatus('SHIELD',context.Observer);"
+data "Conditions" "(Player(context.Observer) or not HasStatus('SG_Invisible',context.Observer)) and not HasVerbalComponentBlocked(context.Observer) and not HasSpellCastBlocked(context.Observer) and IsAbleToReact(context.Observer) and Self(context.Target,context.Observer) and ((HasInterruptedAttack() and IsFlatValueInterruptInteresting(5, context.Source)) or MagicMissileSpellCheck()) and not AnyEntityIsItem() and not HasStatus('SHIELD',context.Observer);"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Goon_Shout_Shield_Wizard_1,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:1"
+// data "InterruptDefaultValue" "Ask;Enabled"
+// data "EnableCondition" "not HasStatus('SG_Polymorph') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()"
+// data "EnableContext" "OnStatusApplied;OnStatusRemoved"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+new entry "Goon_Shout_Shield_Wizard_1"
+type "SpellData"
+data "SpellType" "Shout"
+using "Shout_Shield_Wizard"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsLinkedSpellContainer"
+data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+
+// ==================================== Wizard - Shield: Spell Mastery (Expansion)
+
+// new entry "Interrupt_Shield_Wizard_SpellMastery"
+// type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+// Shield: Spell Mastery
+// data "DisplayName" "h392cd547g6401g4385ga6a3gaacad4b4a0b9;1"
+// data "Cost" "ReactionActionPoint:1"
+
+// ==================================== Wizard - Upcasting - Shield - 2
+
+// new entry "Shout_Shield_Wizard_2"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard"
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:2"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "2"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_2"
+
+new entry "Interrupt_Shield_Wizard_2"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_2"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_2,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:2"
+
+// ==================================== Wizard - Upcasting - Shield - 3
+
+// new entry "Shout_Shield_Wizard_3"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:3"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "3"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_3"
+
+new entry "Interrupt_Shield_Wizard_3"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_3"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_3,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:3"
+
+// ==================================== Wizard - Upcasting - Shield - 4
+
+// new entry "Shout_Shield_Wizard_4"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "4"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_4"
+
+new entry "Interrupt_Shield_Wizard_4"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_4"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_4,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:4"
+
+// ==================================== Wizard - Upcasting - Shield - 5
+
+// new entry "Shout_Shield_Wizard_5"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "5"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_5"
+
+new entry "Interrupt_Shield_Wizard_5"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_5"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_5,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:5"
+
+// ==================================== Wizard - Upcasting - Shield - 6
+
+// new entry "Shout_Shield_Wizard_6"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "6"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_6"
+
+new entry "Interrupt_Shield_Wizard_6"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_6"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_6,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:6"
+
+// ==================================== Wizard - Upcasting - Shield - 7
+
+// new entry "Shout_Shield_Wizard_7"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "7"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_7"
+
+new entry "Interrupt_Shield_Wizard_7"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_7"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_7,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:7"
+
+// ==================================== Wizard - Upcasting - Shield - 8
+
+// new entry "Shout_Shield_Wizard_8"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "8"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_8"
+
+new entry "Interrupt_Shield_Wizard_8"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_8"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_8,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:8"
+
+// ==================================== Wizard - Upcasting - Shield - 9
+
+// new entry "Shout_Shield_Wizard_9"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "UseCosts" "ReactionActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Shout_Shield_Wizard"
+// data "PowerLevel" "9"
+// data "InterruptPrototype" "Interrupt_Shield_Wizard_9"
+
+new entry "Interrupt_Shield_Wizard_9"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Wizard_9"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):ApplyStatus(SELF,ARCANE_WARD,100,-1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WIZARD,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Wizard_9,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:9"
+
+// ==================================== Sorcerer - Shield ====================================
+
+// new entry "Shout_Shield_Sorcerer"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer"
+
+new entry "Interrupt_Shield_Sorcerer"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Sorcerer"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Goon_Shout_Shield_Sorcerer_1,true,true,true)"
+
+new entry "Goon_Shout_Shield_Sorcerer_1"
+type "SpellData"
+data "SpellType" "Shout"
+using "Goon_Shout_Shield_Wizard_1"
+
+// ==================================== Sorcerer - Upcasting - Shield - 2
+
+// new entry "Shout_Shield_Sorcerer_2"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_2"
+
+new entry "Interrupt_Shield_Sorcerer_2"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_2"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_2,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:2"
+
+// ==================================== Sorcerer - Upcasting - Shield - 3
+
+// new entry "Shout_Shield_Sorcerer_3"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_3"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_3"
+
+new entry "Interrupt_Shield_Sorcerer_3"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_3"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_3,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:3"
+
+// ==================================== Sorcerer - Upcasting - Shield - 4
+
+// new entry "Shout_Shield_Sorcerer_4"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_4"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_4"
+
+new entry "Interrupt_Shield_Sorcerer_4"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_4"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_4,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:4"
+
+// ==================================== Sorcerer - Upcasting - Shield - 5
+
+// new entry "Shout_Shield_Sorcerer_5"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_5"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_5"
+
+new entry "Interrupt_Shield_Sorcerer_5"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_5"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_5,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:5"
+
+// ==================================== Sorcerer - Upcasting - Shield - 6
+
+// new entry "Shout_Shield_Sorcerer_6"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_6"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_6"
+
+new entry "Interrupt_Shield_Sorcerer_6"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_6"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_6,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:6"
+
+// ==================================== Sorcerer - Upcasting - Shield - 7
+
+// new entry "Shout_Shield_Sorcerer_7"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_7"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_7"
+
+new entry "Interrupt_Shield_Sorcerer_7"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_7"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_7,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:7"
+
+// ==================================== Sorcerer - Upcasting - Shield - 8
+
+// new entry "Shout_Shield_Sorcerer_8"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_8"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_8"
+
+new entry "Interrupt_Shield_Sorcerer_8"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_8"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_8,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:8"
+
+// ==================================== Sorcerer - Upcasting - Shield - 9
+
+// new entry "Shout_Shield_Sorcerer_9"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_9"
+// data "RootSpellID" "Shout_Shield_Sorcerer"
+// data "InterruptPrototype" "Interrupt_Shield_Sorcerer_9"
+
+new entry "Interrupt_Shield_Sorcerer_9"
+type "InterruptData"
+// using "Interrupt_Shield_Sorcerer"
+using "Interrupt_Shield_Sorcerer_9"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_SORCERER,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Sorcerer_9,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:9"
+
+// ==================================== Warlock - Shield ====================================
+
+// new entry "Shout_Shield_Warlock"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock"
+
+new entry "Interrupt_Shield_Warlock"
+type "InterruptData"
+// using "Interrupt_Shield_Wizard"
+using "Interrupt_Shield_Warlock"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Goon_Shout_Shield_Warlock_1,true,true,true)"
+
+new entry "Goon_Shout_Shield_Warlock_1"
+type "SpellData"
+data "SpellType" "Shout"
+using "Goon_Shout_Shield_Wizard_1"
+
+// ==================================== Warlock - Upcasting - Shield - 2
+
+// new entry "Shout_Shield_Warlock_2"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_2"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_2"
+
+new entry "Interrupt_Shield_Warlock_2"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_2"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_2,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:2"
+
+// ==================================== Warlock - Upcasting - Shield - 3
+
+// new entry "Shout_Shield_Warlock_3"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_3"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_3"
+
+new entry "Interrupt_Shield_Warlock_3"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_3"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_3,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:3"
+
+// ==================================== Warlock - Upcasting - Shield - 4
+
+// new entry "Shout_Shield_Warlock_4"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_4"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_4"
+
+new entry "Interrupt_Shield_Warlock_4"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_4"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_4,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:4"
+
+// ==================================== Warlock - Upcasting - Shield - 5
+
+// new entry "Shout_Shield_Warlock_5"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_5"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_5"
+
+new entry "Interrupt_Shield_Warlock_5"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_5"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_5,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:5"
+
+// ==================================== Warlock - Upcasting - Shield - 6
+
+// new entry "Shout_Shield_Warlock_6"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_6"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_6"
+
+new entry "Interrupt_Shield_Warlock_6"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_6"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_6,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:6"
+
+// ==================================== Warlock - Upcasting - Shield - 7
+
+// new entry "Shout_Shield_Warlock_7"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_7"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_7"
+
+new entry "Interrupt_Shield_Warlock_7"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_7"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_7,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:7"
+
+// ==================================== Warlock - Upcasting - Shield - 8
+
+// new entry "Shout_Shield_Warlock_8"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_8"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_8"
+
+new entry "Interrupt_Shield_Warlock_8"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_8"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_8,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:8"
+
+// ==================================== Warlock - Upcasting - Shield - 9
+
+// new entry "Shout_Shield_Warlock_9"
+// type "SpellData"
+// data "SpellType" "Shout"
+// using "Shout_Shield_Wizard_9"
+// data "RootSpellID" "Shout_Shield_Warlock"
+// data "InterruptPrototype" "Interrupt_Shield_Warlock_9"
+
+new entry "Interrupt_Shield_Warlock_9"
+type "InterruptData"
+// using "Interrupt_Shield_Warlock"
+using "Interrupt_Shield_Warlock_9"
+// data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1)"
+data "Properties" "IF(HasInterruptedAttack()):AdjustRoll(-5);IF(MagicMissileSpellCheck()):SetRoll(0);IF(MagicMissileSpellCheck()):AdjustRoll(-99,All);ApplyStatus(INTERRUPT_SHIELD_WARLOCK,100,1);ApplyStatus(OBSERVER_OBSERVER,SHIELD,100,1);IF(HasPassive('ArcaneWard',context.Source)):UseSpell(OBSERVER_OBSERVER,Shout_Shield_Warlock_9,true,true,true)"
+// data "Cost" "ReactionActionPoint:1;SpellSlotsGroup:1:1:9"
