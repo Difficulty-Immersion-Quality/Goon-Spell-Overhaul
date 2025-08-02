@@ -18,6 +18,7 @@ data "Cooldown" ""
 // data "DisplayName" "h7cdde2cagd199g498bg8ae1gf693a97f57cc;1"
 // Summon a familiar, a fey spirit that takes an animal form of your choosing.
 // data "Description" "h90a8893dg8023g4be2gbcd2gfa1857d7c23f;2"
+// Casting this spell at a higher level doesn't grant any additional benefits.
 // data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
 // data "CastSound" "Spell_Cast_Summon_FindFamiliar_L1to3"
 // data "TargetSound" "Spell_Impact_Summon_FindFamiliar_L1to3"

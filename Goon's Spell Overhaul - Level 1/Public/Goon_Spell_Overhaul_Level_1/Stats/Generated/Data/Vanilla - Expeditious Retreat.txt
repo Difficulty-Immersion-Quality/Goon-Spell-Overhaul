@@ -18,6 +18,7 @@ data "TargetConditions" "Self()"
 // Gain &lt;LSTag Type="Spell" Tooltip="Shout_Dash"&gt;Dash&lt;/LSTag&gt; immediately and as a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; on each of your turns until this spell ends.
 data "Description" "h235a94bfg1488g4339gaa9agecbb6e05f805;1"
 // data "TooltipStatusApply" "ApplyStatus(EXPEDITIOUS_RETREAT, 100, -1);ApplyStatus(DASH,100,1)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
 // data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
 // data "PrepareSound" "Spell_Prepare_Buff_Gen_L1to3_01"
 // data "PrepareLoopSound" "Spell_Prepare_Buff_Gen_L1to3_01_Loop"

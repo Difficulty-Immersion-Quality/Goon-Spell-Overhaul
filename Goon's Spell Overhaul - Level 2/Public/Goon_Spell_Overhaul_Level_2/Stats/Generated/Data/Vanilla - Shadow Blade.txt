@@ -118,6 +118,7 @@ data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent"
 // data "DescriptionParams" " DealDamage(2d8,Psychic);"
 data "DescriptionParams" "DealDamage(1d6,Psychic)"
 // data "TooltipUpcastDescription" ""
+// Deals an additional [1] per [2] levels.
 data "TooltipUpcastDescription" "7bbb79fa-02c7-4f45-a115-1d8e11b96ea0"
 // data "TooltipUpcastDescriptionParams" ""
 data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Psychic);2"
@@ -127,7 +128,9 @@ type "SpellData"
 data "SpellType" "Shout"
 // using "Shout_ShadowBlade"
 using "Shout_ShadowBlade_Class"
+// Casting this spell using a Level 3 or 4 spell slot will increase the bonus by [1], and casting using a Level 5 or 6 spell slot will increase it by [2].
 // data "TooltipUpcastDescription" "feb2f892-b684-442c-b22d-88a3d411a1a2"
+// Deals an additional [1] per [2] levels.
 data "TooltipUpcastDescription" "7bbb79fa-02c7-4f45-a115-1d8e11b96ea0"
 // data "TooltipUpcastDescriptionParams" "DealDamage(1d8,Psychic);DealDamage(2d8,Psychic)"
 data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Psychic);2"

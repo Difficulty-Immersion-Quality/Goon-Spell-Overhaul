@@ -36,6 +36,7 @@
 // data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType)"
 // data "TooltipAttackSave" "Strength"
 // data "TooltipStatusApply" "ApplyStatus(ENSNARING_STRIKE,100,10)"
+// Ensnared condition deals an additional [1] per level.
 // data "TooltipUpcastDescription" "43370bc5-39c2-4d65-bc0e-4e9acfab0c80"
 // data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Piercing)"
 // data "CastSound" "Spell_Cast_Damage_Physical_EnsnaringStrike_L1to3"
@@ -77,6 +78,7 @@
 // data "TooltipDamageList" "DealDamage(MainRangedWeapon, MainRangedWeaponDamageType);"
 // data "TooltipAttackSave" "Strength"
 // data "TooltipStatusApply" "ApplyStatus(ENSNARING_STRIKE,100,10)"
+// Ensnared condition deals an additional [1] per level.
 // data "TooltipUpcastDescription" "43370bc5-39c2-4d65-bc0e-4e9acfab0c80"
 // data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Piercing)"
 // data "CastSound" "Spell_Cast_Control_ProjectileEnsnaringStrike_L1to3"
