@@ -1,0 +1,31 @@
+// ======================================== Curriculum of Strategy: Artistry of War ========================================
+// Changes: Added an AI helper status, so they are more likely to use the spell.
+
+new entry "Projectile_CursedTome_CurriculumofStrategy"
+type "SpellData"
+data "SpellType" "Projectile"
+// using "Projectile_MagicMissile_4"
+using "Projectile_CursedTome_CurriculumofStrategy"
+// data "Level" "5"
+// data "Cooldown" "OncePerShortRest"
+// data "SpellProperties" "DealDamage(2d6+6,Force);"
+data "SpellProperties" "DealDamage(2d6+6,Force);AI_ONLY:ApplyStatus(AI_HELPER_BUFF_LARGE, 100, 5)"
+// data "Trajectories" "ce94a9a7-b063-4390-bdd0-a3ad17009c7b,b4397df9-1164-47c1-9524-a4b6ddf66e13"
+// data "Icon" "Spell_CurriculumOfStrategy_ArtistryOfWar"
+// Curriculum of Strategy: Artistry of War
+// data "DisplayName" "h1eaddc66gb492g40adg8c75ga237fefcae29;2"
+// Summon the apparitions of [2] master strategists. Each apparition strikes a target of your choosing, dealing [1] on a hit.
+// data "Description" "h06488ff8gaf1cg45d9g8208gd180bcf423ef;4"
+// data "DescriptionParams" "DealDamage(2d6+6,Force);6"
+// data "TooltipDamageList" "DealDamage(12d6+36,Force)"
+// data "TooltipUpcastDescription" ""
+// data "PrepareSound" "Spell_Loop_Damage_Force_Artistry_Of_War"
+// data "PrepareLoopSound" "Spell_Loop_Damage_Force_Artistry_Of_War_Stop"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;HasHighGroundRangeExtension;RangeIgnoreVerticalThreshold;IsHarmful;IsSpell"
+// data "MemoryCost" ""
+// data "RootSpellID" ""
+// data "PowerLevel" ""
+// data "PrepareEffect" "50f3a7ac-2cea-4001-a127-1f458815d612"
+// data "CastEffect" "459193f7-1660-4b94-bda8-67779fc42e0c"
+data "CombatAIOverrideSpell" ""

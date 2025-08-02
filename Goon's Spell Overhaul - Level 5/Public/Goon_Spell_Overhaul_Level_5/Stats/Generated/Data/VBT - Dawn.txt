@@ -1,5 +1,7 @@
 // ========================================= Dawn =========================================
-// Bug Fix: Spell not damaging targets when initially cast and not accounting for Evocation Wizard's Sculpt Spells.
+// Bug Fix: Now damages targets when initially cast.
+// Bug Fix: Now functions with Evocation Wizard's Sculpt Spells feature.
+// TODO: Tell Veenab about the issues, and actually look at this myself instead of just taking Cahoot's stuff lol.
 
 new entry "VBT_Spell_5_Dawn"
 type "SpellData"

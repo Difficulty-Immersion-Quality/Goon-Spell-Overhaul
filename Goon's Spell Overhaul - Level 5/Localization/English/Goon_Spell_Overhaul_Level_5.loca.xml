@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentList>
+	<!-- LEVEL 5 - 5E SPELLS -->
+	<!-- "Target_SteelWindStrike" --> <content contentuid="hcba9d4acg1919g4d1dga910g009df8510373" version="1">Steel Wind Strike</content>
+	<!-- "Target_SteelWindStrike" --> <content contentuid="h012859f0g8f18g43efg8d00g34c7f504b33a" version="1">Flourish a melee weapon and then vanish to strike like the wind, dealing [1] up to five creatures.</content>
+	<!-- "Target_SteelWindStrike_Teleport" --> <content contentuid="h965445d3gc965g40f2g80f0gd874d719b5d3" version="1">Steel Wind Strike: Teleport</content>
+	<!-- "Target_SteelWindStrike_Teleport" --> <content contentuid="h824b4e02g130fg4f4bga92dg6883f2e95670" version="1">Teleport to a target of your &lt;LSTag Type="Spell" Tooltip="Target_SteelWindStrike"&gt;Steel Wind Strike&lt;/LSTag&gt;.</content>
+
+	<!-- LEVEL 5 - VANILLA -->
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "" --> <content contentuid="" version="1"></content>
+</contentList>
