@@ -1,0 +1,164 @@
+// ============================ Death Ward ============================
+// Bug Fix: Removed exploit for regenerating actions infinitely.
+// Changes: The Death Ward conditions no longer restore any resources when removed.
+
+new entry "Target_DeathWard"
+type "SpellData"
+data "SpellType" "Target"
+using "Target_DeathWard"
+// data "Level" "4"
+// data "SpellSchool" "Abjuration"
+// data "SpellProperties" "ApplyStatus(DEATH_WARD,100,-1)"
+// data "TargetRadius" "1.5"
+// data "TargetConditions" "Character() and Ally()"
+// data "Icon" "Spell_Abjuration_DeathWard"
+// Death Ward
+// data "DisplayName" "h789f6fbegfd21g4d52g947cg5e2094022014;1"
+// Protect a creature from death. The next time damage would reduce it to 0 &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;, it remains conscious with 1 hit point left.
+// data "Description" "h9a83936aga618g477fg9629ge07c9e975398;1"
+// data "TooltipStatusApply" "ApplyStatus(DEATH_WARD_DOWNED,100,-1)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "CastSound" "Spell_Cast_Buff_DeathWard_L1to3"
+// data "TargetSound" "Spell_Impact_Buff_DeathWard_L1to3"
+// data "CastTextEvent" "Cast"
+// data "CycleConditions" "Ally() and not Dead()"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "SpellAnimation" "554a18f7-952e-494a-b301-7702a85d4bc9,,;,,;09ae2f11-f5b4-42f5-ae16-687a5b57d500,,;10caea0e-c949-4d91-8ab7-3b50019dd054,,;22dfbbf4-f417-4c84-b39e-2039315961e6,,;,,;5bfbe9f9-4fc3-4f26-b112-43d404db6a89,,;,,;,,"
+// data "DualWieldingSpellAnimation" "dd86aa43-8189-4d9f-9a5c-454b5fe4a197,,;,,;e37d18b8-0de7-4bbc-a644-31ec2a91e548,,;acfe8d41-20c1-4fe8-b158-f4b2be86e080,,;,,;,,;,,;,,;,,"
+// data "VerbalIntent" "Utility"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;IsMelee"
+// data "HitAnimationType" "MagicalNonDamage"
+// data "MemoryCost" "1"
+// data "PrepareEffect" "ac0bce38-1b7c-4409-842a-0e556693c7fc"
+// data "CastEffect" "6d03f526-a086-4550-aa98-d3b82f2dbe87"
+// data "TargetEffect" "1f2eb16a-7f8f-4f05-b38f-4ddf0335db4e"
+
+// new entry "DEATH_WARD"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Death Ward
+// data "DisplayName" "hbd168de5gbd55g4d55g947eg6f5d9b3313a5;2"
+// The next time damage would reduce the affected entity to 0 &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;, it remains conscious with [2] hit point left.
+// data "Description" "heb85ccfag2f36g4abdg8c78g31146a176145;2"
+// data "DescriptionParams" "RegainHitPoints(1);1"
+// data "Icon" "Spell_Abjuration_DeathWard"
+// data "HitAnimationType" "MagicalNonDamage"
+// data "SoundStop" "Spell_Impact_Buff_DeathWardRecover_L1to3,HEAD;"
+// data "StackId" "DEATH_WARD"
+// data "Boosts" "DownedStatus(DEATH_WARD_DOWNED,10)"
+// data "StatusEffect" "515e6133-db71-4fbd-8b2f-fd9380dc4171"
+
+new entry "DEATH_WARD_DOWNED"
+type "StatusData"
+data "StatusType" "DOWNED"
+// using "SURVIVAL_INSTINCT_DOWNED"
+using "DEATH_WARD_DOWNED"
+// Death Ward
+// data "DisplayName" "hd705b54dgdfbag4238g9e00g097616cdfeb7;1"
+// data "Description" ""
+// data "Icon" "Spell_Abjuration_DeathWard"
+// data "AnimationStart" "7e811df9-74e7-4515-bd02-7043164dbf33(STAT_Fallen_Peace_01_Start)"
+// data "AnimationLoop" "d7b7cf53-fe71-4a23-8011-9675a6e1d902(STAT_Fallen_Peace_01_Loop)"
+// data "AnimationEnd" "ade4cf7f-a34a-40c4-b810-096f0c186bc2(STAT_Fallen_Peace_01_End)"
+// data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator"
+// data "OnApplyFunctors" "RemoveStatus(DEATH_WARD);RegainHitPoints(1,Guaranteed)"
+// data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);RestoreResource(ActionPoint, 100%, 0);RestoreResource(ReactionActionPoint, 100%, 0)"
+data "OnRemoveFunctors" "ResetCombatTurn();ApplyStatus(DEATH_WARD_RESTORE,100,1)"
+// data "StatusGroups" "SG_Incapacitated"
+// data "ApplyEffect" "5508ea40-3f23-436d-980d-0b8143f6e2f3"
+// data "HideOverheadUI" "1"
+
+// ============================ Upcasting - Death Ward - 5
+
+// new entry "Target_DeathWard_5"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DeathWard"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Target_DeathWard"
+// data "PowerLevel" "5"
+
+// ============================ Upcasting - Death Ward - 6
+
+// new entry "Target_DeathWard_6"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DeathWard"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Target_DeathWard"
+// data "PowerLevel" "6"
+
+// ============================ Upcasting - Death Ward - 7
+
+// new entry "Target_DeathWard_7"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DeathWard"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Target_DeathWard"
+// data "PowerLevel" "7"
+
+// ============================ Upcasting - Death Ward - 8
+
+// new entry "Target_DeathWard_8"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DeathWard"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Target_DeathWard"
+// data "PowerLevel" "8"
+
+// ============================ Upcasting - Death Ward - 9
+
+// new entry "Target_DeathWard_9"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_DeathWard"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Target_DeathWard"
+// data "PowerLevel" "9"
+
+// ============================ ??? - Death Ward
+
+// new entry "DEATH_WARD_DRAGON_SKELETAL_DOWNED"
+// type "StatusData"
+// data "StatusType" "DOWNED"
+// using "DEATH_WARD_DOWNED"
+// data "AnimationStart" ""
+// data "AnimationLoop" ""
+// data "AnimationEnd" ""
+// data "StillAnimationPriority" ""
+// data "UseLyingPickingState" ""
+// data "SoundLoop" ""
+// data "SoundStop" ""
+// data "SoundVocalEnd" ""
+// data "OnApplyFunctors" "RemoveStatus(DEATH_WARD_DRAGON_SKELETAL);RegainHitPoints(1,Guaranteed)"
+// data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);RestoreResource(ActionPoint, 100%, 0);RestoreResource(ReactionActionPoint, 100%, 0);"
+
+// ============================ Detonation Impending! - Death Ward
+
+new entry "STEEL_WATCHER_INVULNERABILITY"
+type "StatusData"
+data "StatusType" "DOWNED"
+// using "DEATH_WARD_DOWNED"
+using "STEEL_WATCHER_INVULNERABILITY"
+// data "AnimationStart" ""
+// data "AnimationLoop" ""
+// data "AnimationEnd" ""
+// data "SoundLoop" ""
+// data "SoundStop" ""
+// data "OnApplyFunctors" "RemoveStatus(STEELWATCHER_BIPED_SELFDESTRUCT_BEGIN_DEATHWARD);RegainHitPoints(1,Guaranteed)"
+data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);RestoreResource(ActionPoint, 100%, 0);RestoreResource(ReactionActionPoint, 100%, 0)"
+// data "ApplyEffect" ""
+// data "StatusEffect" ""

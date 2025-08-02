@@ -1,26 +1,46 @@
-// ============================ Death Ward ============================
-// Bug Fix: Removed exploit for regenerating actions infinitely. 
-
-new entry "DEATH_WARD_DOWNED"
-type "StatusData"
-data "StatusType" "DOWNED"
-// using "SURVIVAL_INSTINCT_DOWNED"
-using "DEATH_WARD_DOWNED"
-// data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);RestoreResource(ActionPoint, 100%, 0);RestoreResource(ReactionActionPoint, 100%, 0)"
-data "OnRemoveFunctors" "ResetCombatTurn();RestoreResource(Movement, 100%, 0);RestoreResource(BonusActionPoint, 100%, 0);ApplyStatus(DEATH_WARD_RESTORE,100,1)"
-
-// ==================================== Guardian of Faith ====================================
-// Bug Fix: Now works with more non-hostile and non-spellcasting restricted Polymorphs. (Redundant)
-
-new entry "Interrupt_GuardianOfFaith_Retaliate"
-type "InterruptData"
-using "Interrupt_GuardianOfFaith_Retaliate"
-// data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Tagged('MINDFLAYER') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
-data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Goon_IsUnrestrictedPolymorphStatus()"
-
 // ==================================== Wall of Fire ====================================
 // Bug Fix: Now functions with Elemental Adept: Fire.
-// Bug Fix: Damage is now appropriately reduced by Evasion.
+// Bug Fix: Damage is now appropriately reduced by Evasion and Shield Master: Block.
+// Bug Fix: The Spell Save DC scales with the caster's default spellcasting modifier instead of being a fixed 10.
+// Bug Fix: Upcast descriptions displays 1d8 Fire damage instead of a raw value.
+
+new entry "Wall_WallOfFire"
+type "SpellData"
+data "SpellType" "Wall"
+using "Wall_WallOfFire"
+// data "Level" "4"
+// data "SpellSchool" "Evocation"
+// data "TargetRadius" "18"
+// data "MaxDistance" "9"
+// data "Lifetime" "10"
+// data "SurfaceType" "Fire"
+// data "SurfaceRadius" "2"
+// data "Icon" "Spell_Evocation_WallOfFire"
+// Wall of Fire
+// data "DisplayName" "h4797978cgd1aag4aaagbd42g133f998fc653;2"
+// Create a blazing wall of fire, burning anyone who dares stand too close.
+// data "Description" "he7fa1231g517cg40e3g89degfdbf7c232666;2"
+// data "TooltipDamageList" "DealDamage(5d8,Fire)"
+// data "TooltipAttackSave" "Dexterity"
+// data "TooltipStatusApply" "ApplyStatus(WALLOFFIRE,100,10)"
+// Deals an additional [1] per level.
+// data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
+// data "TooltipUpcastDescriptionParams" "1d8"
+data "TooltipUpcastDescriptionParams" "DealDamage(1d8,Fire)"
+// data "PrepareSound" "Spell_Prepare_Damage_Fire_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Prepare_Damage_Fire_Gen_L1to3_Loop"
+// data "CastSound" "Spell_Cast_Damage_WallOfFire_L4to5"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;6123de84-27e4-4e81-9e1f-8031cc0ebc0d,,;cb171bda-f065-4520-b470-e447f678ba1f,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell"
+// data "VerbalIntent" "Damage"
+// data "ItemWall" "WallOfFire"
+// data "ItemWallStatus" "WALLOFFIRE"
+// data "MemoryCost" "1"
+// data "PrepareEffect" "504f1c24-74a4-44b5-98b4-7028a165a783"
+// data "CastEffect" "fa8655db-890f-4c1f-b3fc-739a807c390c"
+// data "SpellSoundMagnitude" "Big"
 
 new entry "WALLOFFIRE"
 type "StatusData"
@@ -38,11 +58,12 @@ using "WALLOFFIRE"
 // data "StackPriority" "1"
 // data "AuraRadius" "2"
 // data "AuraStatuses" "IF(not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())):ApplyStatus(WALLOFFIRE_AURA,100,1)"
+data "AuraStatuses" "IF(not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())):ApplyStatus(WALLOFFIRE_AURA)"
+data "Boosts" "IF(HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):IgnoreResistance(Fire,Resistant);IF(MainDamageTypeIs(DamageType.Fire) and HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):MinimumRollResult(Damage,2)"
 // data "TooltipSave" "Dexterity"
 // data "TooltipDamage" "DealDamage(5d8,Fire)"
 // data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;InitiateCombat;BringIntoCombat"
 // data "StatusEffect" "b5b3c933-801e-461e-8d55-eb2790d4962b"
-data "Boosts" "IF(HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):IgnoreResistance(Fire,Resistant);IF(MainDamageTypeIs(DamageType.Fire) and HasPassive('ElementalAdept_Fire', GetSummoner(context.Source))):MinimumRollResult(Damage,2)"
 
 new entry "WALLOFFIRE_AURA"
 type "StatusData"
@@ -72,6 +93,28 @@ data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED') or StatusDu
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED', 0.1)):DealDamage(5d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED', 0.1) and not HasEvasion()):DealDamage(5d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED,100,1)"
 
+// new entry "WALLOFFIRE_DAMAGE_RECEIVED"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// %%% EMPTY
+// data "DisplayName" "hc1c85c22g14b9g46e8g9d57geea57d525898;2"
+// data "Icon" "Spell_Evocation_WallOfFire"
+// data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+// ==================================== Upcasting - Wall of Fire - 5
+
+// new entry "Wall_WallOfFire_5"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire"
+// data "TooltipDamageList" "DealDamage(6d8,Fire)"
+// data "TooltipStatusApply" "ApplyStatus(WALLOFFIRE_5,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "ItemWallStatus" "WALLOFFIRE_5"
+// data "RootSpellID" "Wall_WallOfFire"
+// data "PowerLevel" "5"
+
 new entry "WALLOFFIRE_AURA_5"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -88,6 +131,25 @@ data "OnApplyFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_5') and not Has
 data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_5') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_5', 0.1) and not HasEvasion()):DealDamage(6d8,Fire,Magical);IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_5') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_5', 0.1) and HasEvasion()):DealDamage(6d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_5,100,1)"
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_5') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_5', 0.1)):DealDamage(6d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_5,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_5') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_5', 0.1) and not HasEvasion()):DealDamage(6d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_5,100,1)"
+
+new entry "WALLOFFIRE_DAMAGE_RECEIVED_5"
+type "StatusData"
+data "StatusType" "BOOST"
+using "WALLOFFIRE_DAMAGE_RECEIVED"
+data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED_5"
+
+// ==================================== Upcasting - Wall of Fire - 6
+
+// new entry "Wall_WallOfFire_6"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire"
+// data "TooltipDamageList" "DealDamage(7d8,Fire)"
+// data "TooltipStatusApply" "ApplyStatus(WALLOFFIRE_6,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "ItemWallStatus" "WALLOFFIRE_6"
+// data "RootSpellID" "Wall_WallOfFire"
+// data "PowerLevel" "6"
 
 new entry "WALLOFFIRE_AURA_6"
 type "StatusData"
@@ -106,6 +168,24 @@ data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_6') or Status
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_6') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_6', 0.1)):DealDamage(7d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_6,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_6') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_6', 0.1) and not HasEvasion()):DealDamage(7d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_6,100,1)"
 
+// new entry "WALLOFFIRE_DAMAGE_RECEIVED_6"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "WALLOFFIRE_DAMAGE_RECEIVED"
+// data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED_6"
+
+// ==================================== Upcasting - Wall of Fire - 7
+
+// new entry "Wall_WallOfFire_7"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire"
+// data "TooltipDamageList" "DealDamage(8d8,Fire)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "ItemWallStatus" "WALLOFFIRE_7"
+// data "RootSpellID" "Wall_WallOfFire"
+// data "PowerLevel" "7"
+
 new entry "WALLOFFIRE_AURA_7"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -122,6 +202,24 @@ data "OnApplyFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_7') and not Has
 data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_7') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_7', 0.1) and not HasEvasion()):DealDamage(8d8,Fire,Magical);IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_7') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_7', 0.1) and HasEvasion()):DealDamage(7d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_7,100,1)"
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_7') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_7', 0.1)):DealDamage(8d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_7,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_7') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_7', 0.1) and not HasEvasion()):DealDamage(8d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_7,100,1)"
+
+// new entry "WALLOFFIRE_DAMAGE_RECEIVED_7"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "WALLOFFIRE_DAMAGE_RECEIVED"
+// data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED_7"
+
+// ==================================== Upcasting - Wall of Fire - 8
+
+// new entry "Wall_WallOfFire_8"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire"
+// data "TooltipDamageList" "DealDamage(9d8,Fire)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "ItemWallStatus" "WALLOFFIRE_8"
+// data "RootSpellID" "Wall_WallOfFire"
+// data "PowerLevel" "8"
 
 new entry "WALLOFFIRE_AURA_8"
 type "StatusData"
@@ -140,6 +238,24 @@ data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_8') or Status
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_8') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_8', 0.1)):DealDamage(9d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_8,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_8') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_8', 0.1) and not HasEvasion()):DealDamage(9d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_8,100,1)"
 
+// new entry "WALLOFFIRE_DAMAGE_RECEIVED_8"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "WALLOFFIRE_DAMAGE_RECEIVED"
+// data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED_8"
+
+// ==================================== Upcasting - Wall of Fire - 9
+
+// new entry "Wall_WallOfFire_9"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire"
+// data "TooltipDamageList" "DealDamage(10d8,Fire)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "ItemWallStatus" "WALLOFFIRE_9"
+// data "RootSpellID" "Wall_WallOfFire"
+// data "PowerLevel" "9"
+
 new entry "WALLOFFIRE_AURA_9"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -156,3 +272,21 @@ data "OnApplyFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_9') and not Has
 data "OnTickSuccess" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_9') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_9', 0.1) and not HasEvasion()):DealDamage(10d8,Fire,Magical);IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_9') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_9', 0.1) and HasEvasion()):DealDamage(7d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_9,100,1)"
 // data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_9') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_9', 0.1)):DealDamage(10d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_9,100,1)"
 data "OnTickFail" "IF(not HasStatus('WALLOFFIRE_DAMAGE_RECEIVED_9') or StatusDurationLessThan(context.Source, 'WALLOFFIRE_DAMAGE_RECEIVED_9', 0.1) and not HasEvasion()):DealDamage(10d8/2,Fire,Magical);ApplyStatus(WALLOFFIRE_DAMAGE_RECEIVED_9,100,1)"
+
+// new entry "WALLOFFIRE_DAMAGE_RECEIVED_9"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "WALLOFFIRE_DAMAGE_RECEIVED"
+// data "StackId" "WALLOFFIRE_DAMAGE_RECEIVED_9"
+
+// ==================================== Markoheshkir (Gripped by Kereska's Flame) - Wall of Fire
+
+// new entry "Wall_MAG_Legendary_Chromatic_WallOfFire"
+// type "SpellData"
+// data "SpellType" "Wall"
+// using "Wall_WallOfFire_5"
+// data "Cooldown" "OncePerShortRest"
+// data "UseCosts" "ActionPoint:1"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsConcentration;IsSpell;Temporary"
+// data "RootSpellID" ""
+// data "PowerLevel" ""

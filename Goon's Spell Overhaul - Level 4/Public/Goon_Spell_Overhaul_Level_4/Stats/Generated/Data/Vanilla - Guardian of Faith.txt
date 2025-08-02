@@ -1,0 +1,185 @@
+// ==================================== Guardian of Faith ====================================
+// TODO: Add support for custom deities to the tag based VFX of the guardian.
+
+// new entry "Target_GuardianOfFaith"
+// type "SpellData"
+// data "SpellType" "Target"
+// data "Level" "4"
+// data "SpellSchool" "Conjuration"
+// data "SpellProperties" "GROUND:IF(Tagged('ALIGN_GOOD',context.Source)):Summon(4c90b3c1-55dd-4b7e-b08f-8d7cc15f8d41, 10,Projectile_AiHelper_Summon_Strong,,'GuardianOfFaithStack',GUARDIAN_OF_FAITH_AURA,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(not Tagged('ALIGN_GOOD',context.Source) and not Tagged('ALIGN_EVIL',context.Source)):Summon(d243badc-a763-4d9e-8037-2da9c3e39d5e, 10,Projectile_AiHelper_Summon_Strong,,'GuardianOfFaithStack',GUARDIAN_OF_FAITH_AURA,SHADOWCURSE_SUMMON_CHECK);GROUND:IF(Tagged('ALIGN_EVIL',context.Source)):Summon(fb497660-2eb3-4757-bf6d-b8815b577e7e, 10,Projectile_AiHelper_Summon_Strong,,'GuardianOfFaithStack',GUARDIAN_OF_FAITH_AURA,SHADOWCURSE_SUMMON_CHECK)"
+// data "TargetRadius" "9"
+// data "TargetConditions" "CanStand('4c90b3c1-55dd-4b7e-b08f-8d7cc15f8d41') and not Character() and not Self()"
+// data "Icon" "Spell_Conjuration_GuardianOfFaith"
+// Guardian of Faith
+// data "DisplayName" "h78c3f53agf03cg43c0ga5d8g04beff40df7a;2"
+// Call forth a divine guardian that &lt;LSTag Type="Spell" Tooltip="Target_MainHandAttack_GuardianOfFaith"&gt;attacks&lt;/LSTag&gt; nearby enemies. Every time it deals damage, the guardian loses an equal amount of &lt;LSTag Tooltip="HitPoints"&gt;hit points&lt;/LSTag&gt;.
+// data "Description" "h2c94df3eg44c7g4c50g8b64g5112ce1faf34;4"
+// data "CastSound" "Spell_Cast_Summon_GuardianOfFaith_L4to5"
+// data "TargetSound" "Spell_Impact_Summon_GuardianOfFaith_L4to5"
+// data "PreviewCursor" "Cast"
+// data "CastTextEvent" "Cast"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;c0513845-6e0e-42e8-9a8c-baa5e2b6ead6,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
+// data "VerbalIntent" "Summon"
+// data "SpellFlags" "HasVerbalComponent;IsSpell;CannotTargetItems;CannotTargetCharacter"
+// data "MemoryCost" "1"
+// data "PrepareEffect" "59e878ef-13a8-4c71-8610-60ba5df57e19"
+// data "CastEffect" "7400c9ec-ff1c-4dd8-8361-f356748c16f5"
+// data "DamageType" "Radiant"
+
+// new entry "GUARDIAN_OF_FAITH_AURA"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Guardian of Faith
+// data "DisplayName" "h922f882bgb6a1g4176g8903gaaf93e15c4cc;3"
+// data "SoundLoop" "Spell_Status_GuardianOfFaith_Aura_MO"
+// data "SoundStop" "Spell_Status_GuardianOfFaith_Aura_MO_Stop"
+// data "StackId" "GUARDIAN_OF_FAITH_AURA"
+// data "Boosts" "AttackSpellOverride(Target_MainHandAttack_GuardianOfFaith, Target_MainHandAttack)"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;LoseControl;LoseControlFriendly"
+// data "OnApplyFunctors" "ApplyEquipmentStatus(OffHand,GUARDIAN_OF_FAITH_SHIELD_VFX,100,-1)"
+// data "StatusEffect" "6ed67557-aa66-4641-8790-1cb9761b364f"
+
+// new entry "GUARDIAN_OF_FAITH_SHIELD_VFX"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Guardian of Faith
+// data "DisplayName" "hbdbbef15ge49ag4691g8f34gb68283fb09e0;3"
+// data "StackId" "GUARDIAN_OF_FAITH_SHIELD_VFX"
+// data "Passives" "GuardianOfFaith_Bahamut;GuardianOfFaith_Bane;GuardianOfFaith_Bhaal;GuardianOfFaith_Corellonlarethian;GuardianOfFaith_Eilistraee;GuardianOfFaith_Garlglittergold;GuardianOfFaith_Gruumsh;GuardianOfFaith_Helm;GuardianOfFaith_Ilmater;GuardianOfFaith_Kelemvor;GuardianOfFaith_Laduguer;GuardianOfFaith_Lathander;GuardianOfFaith_Lolth;GuardianOfFaith_Mielikki;GuardianOfFaith_Moradin;GuardianOfFaith_Myrkul;GuardianOfFaith_Mystra;GuardianOfFaith_Oghma;GuardianOfFaith_Selune;GuardianOfFaith_Shar;GuardianOfFaith_Talos;GuardianOfFaith_Tempus;GuardianOfFaith_Tiamat;GuardianOfFaith_Tymora;GuardianOfFaith_Tyr;GuardianOfFaith_Vlaakith;GuardianOfFaith_Yondalla"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+// data "StatusEffect" "a5fec296-df13-473f-854c-0f458e70c2ba"
+
+// ==================================== Guardian of Faith (Summon)
+// Note: The following changes are all entirely redundant:
+// Bug Fix: The guardian being under the effects of a Polymorph no longer circumvents Blinded conditions disabling the Divine Retaliation interrupt.
+// Bug Fix: Divine Retaliation now works with more non-hostile and non-spellcasting restricted Polymorphs.
+// Changes: Divine Retaliation can now be used while Invisible.
+
+// new entry "GuardianOfFaith"
+// type "Character"
+// using "_Summons"
+// data "Armor" "18"
+// data "Vitality" "60"
+// data "XPReward" ""
+// data "PersonalStatusImmunities" "SG_Condition;SG_Blinded;SG_Charmed;SG_Cursed;SG_Disease;SG_Exhausted;SG_Frightened;SG_Incapacitated;SG_Invisible;SG_Poisoned;SG_Prone;SG_Restrained;SG_Stunned;SG_Unconscious;SG_Polymorph;SG_Paralyzed;SG_Petrified;SG_Drunk;SG_Sleeping;SG_CanBePickedUp;SG_Approaching;SG_Taunted;SG_Dominated;SG_Fleeing;SG_Confused;SG_Mad"
+// data "ActionResources" "ActionPoint:1;BonusActionPoint:1"
+// data "Passives" "GuardianOfFaith_Attack;GuardianOfFaith_Retaliate;ImmuneToDisarm"
+// data "DifficultyStatuses" ""
+
+// new entry "Target_MainHandAttack_GuardianOfFaith"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_MainHandAttack"
+// data "SpellProperties" ""
+// data "TargetCeiling" ""
+// data "TargetFloor" ""
+// data "TargetRadius" "3"
+// data "SpellRoll" "not SavingThrow(Ability.Dexterity, CalculateSpellDC(Ability.Wisdom, GetSummoner(context.Source)))"
+// data "SpellSuccess" "DealDamage(20,Radiant,Magical);AI_IGNORE:DealDamage(SELF,20,Radiant,Magical)"
+// data "SpellFail" "DealDamage(10,Radiant,Magical);AI_IGNORE:DealDamage(SELF,10,Radiant,Magical)"
+// data "Icon" "Spell_Evocation_SacredFlame"
+// Strike of the Guardian
+// data "DisplayName" "h2f800c31g2c07g4507g9765g6735a97880d3;2"
+// Channel the power of your deity in your sword strike to protect the cleric that brought you into being.
+// data "Description" "hbcaf38b5g8c2fg49ccga7d3ga4274a27a7c0;2"
+// data "TooltipDamageList" "DealDamage(20,Radiant)"
+// data "TooltipAttackSave" "Dexterity"
+// data "TooltipOnSave" "961753f4-c345-4bc4-b408-1d5b87a5ab0c"
+// data "CastSound" "CrSpell_Cast_GuardianOfFaith_MainHandAttack"
+// data "TargetSound" "CrSpell_Impact_GuardianOfFaith_MainHandAttack"
+// data "AlternativeCastTextEvents" ""
+// data "DualWieldingUseCosts" ""
+// data "WeaponTypes" "Melee"
+// data "SpellFlags" "IsAttack;IsHarmful;IsMelee"
+// data "CastEffect" "88a36344-0848-4e16-b09e-ddb44567a9a5"
+// data "TargetEffect" "78c8a29a-cd3d-40a2-ba01-41d0ec4ccd74"
+// data "Sheathing" "Melee"
+
+new entry "Interrupt_GuardianOfFaith_Retaliate"
+type "InterruptData"
+using "Interrupt_GuardianOfFaith_Retaliate"
+// Divine Retaliation
+// data "DisplayName" "h3a40f65dg6499g4e5dg9bf5gf274e7fa52c2;1"
+// Strike back at the enemy that attacked you.
+// data "Description" "h3ec41b5bg477cg4ba2ga5edg44914afbd2ac;1"
+// data "Icon" "Spell_Evocation_SacredFlame"
+// data "InterruptContext" "OnCastHit"
+// data "InterruptContextScope" "Nearby"
+// data "Container" "YesNoDecision"
+// data "Conditions" "IsAbleToReact(context.Observer) and Ally(context.Observer,context.Target) and Enemy(context.Source,context.Observer) and not DistanceToGreaterThan(context.ObserverPosition, context.SourcePosition, 3) and not HasStatus('INVISIBILITY') and not AnyEntityIsItem() and HasLastAttackTriggered()"
+// data "Properties" "UseAttack(OBSERVER_SOURCE)"
+// data "InterruptDefaultValue" "Enabled"
+// data "EnableCondition" "not HasAnyStatus({'SG_Polymorph','SG_Blinded'}) or Tagged('MINDFLAYER') or HasAnyStatus({'SG_Disguise','WILDSHAPE_STARRY_ARCHER_PLAYER','WILDSHAPE_STARRY_CHALICE_PLAYER','WILDSHAPE_STARRY_DRAGON_PLAYER'});"
+data "EnableCondition" "(not HasStatus('SG_Polymorph') or Goon_IsUnrestrictedPolymorphStatus()) or HasStatus('SG_Blinded')"
+// data "EnableContext" "OnStatusApplied;OnStatusRemoved"
+data "InterruptFlags" "InterruptWhileInvisible"
+
+// ==================================== Upcasting - Guardian of Faith - 5
+
+// new entry "Target_GuardianOfFaith_5"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Target_GuardianOfFaith"
+// data "PowerLevel" "5"
+
+// ==================================== Upcasting - Guardian of Faith - 6
+
+// new entry "Target_GuardianOfFaith_6"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Target_GuardianOfFaith"
+// data "PowerLevel" "6"
+
+// ==================================== Upcasting - Guardian of Faith - 7
+
+// new entry "Target_GuardianOfFaith_7"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Target_GuardianOfFaith"
+// data "PowerLevel" "7"
+
+// ==================================== Upcasting - Guardian of Faith - 8
+
+// new entry "Target_GuardianOfFaith_8"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Target_GuardianOfFaith"
+// data "PowerLevel" "8"
+
+// ==================================== Upcasting - Guardian of Faith - 9
+
+// new entry "Target_GuardianOfFaith_9"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Target_GuardianOfFaith"
+// data "PowerLevel" "9"
+
+// ==================================== ??? - Guardian of Faith
+
+// new entry "Target_MOO_Fanatic_GuardianOfFaith"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_GuardianOfFaith"
+// data "Cooldown" "OncePerCombat"
+// data "RootSpellID" ""
