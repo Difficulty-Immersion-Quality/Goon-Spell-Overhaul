@@ -20,6 +20,8 @@
 	<!-- "Target_ChillTouch" --> <content contentuid="h10d525bcg396eg4495g80dagc929c2c902b8" version="1">Grasp a target with a spectral hand, preventing them from healing until your next turn.&lt;br&gt;&lt;br&gt;An Undead target receives &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt;.</content>
 	<!-- "CHILL_TOUCH" --> <content contentuid="h1eae12c3g5f79g491fgaa61g1af469829dc7" version="1">Chill of the Grave</content>
 
+	<!-- "Target_BoomingBlade_ClassSpell" --> <content contentuid="h7e0dcc79gaf19g4c53g9ca7g2514832fd4d4" version="1">&lt;LSTag Type="Status" Tooltip="BOOMING_BLADE"&gt;Booming Blade&lt;/LSTag&gt;'s booming damage starts at [1] at character level 1, increasing to [2] at level 5, [3] at level 11, and [4] at level 17. Base[5] from the spell itself isn't present until character level 5, at which point it does [1], increasing in the same intervals as the booming damage from then on.</content>
+
 	<!-- "Target_DancingLights" --> <content contentuid="hc893a4f9g797eg4aabg965dg646020b6c70e" version="1">Summon swirling magical lights that illuminate a [1] radius.</content>
 
 	<!-- "Projectile_FireBolt" --> <content contentuid="ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf" version="1">Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create a fire surface in a [1] radius for [2] turns instead.</content>
