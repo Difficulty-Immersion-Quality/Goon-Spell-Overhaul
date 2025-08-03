@@ -1,0 +1,49 @@
+// ==================================== Sunburst ====================================
+// Changes: Damage increased from 12d6 Radiant to 12d8 Radiant.
+
+new entry "Target_Sunburst"
+type "SpellData"
+data "SpellType" "Target"
+// using "Target_HorridWilting"
+using "Target_Sunburst"
+// data "SpellSchool" "Evocation"
+data "SpellProperties" "AI_ONLY:ApplyStatus(AI_HELPER_BUFF_LARGE, 100, 5)"
+// data "SpellRoll" "not SavingThrow(Ability.Constitution, SourceSpellDC(), false,Tagged('UNDEAD'))"
+// data "SpellSuccess" "DealDamage(12d6,Radiant,Magical);ApplyStatus(BLINDNESS,100,10)"
+data "SpellSuccess" "DealDamage(12d8,Radiant,Magical);ApplyStatus(BLINDNESS,100,10)"
+// data "SpellFail" "DealDamage((12d6)/2,Radiant,Magical)"
+data "SpellFail" "DealDamage((12d8)/2,Radiant,Magical)"
+// data "AoEConditions" "not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())"
+// data "Icon" "Spell_Evocation_Daylight"
+// Sunburst
+// data "DisplayName" "h2c2202e9gbcf9gad62g4785g1b90daadb741;1"
+// Brilliant sunlight flashes from a point you choose, searing all within range and potentially &lt;LSTag Type="Status" Tooltip="SUNBEAM"&gt;blinding&lt;/LSTag&gt; them.
+// data "Description" "hb04cda04g8752g7668g9b3cg77c890c4a51f;2"
+// data "DescriptionParams" "DealDamage(12d6, Radiant)"
+data "DescriptionParams" "DealDamage(12d8, Radiant)"
+// Undead make this saving throw with disadvantage.
+// data "ExtraDescription" "h9a5d36e6g91dag08b4g6709g7ad4d7601320;2"
+// data "TooltipDamageList" "DealDamage(12d6, Radiant)"
+data "TooltipDamageList" "DealDamage(12d8, Radiant)"
+// data "PrepareSound" "Spell_Prepare_Damage_Radiant_Sunbeam_L6to8"
+// data "PrepareLoopSound" "Spell_Loop_Damage_Radiant_Sunbeam_L6to8"
+// data "CastSound" "Spell_Cast_Damage_Radiant_Sunbeam_L6to8"
+// data "TargetSound" "Spell_Impact_Damage_Radiant_Sunbeam_L6to8"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;1063ac71-be5e-435e-875d-78718d123a1f,,;d0b99285-a55a-44e6-9e46-b30daac9569c,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsHarmful;IsSpell"
+// data "RechargeValues" "5-6"
+// data "PrepareEffect" "bb817069-1b71-4b63-959c-b85e03a492eb"
+// data "CastEffect" "2ef28b19-d0cc-4260-8dc5-b1905c116add"
+// data "TargetEffect" "ddc1430f-4a0d-42c3-9ac8-ec4c3deaed35"
+// data "PositionEffect" "2bf85a5a-77db-4fb7-8867-3072ebef493a"
+// data "DamageType" "Radiant"
+
+// ==================================== Upcasting - Sunburst - 9
+
+// new entry "Target_Sunburst_9"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Sunburst"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Target_Sunburst"
+// data "PowerLevel" "9"
