@@ -47,7 +47,7 @@ data "DescriptionParams" "10"
 // data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
 // data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Radiant)"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // data "CastSound" "Spell_Cast_Damage_BrandingSmiteMelee_L1to3"
 // data "DualWieldingUseCosts" ""
 // data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2"
@@ -94,7 +94,7 @@ data "DescriptionParams" "10"
 // data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
 // data "TooltipUpcastDescriptionParams" "DealDamage(1d6,Radiant)"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // data "CastSound" "Spell_Cast_Damage_BrandingSmiteRanged_L1to3"
 // data "HitCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:2"
 // data "SpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;9583ecee-cf6c-4735-86db-7ebf1df15eae,,;de006e3f-70fb-4eb7-a98d-d845d15b20e8,,;50696db7-d931-4734-915d-32d038ba99a5,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;c36ed247-2272-492b-99c2-2ca10b014670,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
@@ -341,7 +341,7 @@ using "Target_Smite_Branding_ZarielTiefling_Container"
 // Legacy of Avernus: Branding Smite
 // data "DisplayName" "h7f04aa01g4fceg45bag8070g41a0bfd37755;2"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-// data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.
 data "TooltipOnMiss" "8b0c9dc7-cfb4-43ff-9514-9acc807fc663"
 // data "HitCosts" "BonusActionPoint:1"
@@ -357,7 +357,7 @@ using "Target_Smite_Branding_ZarielTiefling"
 data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(2d6,Radiant,Magical,,0,,true,false); ApplyStatus(BRANDING_SMITE, 100, 10)"
 // data "Cooldown" "OncePerRest"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-// data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.
 data "TooltipOnMiss" "8b0c9dc7-cfb4-43ff-9514-9acc807fc663"
 // data "HitCosts" "BonusActionPoint:1"
@@ -376,7 +376,7 @@ using "Projectile_Smite_Branding_ZarielTiefling"
 data "SpellSuccess" "DealDamage(MainRangedWeapon, MainRangedWeaponDamageType); ExecuteWeaponFunctors(MainHand); DealDamage(2d6,Radiant,Magical,,0,,true,false); AOE:ApplyStatus(BRANDING_SMITE, 100, 10)"
 // data "SpellFail" "IF(HasStatus('YSRSLIDFWWADNIWHWIHLY')):SpawnExtraProjectiles(Projectile_Smite_Branding_ZarielTiefling);ApplyStatus(YSRSLIDFWWADNIWHWIHLY_YWNK,100,1)"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-// data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt;.
 data "TooltipOnMiss" "8b0c9dc7-cfb4-43ff-9514-9acc807fc663"
 // data "HitCosts" "BonusActionPoint:1"

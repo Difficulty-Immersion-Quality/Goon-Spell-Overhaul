@@ -27,7 +27,7 @@ data "Description" "h82888909gf34cg4ddeg94d3g3883e31c0b4d;1"
 data "DescriptionParams" "10"
 // data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(3d8,Radiant)"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // data "TooltipAttackSave" "MeleeWeaponAttack;Constitution"
 // data "TooltipStatusApply" "ApplyStatus(BLINDING_SMITE_BLINDED,100,10)"
 // data "CastSound" "Spell_Cast_Damage_Radiant_BlindingSmite_L1to3"

@@ -27,7 +27,7 @@ data "Description" "h69cc494cgac3eg4d2ag9416g424f6e8d7500;1"
 data "DescriptionParams" "10"
 // data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(1d6,Fire)"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 // data "TooltipAttackSave" "MeleeWeaponAttack"
 // data "TooltipStatusApply" "ApplyStatus(SEARING_SMITE, 100, 10)"
 // The initial damage increases by [1] per level.
@@ -260,7 +260,7 @@ using "Target_Smite_Searing_Azer"
 // data "CastSound" "CrSpell_Cast_Azer_SearingSmite"
 // data "TargetSound" "CrSpell_Impact_Azer_SearingSmite"
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-// data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 data "TooltipOnMiss" ""
 // data "UseCosts" "ActionPoint:1"
 // data "HitCosts" ""
@@ -299,7 +299,7 @@ data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); Exe
 // data "TooltipDamageList" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);DealDamage(3d6,Fire)"
 // data "TooltipStatusApply" ""
 // Does not consume a &lt;LSTag Type="ActionResource" Tooltip="BonusActionPoint"&gt;Bonus Action&lt;/LSTag&gt; or &lt;LSTag Tooltip="SpellSlot"&gt;Spell Slot&lt;/LSTag&gt;.
-// data "TooltipOnMiss" "4639a885-0f45-4bc9-93c7-1e0c39eb39ec"
+// data "TooltipOnMiss" "87a38a64-94d2-4aa5-8627-4abb43fea3ae"
 data "TooltipOnMiss" ""
 // data "TooltipUpcastDescription" ""
 // data "TooltipUpcastDescriptionParams" "DealDamage(3d6, Fire)"
