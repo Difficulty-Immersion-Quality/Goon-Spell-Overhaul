@@ -18,8 +18,6 @@ data "SpellProperties" "IF(HasStatus('GOON_DASH_STACKED_8')):ApplyStatus(GOON_DA
 // data "Description" "hb4054949gcf3bg42b6g9113gd26bb6fb0d43;5"
 // Cover more distance this turn: double your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt;.
 data "Description" "h2a75359bgcb09g45aagbbf8g1c0994bb70f8;1"
-// &lt;LSTag Type="Image" Info="SoftWarning"/&gt; This effect is cumulative, &lt;b&gt;not&lt;/b&gt; multiplicative.
-data "TooltipPermanentWarnings" "d193dbf2-c16f-4416-934a-98037bf6a98e"
 // data "TooltipStatusApply" "ApplyStatus(DASH,100,1)"
 // data "PrepareSound" "Generic_GeneralAction_Start"
 // data "PrepareLoopSound" "Generic_GeneralAction_Loop"
