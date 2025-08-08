@@ -1,0 +1,50 @@
+// ==================================== Sense Hidden Presence ====================================
+// Bug Fix: The spell's tooltip no longer stats that the Detecting Presence condition lasts until long rest.
+// Bug Fix: Sense Hidden Presence is no longer considered a level 1 spell, and is instead just a class action.
+// Changes: The Detecting Presence condition lasts until the end of the caster's turn, instead of just detecting Invisible creatures within 3m of the initial cast.
+// Changes: The spell can be used without breaking ending Hidden or Invisible conditions.
+
+new entry "Shout_SeeInvisibility_Seek"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SeeInvisibility"
+using "Shout_SeeInvisibility_Seek"
+// data "Level" "1"
+data "Level" ""
+// data "SpellSchool" "None"
+// data "Cooldown" "OncePerTurn"
+// data "SpellProperties" "ApplyStatus(SEE_INVISIBILITY_SEEK,100,0)"
+data "SpellProperties" "ApplyStatus(SEE_INVISIBILITY_SEEK,100,1)"
+// data "AreaRadius" "3"
+// Sense Hidden Presence
+// data "DisplayName" "hbf9f3599gd5cfg40dbgbdb1g849c01448216;3"
+// Search for &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures, possibly revealing them to others.
+// data "Description" "h157b4b44g2016g4fe3g8552g3e2e862bc4ec;3"
+// Search for nearby &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures.
+data "Description" "ha06ae06dg1c88g43abgb807ga9f61ecca2b5;1"
+// data "TooltipStatusApply" "ApplyStatus(SEE_INVISIBILITY_SEEK,100,-1)"
+data "TooltipStatusApply" "ApplyStatus(SEE_INVISIBILITY_SEEK,100,1)"
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "UseCosts" "BonusActionPoint:1"
+// data "SpellAnimation" "5e57443f-284e-47b2-915e-5b6417db269c,,;925779e7-8bf6-4d56-8c4d-42c3bc01c60c,,;50398f4e-dd82-4d6a-ad43-aedd578543d9,,;1c343e00-7e6c-4f53-b588-074a3cdb9c7d,,;5bcdefbb-2194-46c2-ac77-0b2d8472a5f7,,;,,;5fdb66be-7506-411a-a7ea-c4783288aac8,,;,,;,,"
+// data "SpellFlags" "HasSomaticComponent;IgnoreVisionBlock;IgnoreSilence"
+// data "HitAnimationType" "None"
+// data "SpellAnimationIntentType" "Aggressive"
+// data "Sheathing" "DontChange"
+// data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell"
+data "SpellFlags" "HasSomaticComponent;IgnoreVisionBlock;Stealth;IgnoreSilence;Invisible"
+
+new entry "SEE_INVISIBILITY_SEEK"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "SEE_INVISIBILITY"
+using "SEE_INVISIBILITY_SEEK"
+// Detecting Presence
+// data "DisplayName" "h604aca7bgd813g4c57g9806g9caca83cf22a;1"
+// Searching for &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures within [1] that must make a Dexterity &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throw&lt;/LSTag&gt; or be revealed.
+// data "Description" "h6de27304g9c70g4ddcgad82g935531aa9dc4;1"
+// Searching for nearby &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; creatures.
+data "Description" "h2a6ec662gd025g40f4g8f6cg16cc8f609c7a;1"
+// data "DescriptionParams" "Distance(3)"
+// data "AuraRadius" "3"
+data "TickType" "EndTurn"
