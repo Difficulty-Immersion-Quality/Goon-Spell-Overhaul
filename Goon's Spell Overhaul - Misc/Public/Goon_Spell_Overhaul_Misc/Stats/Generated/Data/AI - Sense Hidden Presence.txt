@@ -2,7 +2,7 @@
 // Bug Fix: The spell's tooltip no longer stats that the Detecting Presence condition lasts until long rest.
 // Bug Fix: Sense Hidden Presence is no longer considered a level 1 spell, and is instead just a class action.
 // Changes: The Detecting Presence condition lasts until the end of the caster's turn, instead of just detecting Invisible creatures within 3m of the initial cast.
-// Changes: The spell can be used without breaking ending Hidden or Invisible conditions.
+// Changes: The spell can be used without ending Hidden or Invisible conditions.
 
 new entry "Shout_SeeInvisibility_Seek"
 type "SpellData"
