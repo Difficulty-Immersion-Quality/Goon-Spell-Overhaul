@@ -70,7 +70,7 @@ data "DisplayName" "h1eae12c3g5f79g491fgaa61g1af469829dc7;1"
 // data "StillAnimationPriority" "Weakened"
 // data "StackId" "CHILL_TOUCH"
 // data "TickType" "StartTurn"
-data "OnApplyConditions" "Character() or Tagged('FUNGUS')"
+data "OnApplyConditions" "Character(context.Source) or Tagged('FUNGUS',context.Source)"
 // data "Boosts" "BlockRegainHP(Living;Undead); IF(Tagged('UNDEAD', context.Source)):Disadvantage(AttackRoll)"
 // data "StatusPropertyFlags" "TickingWithSource"
 
