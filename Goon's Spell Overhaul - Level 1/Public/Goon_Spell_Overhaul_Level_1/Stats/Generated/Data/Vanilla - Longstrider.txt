@@ -1,5 +1,6 @@
 // ==================================== Longstrider ====================================
-// Bug Fix: Upcast descriptions no longer reference innapropriate amounts of targets.
+// Bug Fix: Upcast descriptions no longer reference inappropriate amounts of targets.
+// Bug Fix: The AI override for the level 2 upcast now has a ritual cost.
 // Changes: Is now a "Shout" instead of a "Target" spell, applying the Longstrider condition to yourself and all allies within 9m.
 // Changes: The base spell and all upcasts have a range of 9m, instead of 1.5m for the base spell and 3m for the upcasts.
 // Changes: No longer flagged as a melee spell.
@@ -117,6 +118,7 @@ data "AreaRadius" "9"
 data "TargetRadius" ""
 // data "AmountOfTargets" ""
 // data "RitualCosts" ""
+data "RitualCosts" "ActionPoint:1"
 // data "MaximumTargets" "2"
 data "MaximumTargets" ""
 // data "RootSpellID" ""
