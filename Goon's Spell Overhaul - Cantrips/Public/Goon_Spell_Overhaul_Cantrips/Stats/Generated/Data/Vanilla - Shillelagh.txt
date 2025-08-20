@@ -5,7 +5,8 @@
 // Changes: Lasts until long rest instead of 10 turns, the caster can only have one Shillelagh active at a time.
 // Changes: The wielder can cancel the effect at will (AI will not cancel the effect).
 // TODO: Strengthened Shillelagh can be exploited by summoning multiple Dryads and buffing the whole party. They should probably just use vanilla functionality, only buffing themselves. Or have the enchantment specify that only Dryad's benefit from the outrageous 4d8 Bludgeoning damage.
-// TODO: Clean up entries.
+// TODO: Clean up entries. 
+// TODO: Apparently shit can be inherited across SpellTypes? WTF! Are my changes to Phalar Aluve basically pointless then? What about the issues with inheritence from Hex in Spell Adjustments?!
 
 new entry "Shout_Shillelagh"
 type "SpellData"
@@ -194,6 +195,8 @@ data "MaximumTargets" ""
 // The sword hums in anticipation, ready to &lt;LSTag Type="Spell" Tooltip="Shout_MAG_Harpers_SingingSword_Sing"&gt;Sing&lt;/LSTag&gt; or &lt;LSTag Type="Spell" Tooltip="Shout_MAG_Harpers_SingingSword_Shriek"&gt;Shriek&lt;/LSTag&gt;.
 // data "Description" "h7f04f37ag92f5g4f43g8b88ge341cb5b23e3;3"
 // data "DescriptionParams" ""
+data "ExtraDescription" ""
+data "ExtraDescriptionParams" ""
 data "TooltipDamageList" ""
 // data "TooltipStatusApply" ""
 // data "UseCosts" "ActionPoint:1"
@@ -233,6 +236,8 @@ data "MaximumTargets" ""
 // The sword Shrieks. All enemies within [1] of range have a [2] penalty to Charisma, Wisdom and Intelligence &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;. Affected creatures receive an extra [3].&lt;br&gt;&lt;br&gt;The sword will stop shrieking if unequipped.
 // data "Description" "haddfd44agb97cg4e6bg92eag789356503759;4"
 // data "DescriptionParams" "Distance(6);1d4;DealDamage(1d4, Thunder)"
+data "ExtraDescription" ""
+data "ExtraDescriptionParams" ""
 data "TooltipDamageList" ""
 // data "TooltipStatusApply" "ApplyStatus(MAG_HARPERS_SINGING_SWORD_SHRIEKING_AURA,100,5)"
 // data "PrepareSound" "Action_Prepare_Weapon_HarpersSingingSword_Shriek"
@@ -273,6 +278,8 @@ data "MaximumTargets" ""
 // The sword sings a melody. All allies within [1] of range have a [2] bonus to &lt;LSTag Tooltip="AttackRoll"&gt;Attack Rolls&lt;/LSTag&gt; and Charisma, Wisdom and Intelligence &lt;LSTag Tooltip="SavingThrow"&gt;Saving Throws&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;The sword will stop singing if unequipped.
 // data "Description" "h7327d64egee68g4bbcgb879g0871e7ec428b;5"
 // data "DescriptionParams" "Distance(6);1d4"
+data "ExtraDescription" ""
+data "ExtraDescriptionParams" ""
 data "TooltipDamageList" ""
 // data "TooltipStatusApply" "ApplyStatus(MAG_HARPERS_SINGING_SWORD_SINGING_AURA,100, 5)"
 // data "PrepareSound" "Action_Prepare_Weapon_HarpersSingingSword_Sing"
