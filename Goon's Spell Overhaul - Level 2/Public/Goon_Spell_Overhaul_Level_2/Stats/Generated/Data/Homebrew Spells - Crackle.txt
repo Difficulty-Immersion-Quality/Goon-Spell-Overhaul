@@ -1,0 +1,155 @@
+// ==================================== Crackle ====================================
+// Changes: The Stunned condition is now removed at the end of the entity's turn instead of the start of it.
+
+new entry "Projectile_Crackle"
+type "SpellData"
+data "SpellType" "Projectile"
+using "Projectile_Crackle"
+// data "Level" "2"
+// data "SpellSchool" "Evocation"
+// data "TargetFloor" "-1"
+// data "TargetRadius" "18"
+// data "AmountOfTargets" "3"
+// data "SpellRoll" "Attack(AttackType.RangedSpellAttack)"
+// data "SpellSuccess" "IF(HasStatus('CRACKLE_2')):ApplyStatus(CRACKLE_3,100,1);IF(HasStatus('CRACKLE_1')):ApplyStatus(CRACKLE_2,100,1);IF(not HasStatus('CRACKLE_1') and not HasStatus('CRACKLE_2') and not HasStatus('CRACKLE_3')):ApplyStatus(CRACKLE_1,100,1);DealDamage(1d12,Lightning,Magical)"
+// data "TargetConditions" "not Self() and not Dead() and not (HasPassive('SculptSpells', context.Source) and Ally())"
+// data "ProjectileCount" "1"
+// data "Trajectories" "f3e80d36-e158-4e4a-b79b-07e5d794ae32;7a2eea92-5a51-408d-ac76-c45098c87d93"
+// data "Icon" "Spell_Evocation_Crackle"
+// Crackle
+// data "DisplayName" "h2244e159g0d70g4fffgb772g81c682bf2515;1"
+// Create [1] arcs of lightning to strike out at creatures.
+// data "Description" "h0cd94a8fg2233g4fa5g888dg371a53a82a29;1"
+// data "DescriptionParams" "3"
+// If at least 3 arcs hit a single target, they are &lt;LSTag Type="Status" Tooltip="STUNNED"&gt;Stunned&lt;/LSTag&gt;.
+// data "ExtraDescription" "hf64cb486g5a1cg432bgb217g77b18fa322b2;1"
+// data "ExtraDescriptionParams" "DealDamage(1d12,Lightning)"
+// data "TooltipDamageList" "DealDamage(3d12,Lightning)"
+// data "TooltipAttackSave" "RangedSpellAttack"
+// data "TooltipStatusApply" "ApplyStatus(CRACKLE_SHOCKED,100,1)"
+data "TooltipStatusApply" "ApplyStatus(STUNNED,100,1)"
+// data "TooltipUpcastDescription" "8ace77fc-e5ab-4e82-a6db-8e397a09e044"
+// data "CastTextEvent" "Cast"
+// data "PrepareSound" "Spell_Prepare_Damage_Lightning_Gen_L1to3"
+// data "PrepareLoopSound" "Spell_Prepare_Damage_Lightning_Gen_L1to3_Loop"
+// data "CastSound" "Spell_Cast_Damage_Lightning_ChromaticOrbLightning_L1to3"
+// data "CycleConditions" "Enemy() and not Dead()"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:2"
+// data "SpellAnimation" "3ff87abf-1ea1-4c32-aadf-c822d74c7dc0,,;,,;38cdb41c-2eec-4e03-bb31-83cff0346c35,,;85414f5f-b448-4dda-9370-1b6c4b38b561,,;d8925ce4-d6d9-400c-92f5-ad772ef7f178,,;,,;eadedcce-d01b-4fbb-a1ae-d218f13aa5d6,,;,,;,,"
+// data "VerbalIntent" "Damage"
+// data "SpellFlags" "IsSpell;HasVerbalComponent;HasSomaticComponent;IsHarmful"
+// data "PrepareEffect" "VFX_Spells_Prepare_Arcane_Damage_Lightning_R_HandFX_01:Dummy_R_HandFX;VFX_Spells_Prepare_Arcane_Damage_Lightning_R_HandFX_01:Dummy_L_HandFX;VFX_Spells_Prepare_Arcane_Damage_Lightning_R_HandFX_Textkey_01:Dummy_L_HandFX;VFX_Spells_Prepare_Arcane_Damage_Lightning_R_HandFX_Textkey_01:Dummy_R_HandFX"
+// data "CastEffect" "fa7b3b8f-3187-45c2-9895-f1ce4c432679"
+// data "DamageType" "Lightning"
+
+// new entry "CRACKLE_1"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// data "StackId" "CRACKLE_PROC"
+// data "StackPriority" "1"
+// data "StatusPropertyFlags" "DisableCombatlog;DisablePortraitIndicator;DisableOverhead"
+
+// new entry "CRACKLE_2"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// using "CRACKLE_1"
+// data "StackPriority" "2"
+
+new entry "CRACKLE_3"
+type "StatusData"
+data "StatusType" "BOOST"
+using "CRACKLE_3"
+// using "CRACKLE_1"
+// data "OnApplyFunctors" "ApplyStatus(CRACKLE_SHOCKED,100,1)"
+data "OnApplyFunctors" "ApplyStatus(STUNNED,100,1)"
+// data "StackPriority" "3"
+
+// new entry "CRACKLE_SHOCKED"
+// type "StatusData"
+// data "StatusType" "INCAPACITATED"
+// using "STUNNED"
+// data "TickType" "StartTurn"
+
+// ==================================== Upcasting - Crackle - 3
+
+// new entry "Projectile_Crackle_3"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "4"
+// data "AmountOfTargets" "4"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:3"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "3"
+
+// ==================================== Upcasting - Crackle - 4
+
+// new entry "Projectile_Crackle_4"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "5"
+// data "AmountOfTargets" "5"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "4"
+
+// ==================================== Upcasting - Crackle - 5
+
+// new entry "Projectile_Crackle_5"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "6"
+// data "AmountOfTargets" "6"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "5"
+
+// ==================================== Upcasting - Crackle - 6
+
+// new entry "Projectile_Crackle_6"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "7"
+// data "AmountOfTargets" "7"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "6"
+
+// ==================================== Upcasting - Crackle - 7
+
+// new entry "Projectile_Crackle_7"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "8"
+// data "AmountOfTargets" "8"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "7"
+
+// ==================================== Upcasting - Crackle - 8
+
+// new entry "Projectile_Crackle_8"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "9"
+// data "AmountOfTargets" "9"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "8"
+
+// ==================================== Upcasting - Crackle - 9
+
+// new entry "Projectile_Crackle_9"
+// type "SpellData"
+// data "SpellType" "Projectile"
+// using "Projectile_Crackle"
+// data "DescriptionParams" "10"
+// data "AmountOfTargets" "10"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Projectile_Crackle"
+// data "PowerLevel" "9"
