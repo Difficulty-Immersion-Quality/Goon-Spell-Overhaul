@@ -1,0 +1,78 @@
+// ============================ Regenerate ============================
+// Changes: Can now be used inside of combat.
+// Changes: Casting now costs a Bonus Action, in addition to an Action and Spell Slot.
+// Changes: The regenerating entity will no longer receive healing ticks when they are at full health.
+
+new entry "Target_ATT_Regenerate"
+type "SpellData"
+// data "SpellType" "Target"
+// using "Target_CureWounds"
+using "Target_ATT_Regenerate"
+// data "Level" "7"
+// data "SpellSchool" "Transmutation"
+// data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(ATT_REGENERATE,100,-1)"
+data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(ATT_REGENERATE,100,-1);RemoveStatus(CAMP_VOLO_LOBOTOMY);RemoveStatus(HAG_HAGEYED);RemoveStatus(CAMP_VOLO_NEEDLE)"
+// data "Requirements" "!Combat"
+data "Requirements" ""
+// Regenerate
+// data "DisplayName" "h0fcf49c2g7e45g16ccg2cd5g0b39754f0b6b;1"
+// Stimulate a creature's natural healing ability, allowing it to heal 1 hit point each round until Long Rest.
+// data "Description" "h7e76b086ga975g58c9g946fgb834f7ea1cf2;1"
+// Touch a creature to stimulate its natural healing ability, healing it immediately and causing it to regain [1] at the start of its turns.
+data "Description" "hea3d30c7g7916g44a7gb245g64f5db015085;1"
+data "DescriptionParams" "RegainHitPoints(4d8+15);RegainHitPoints(1)"
+// The target's severed body parts, if any, are also restored.
+data "ExtraDescription" "h445e8155gbbd3g4ff5ga071gd33141144e57;1"
+// data "TooltipDamageList" "RegainHitPoints(4d8+15)"
+data "TooltipStatusApply" "ApplyStatus(ATT_REGENERATE,100,-1)"
+// Casting this spell at a higher level doesn't grant any additional benefits.
+// data "TooltipUpcastDescription" "6ff1780a-855a-414c-a8bf-811251537206"
+// data "TooltipUpcastDescriptionParams" ""
+// &lt;LSTag Type="Image" Info="SoftWarning"/&gt; Can only be used outside of combat.
+// data "TooltipPermanentWarnings" "df2db86c-d049-4fd9-a902-8752ae9bcaae"
+data "TooltipPermanentWarnings" ""
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "SpellSoundMagnitude" "Big"
+
+new entry "ATT_REGENERATE"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "MAG_DEVOTEES_MACE_HEALING_AURA"
+using "ATT_REGENERATE"
+// Regeneration
+// data "DisplayName" "h1b028173g9715gd041g32fbgf9f72f9c6d80;1"
+// Entity regains 1 hit point each round.
+// data "Description" "hc9d36be8gf461g407bg618egaeb6c98be3e0;1"
+// Regains [1] per turn.
+data "Description" "h050f9e98ge2dcg4315gb9edg84c5bfe5e8df;1"
+// data "DescriptionParams" ""
+data "DescriptionParams" "RegainHitPoints(1)"
+// data "StackId" "ATT_REGEN"
+// data "StackType" "Overwrite"
+// data "AuraRadius" ""
+// data "AuraStatuses" ""
+// data "TickFunctors" "RegainHitPoints(1)"
+data "TickFunctors" "IF(not Dead() and HasHPPercentageWithoutTemporaryHPLessThan(100)):RegainHitPoints(1)"
+// data "StatusGroups" "SG_RemoveOnRespec"
+
+// ============================ Upcasting - Regenerate - 8
+
+// new entry "Target_ATT_Regenerate_8"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_ATT_Regenerate"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Target_ATT_Regenerate"
+// data "PowerLevel" "8"
+
+// ============================ Upcasting - Regenerate - 8
+
+// new entry "Target_ATT_Regenerate_9"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_ATT_Regenerate_8"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "PowerLevel" "9"

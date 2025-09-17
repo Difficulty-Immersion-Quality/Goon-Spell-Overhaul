@@ -1,6 +1,8 @@
 // ============================ Regenerate ============================
 // Changes: Lasts until long rest instead of 600 turns.
 // Changes: Can now be used inside of combat.
+// Changes: Casting now costs a Bonus Action, in addition to an Action and Spell Slot.
+// Changes: The regenerating entity will no longer receive healing ticks when they are at full health.
 
 new entry "Target_Regenerate"
 type "SpellData"
@@ -17,10 +19,14 @@ data "SpellProperties" "RegainHitPoints(4d8+15);ApplyStatus(REGENERATE,100,-1);R
 // data "DisplayName" "hfeb7855fgd59bg42c0gbfabg03d7c7b1b25e;1"
 // Touch a creature to stimulate its natural healing ability, regaining [1] and [2] at the start of its turns.
 // data "Description" "h3c16c38bg3e76g4f4egb696g7494ad91d656;1"
+// Touch a creature to stimulate its natural healing ability, healing it immediately and causing it to regain [1] at the start of its turns.
+data "Description" "hea3d30c7g7916g44a7gb245g64f5db015085;1"
 // data "DescriptionParams" "RegainHitPoints(4d8+15);RegainHitPoints(1);ApplyStatus(REGENERATE,100,600)"
+data "DescriptionParams" "RegainHitPoints(1)"
 // The target's severed body parts, if any, are also restored.
 // data "ExtraDescription" "hb45211cfg5fc3g4988gb113g4d07ca47a88e;1"
 // data "TooltipDamageList" "RegainHitPoints(4d8+15);RegainHitPoints(1)"
+data "TooltipDamageList" "RegainHitPoints(4d8+15)"
 // data "TooltipStatusApply" "ApplyStatus(REGENERATE,100,600)"
 data "TooltipStatusApply" "ApplyStatus(REGENERATE,100,-1)"
 // Casting this spell at a higher level doesn't grant any additional benefits.
@@ -33,6 +39,7 @@ data "TooltipStatusApply" "ApplyStatus(REGENERATE,100,-1)"
 // data "TargetSound" "Action_Impact_Cleric_DivineIntervention_Healing"
 // data "CycleConditions" "Ally() and not Dead() and not Tagged('UNDEAD')"
 // data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:7"
 // data "SpellAnimation" "414bbf02-2918-4f01-83fb-1ddc7a588d88,,;,,;e37d18b8-0de7-4bbc-a644-31ec2a91e548,,;acfe8d41-20c1-4fe8-b158-f4b2be86e080,,;0c5dcc83-fa78-41da-b6a5-440b5ea30936,,;,,;bea988a0-2ec5-40d8-a67e-ffbd7454bc53,,;bcc3b0d9-f04f-4448-aab0-e0ad641167cc,,;bf924cc6-8b39-4c3b-b1c0-eda264cf6150,,"
 // data "VerbalIntent" "Healing"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;HasHighGroundRangeExtension;IsMelee"
@@ -44,11 +51,14 @@ data "Requirements" ""
 // data "CastEffect" "ce5a1256-d5c8-45b5-98fc-ee9a16e3673c"
 // data "TargetEffect" "d16a93f4-ddb5-4175-9b3f-22eced19ff02"
 
-// new entry "REGENERATE"
-// type "StatusData"
-// data "StatusType" "BOOST"
+new entry "REGENERATE"
+type "StatusData"
+data "StatusType" "BOOST"
+using "REGENERATE"
 // Regenerate
 // data "DisplayName" "hfeb7855fgd59bg42c0gbfabg03d7c7b1b25e;1"
+// Regeneration
+data "DisplayName" "hb41c9704g1462g4e03g8b47gb2cf82470b0d;1"
 // Regains [1] per turn.
 // data "Description" "h4da15ee9gcb84g45f7gb813g93ae30e51369;1"
 // data "DescriptionParams" "RegainHitPoints(1)"
@@ -56,6 +66,7 @@ data "Requirements" ""
 // data "StackId" "REGENERATE"
 // data "TickType" "StartTurn"
 // data "TickFunctors" "IF(not Dead()):RegainHitPoints(1)"
+data "TickFunctors" "IF(not Dead() and HasHPPercentageWithoutTemporaryHPLessThan(100)):RegainHitPoints(1)"
 // data "StatusGroups" "SG_RemoveOnRespec"
 
 // ============================ Upcasting - Regenerate - 8
@@ -66,6 +77,7 @@ data "Requirements" ""
 // using "Target_Regenerate"
 // data "Level" "8"
 // data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:8"
 // data "RootSpellID" "Target_Regenerate"
 // data "PowerLevel" "8"
 
@@ -77,5 +89,6 @@ data "Requirements" ""
 // using "Target_Regenerate"
 // data "Level" "9"
 // data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+data "UseCosts" "ActionPoint:1;BonusActionPoint:1;SpellSlotsGroup:1:1:9"
 // data "RootSpellID" "Target_Regenerate"
 // data "PowerLevel" "9"

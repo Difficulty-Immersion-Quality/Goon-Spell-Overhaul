@@ -1,5 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <contentList>
+	<!-- "Target_Regenerate", "Target_ATT_Regenerate" --> <content contentuid="hea3d30c7g7916g44a7gb245g64f5db015085" version="1">Touch a creature to stimulate its natural healing ability, healing it immediately and causing it to regain [1] at the start of its turns.</content>
+	<!-- "Target_ATT_Regenerate" --> <content contentuid="h445e8155gbbd3g4ff5ga071gd33141144e57" version="1">The target's severed body parts, if any, are also restored.</content>
+	<!-- "REGENERATE" --> <content contentuid="hb41c9704g1462g4e03g8b47gb2cf82470b0d" version="1">Regeneration</content>
+	<!-- "ATT_REGENERATE" --> <content contentuid="h050f9e98ge2dcg4315gb9edg84c5bfe5e8df" version="1">Regains [1] per turn.</content>
+
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
