@@ -1,5 +1,6 @@
 // ==================================== Find Familiar ====================================
 // Changes: No longer has a once per short rest cooldown.
+// Changes: No longer blocked from being cast in the tutorial/prior to your first long rest.
 
 new entry "Target_FindFamiliar"
 type "SpellData"
@@ -12,6 +13,7 @@ using "Target_FindFamiliar"
 data "Cooldown" ""
 // data "TargetRadius" "18"
 // data "RequirementConditions" "TutorialSummonBlockCheck()"
+data "RequirementConditions" ""
 // data "RequirementEvents" "OnStatusRemoved;OnStatusApplied"
 // data "Icon" "Spell_Conjuration_FindFamiliar"
 // Find Familiar
