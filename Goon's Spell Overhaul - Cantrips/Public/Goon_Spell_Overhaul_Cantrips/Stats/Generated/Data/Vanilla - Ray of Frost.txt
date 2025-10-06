@@ -1,6 +1,7 @@
 // ==================================== Ray of Frost ====================================
 // Changes: Creates a 1m diameter ice surface for 2 turns when targeting the ground, corpses, or objects.
 // Changes: Targeting unrestricted.
+// Changes: Removes Burning from the target on a hit.
 // TODO: Encrusted with Frost instead of Ray of Frost condition?
 // TODO: Remove more than just Burning? Wild Magic Burning?
 
