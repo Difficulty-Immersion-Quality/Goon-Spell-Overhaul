@@ -2,10 +2,12 @@
 // Bug Fix: Added missing Thunder "DamageType".
 // Bug Fix: Tooltip displays accurate damage numbers, no longer conflating the spell's Thunder damage with the condition's conditional damage.
 // Bug Fix: The Booming Blade's condition now displays its Thunder damage as being conditional.
+// Bug Fix: Honour ruleset DRS changes modified to function akin to Divine Smite.
 // Changes: Deals additional damage at level 17+ per RAW.
 // Changes: No longer interacts with Extra Attack.
 // Changes: Now has a somatic component.
 // Changes: Targetting unrestricted.
+// NOTE: Please use Extra Attack Fix SE to prevent it working with Extra Attack out of the box, and not requiring War Magic or something akin to it.
 
 new entry "Target_BoomingBlade_ClassSpell"
 type "SpellData"

@@ -11,6 +11,10 @@ new entry "MAG_SHADOW_BLADE_RING_TECHNICAL"
 type "StatusData"
 data "StatusType" "BOOST"
 using "MAG_SHADOW_BLADE_RING_TECHNICAL"
+// %%% Empty
+// data "DisplayName" "hedcf34f1g4c08g4626ga6a6g6cf4e7f728b8;1"
+// data "StackId" "MAG_SHADOW_BLADE_RING_TECHNICAL"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator;IgnoreResting;ApplyToDead"
 // data "OnRemoveFunctors" "IF(HasStatus('MAG_SHADOW_BLADE_OWNER')):BreakConcentration()"
 data "OnRemoveFunctors" ""
 
