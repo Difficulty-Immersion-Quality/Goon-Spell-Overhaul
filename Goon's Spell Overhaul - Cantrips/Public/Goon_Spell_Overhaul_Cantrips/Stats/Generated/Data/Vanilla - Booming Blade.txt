@@ -19,7 +19,7 @@ data "SpellProperties" "GROUND:DealDamage(MainMeleeWeapon, MainMeleeWeaponDamage
 data "RequirementEvents" "OnEquip;OnUnequip;OnSourceStatusApplied;OnStatusRemoved"
 // data "SpellSuccess" "IF(not CharacterLevelGreaterThan(4)):ApplyStatus(BOOMING_BLADE,100,1);IF(CharacterLevelGreaterThan(4) and not CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_5,100,1);IF(CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_11,100,1);IF(CharacterLevelGreaterThan(4)):DealDamage(LevelMapValue(BoomingBlade),Thunder);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand);ApplyStatus(BOOMINGBLADE_BLOCK,100,1);"
 // data "SpellSuccess" "IF(not CharacterLevelGreaterThan(4)):ApplyStatus(BOOMING_BLADE,100,1);IF(CharacterLevelGreaterThan(4) and not CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_5,100,1);IF(CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_11,100,1);IF(CharacterLevelGreaterThan(4)):DealDamage(LevelMapValue(BoomingBlade),Thunder,,,0,,true,true);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand);ApplyStatus(BOOMINGBLADE_BLOCK,100,1);"
-data "SpellSuccess" "IF(CharacterLevelGreaterThan(4)):DealDamage(LevelMapValue(BoomingBlade),Thunder,,,0,,true,true);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand);IF(not CharacterLevelGreaterThan(4)):ApplyStatus(BOOMING_BLADE,100,1);IF(CharacterLevelGreaterThan(4) and not CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_5,100,1);IF(CharacterLevelGreaterThan(10) and not CharacterLevelGreaterThan(16)):ApplyStatus(BOOMING_BLADE_11,100,1);IF(CharacterLevelGreaterThan(16)):ApplyStatus(GOON_BOOMING_BLADE_17,100,1);ApplyStatus(BOOMINGBLADE_BLOCK,100,1)"
+data "SpellSuccess" "IF(CharacterLevelGreaterThan(4)):DealDamage(LevelMapValue(BoomingBlade),Thunder,,,0,,true,false);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType);ExecuteWeaponFunctors(MainHand);IF(not CharacterLevelGreaterThan(4)):ApplyStatus(BOOMING_BLADE,100,1);IF(CharacterLevelGreaterThan(4) and not CharacterLevelGreaterThan(10)):ApplyStatus(BOOMING_BLADE_5,100,1);IF(CharacterLevelGreaterThan(10) and not CharacterLevelGreaterThan(16)):ApplyStatus(BOOMING_BLADE_11,100,1);IF(CharacterLevelGreaterThan(16)):ApplyStatus(GOON_BOOMING_BLADE_17,100,1);ApplyStatus(BOOMINGBLADE_BLOCK,100,1)"
 // data "Icon" "Spell_Evocation_BoomingBlade"
 // data "DescriptionParams" "DealDamage(LevelMapValue(D8Cantrip),Thunder);"
 data "DescriptionParams" "DealDamage(LevelMapValue(Goon_BoomingBlade_Boom),Thunder)"
@@ -37,7 +37,9 @@ using "Target_BoomingBlade"
 // data "SpellSchool" "Evocation"
 // data "Cooldown" ""
 data "RequirementEvents" "OnEquip;OnUnequip;OnSourceStatusApplied;OnStatusRemoved"
-data "SpellRoll" "Goon_BladeCantripAttack()"
+// data "SpellRoll" "Attack(AttackType.MeleeWeaponAttack)"
+// OI CUNT: Let Extra Attack Fix SE handle the Extra Attack functionality, leaving the rolls as a proper melee weapon attack allows other synergy. Extend this choice to 5E Spells and other entries.
+// data "SpellRoll" "Goon_BladeCantripAttack()"
 // data "SpellSuccess" "ApplyStatus(BOOMING_BLADE,100,1);DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); ExecuteWeaponFunctors(MainHand)"
 // data "TargetConditions" "(Character() or Item()) and not Self() and not Dead()"
 data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
@@ -59,6 +61,16 @@ data "SpellFlags" "IsMelee;IsHarmful;IsDefaultWeaponAction;IsSpell;HasSomaticCom
 // data "TargetEffect" "288e0f80-7d7c-4f36-b748-17182318180e"
 data "DamageType" "Thunder"
 
+// new entry "BOOMING_BLADE_DAMAGE_IMMUNITY"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// %%% Booming Blade Immunity
+// data "DisplayName" "h51547fcfgb56dg4ab7gafafg25130d372a28;1"
+// data "StackId" "BOOMING_BLADE_DAMAGE_IMMUNITY"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;DisablePortraitIndicator"
+
+// ==================================== Booming Blade - Base status
+
 new entry "BOOMING_BLADE"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -78,6 +90,36 @@ data "DescriptionParams" "DealDamage(1d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac
 // data "TooltipSave" ""
 // data "StatusPropertyFlags" ""
 
+// new entry "BoomingBlade_Movement_Passive"
+// type "PassiveData"
+// Booming Blade
+// data "DisplayName" "h14f347e7g7e38g47d2g9556g331a81181c45;1"
+// data "Properties" "IsHidden"
+// data "StatsFunctorContext" "OnMovedDistance"
+// data "Conditions" "not HasStatus('BOOMING_BLADE_DAMAGE_IMMUNITY')"
+// data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+
+// new entry "BoomingBlade_MovementSpell_Passive"
+// type "PassiveData"
+// using "BoomingBlade_Movement_Passive"
+// data "StatsFunctorContext" "OnCast"
+// data "Conditions" "IsMovementSpell()"
+
+new entry "BOOMING_BLADE_DAMAGE"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "BOOMING_BLADE"
+using "BOOMING_BLADE_DAMAGE"
+// Booming Blade Damage
+// data "DisplayName" "h5bf9e2b7g4357g4179g98a9g5043231a64ed;1"
+// data "StackId" "BOOMING_BLADE_DAMAGE"
+// data "Passives" ""
+// data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE)"
+// data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE)"
+data "OnApplyFunctors" "DealDamage(1d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE)"
+
+// ==================================== Booming Blade - Level 5
+
 new entry "BOOMING_BLADE_5"
 type "StatusData"
 data "StatusType" "BOOST"
@@ -86,6 +128,32 @@ using "BOOMING_BLADE_5"
 // data "DescriptionParams" "DealDamage(2d8, Thunder)"
 data "DescriptionParams" "DealDamage(2d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "Passives" "BoomingBlade_5_Movement_Passive;BoomingBlade_5_MovementSpell_Passive;"
+
+// new entry "BoomingBlade_5_Movement_Passive"
+// type "PassiveData"
+// using "BoomingBlade_Movement_Passive"
+// %%% Empty
+// data "DisplayName" "h86377f73g7eb9g4b34g89b4g433a9af67e66;1"
+// data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_5_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+
+// new entry "BoomingBlade_5_MovementSpell_Passive"
+// type "PassiveData"
+// using "BoomingBlade_MovementSpell_Passive"
+// %%% Empty
+// data "DisplayName" "h31d47374g05a9g4d52g9e69g2e1db55e6b73;1"
+// data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_5_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+
+new entry "BOOMING_BLADE_5_DAMAGE"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "BOOMING_BLADE_DAMAGE"
+using "BOOMING_BLADE_5_DAMAGE"
+// data "DescriptionParams" "DealDamage(2d8, Thunder)"
+// data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE_5)"
+// data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_5)"
+data "OnApplyFunctors" "DealDamage(2d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE_5)"
+
+// ==================================== Booming Blade - Level 11
 
 new entry "BOOMING_BLADE_11"
 type "StatusData"
@@ -96,7 +164,31 @@ using "BOOMING_BLADE_11"
 data "DescriptionParams" "DealDamage(3d8, Thunder,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
 // data "Passives" "BoomingBlade_11_Movement_Passive;BoomingBlade_11_MovementSpell_Passive;"
 
-// ==================================== Custom level 20 curve
+// new entry "BoomingBlade_11_Movement_Passive"
+// type "PassiveData"
+// using "BoomingBlade_Movement_Passive"
+// %%% Empty
+// data "DisplayName" "ha57461c0gfb33g47bagb2f0g2b8064a7e509;1"
+// data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_11_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+
+// new entry "BoomingBlade_11_MovementSpell_Passive"
+// type "PassiveData"
+// using "BoomingBlade_MovementSpell_Passive"
+// %%% Empty
+// data "DisplayName" "h6643abfegd843g437dg947dg8151b772282d;1"
+// data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_11_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+
+new entry "BOOMING_BLADE_11_DAMAGE"
+type "StatusData"
+data "StatusType" "BOOST"
+// using "BOOMING_BLADE_DAMAGE"
+using "BOOMING_BLADE_11_DAMAGE"
+// data "DescriptionParams" "DealDamage(3d8, Thunder)"
+// data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical);RemoveStatus(SELF, BOOMING_BLADE_11)"
+// data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, BOOMING_BLADE_11)"
+data "OnApplyFunctors" "DealDamage(3d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, BOOMING_BLADE_11)"
+
+// ==================================== Booming Blade - Level 17
 
 new entry "GOON_BOOMING_BLADE_17"
 type "StatusData"
@@ -110,21 +202,21 @@ type "PassiveData"
 using "BoomingBlade_Movement_Passive"
 // %%% Empty
 data "DisplayName" "ha57461c0gfb33g47bagb2f0g2b8064a7e509;1"
-data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_11_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+data "StatsFunctors" "ApplyStatus(SELF, GOON_BOOMING_BLADE_17_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
 
 new entry "Goon_BoomingBlade_17_MovementSpell_Passive"
 type "PassiveData"
 using "BoomingBlade_MovementSpell_Passive"
 // %%% Empty
 data "DisplayName" "h6643abfegd843g437dg947dg8151b772282d;1"
-data "StatsFunctors" "ApplyStatus(SELF, BOOMING_BLADE_11_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
+data "StatsFunctors" "ApplyStatus(SELF, GOON_BOOMING_BLADE_17_DAMAGE,100,0);ApplyStatus(SELF, BOOMING_BLADE_DAMAGE_IMMUNITY, 100, 0)"
 
 new entry "GOON_BOOMING_BLADE_17_DAMAGE"
 type "StatusData"
 data "StatusType" "BOOST"
 using "BOOMING_BLADE_DAMAGE"
 data "DescriptionParams" "DealDamage(4d8, Thunder)"
-data "OnApplyFunctors" "DealDamage(4d8, Thunder,Magical,,0,,true,true);RemoveStatus(SELF, GOON_BOOMING_BLADE_17)"
+data "OnApplyFunctors" "DealDamage(4d8, Thunder,Magical,,0,,true,false);RemoveStatus(SELF, GOON_BOOMING_BLADE_17)"
 
 // ==================================== Blasting Blade ???
 
