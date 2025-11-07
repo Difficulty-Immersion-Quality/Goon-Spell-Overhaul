@@ -2,7 +2,8 @@
 // Bug Fix: The upcasting description no longer inappropriately refers to "initial" damage, instead just stating that damage is increased like most other spells.
 // Bug Fix: Added a custom "TooltipOnMiss" that matches the functionality "Does not consume a Bonus Action or Spell Slot."
 // Bug Fix: Descriptions for upcasts level 4 and up no longer state incorrect damage values.
-// Changes: Forced Honour ruleset changes to damage riders not functioning as damage rider sources.
+// Bug Fix: Added missing "IsMelee" "SpellFlags".
+// Changes: Forced Honour ruleset changes to damage riders not functioning as damage rider sources. (Specifically "DamageBonus", true,false for Smites)
 
 new entry "Target_Smite_Searing"
 type "SpellData"
@@ -21,7 +22,7 @@ data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); Exe
 // data "DisplayName" "h34f9400ag765dg4854ga064g934f247033b5;1"
 // Deal an extra [1] and set your target on fire: it takes [2] every turn.
 // data "Description" "h322c23a7g6c1ag4ad9g8b8dgd7ae4c194acf;4"
-// Strike with your weapon wreathed in flames, setting your target ablaze for [1] turns.
+// Strike with your weapon wreathed in searing hot flames, setting your target ablaze for [1] turns on a hit.
 data "Description" "h69cc494cgac3eg4d2ag9416g424f6e8d7500;1"
 // data "DescriptionParams" "DealDamage(1d6,Fire);DealDamage(1d6,Fire)"
 data "DescriptionParams" "10"
@@ -46,12 +47,36 @@ data "TooltipUpcastDescription" "66388a6f-44dd-4c9f-a9e7-910c50e70755"
 // data "DualWieldingSpellAnimation" "71369b20-18f1-4d33-89ad-a99b10f0444c,,;c12054bc-4d96-47c5-8483-989afde03bd4,,;20aaabc2-067d-4355-86a0-40901d3938d8,,;2a3d2709-24d3-4c6d-ae25-546d1fd4ccb2,,;3b9da8d4-3eff-43bd-9eaa-1c13fba0045e,,;4c38bf59-cfbd-4389-954f-81290ca30476,,;0b07883a-08b8-43b6-ac18-84dc9e84ff50,,;,,;,,"
 // data "VerbalIntent" "Damage"
 // data "SpellFlags" "IsConcentration;IsHarmful;HasVerbalComponent;IsSpell"
+data "SpellFlags" "IsConcentration;IsHarmful;HasVerbalComponent;IsSpell;IsMelee"
 // data "HitAnimationType" "MagicalDamage_External"
 // data "MemoryCost" "1"
 // data "PrepareEffect" "d2ed4f24-55f8-4c70-9bd1-8da22deb8e83"
 // data "CastEffect" "b5b24254-75d3-4575-af9f-ba3575a2f8b7"
 // data "TargetEffect" "d5f54cd9-9252-4bcd-9e04-7e63d071eac6"
 // data "DamageType" "Fire"
+
+// new entry "SEARING_SMITE"
+// type "StatusData"
+// data "StatusType" "BOOST"
+// Searing Smite
+// data "DisplayName" "ha8eb8677g44ceg4252gbcc7gb4dc6fa872d9;1"
+// Affected entity takes [1] every turn, until the turn after it succeeds a Constitution <LSTag Tooltip="SavingThrow">Saving Throw</LSTag>.
+// data "Description" "hee69a6b8gcc7dg4bebg9b40gf7a2336c41fd;3"
+// data "DescriptionParams" "DealDamage(1d6, Fire)"
+// data "Icon" "Spell_Evocation_SearingSmite"
+// data "SoundLoop" "Spell_Status_SearingSmite"
+// data "SoundStop" "Spell_Status_SearingSmite_Stop"
+// data "StackId" "SEARING_SMITE"
+// data "TickType" "StartTurn"
+// data "RemoveConditions" "SavingThrow(Ability.Constitution, SourceSpellDC())"
+// data "RemoveEvents" "OnTurn"
+// data "TooltipSave" "Constitution"
+// data "TooltipDamage" "DealDamage(1d6, Fire)"
+// data "TickFunctors" "DealDamage(1d6, Fire,Magical)"
+// data "StatusPropertyFlags" "InitiateCombat;BringIntoCombat"
+// data "StatusGroups" "SG_Light"
+// data "StatusEffect" "bdfb09d0-0f10-4796-bb78-5a6570c0a5cb"
+// data "StatusEffectOnTurn" "f9b06276-bb8f-4fb2-8789-989de2fe0287"
 
 // ==================================== Upcasting - Searing Smite - 2
 
@@ -322,7 +347,7 @@ data "SpellSuccess" "DealDamage(MainMeleeWeapon, MainMeleeWeaponDamageType); Exe
 // data "DisplayName" "h4d353f31g6d0bg480fg9f83gf19c75e1217b;2"
 // Engulf your weapon in Selûne's light, an additional [1] and inflicting &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Flame&lt;/LSTag&gt; on a hit.
 // data "Description" "h90e2ebe0g1948g4e17g8f0fg70121c9fd858;2"
-// Engulf your weapon in Selûne's light, inflicting &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Flame&lt;/LSTag&gt; for [1] turns on a hit.
+// Engulf your weapon in Selûne's light, inflicting &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt; for [1] turns on a hit.
 data "Description" "h016c751ag9bf2g40ffgbef5g58ead99bb9f9;1"
 // data "DescriptionParams" "DealDamage(1d6,Radiant)"
 data "DescriptionParams" "2"

@@ -6,8 +6,11 @@
 
 	<!-- "Target_Longstrider" - "Target_Longstrider_9" --> <content contentuid="hb5086c4agdba7g4509g837eg6001aa067e19" version="1">Enhance the vigor of you and your allies, increasing &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; by [1].</content>
 
-	<!-- "Target_Smite_Searing" --> <content contentuid="h69cc494cgac3eg4d2ag9416g424f6e8d7500" version="1">Strike with your weapon wreathed in flames, setting your target ablaze for [1] turns.</content>
-	<!-- "Target_MOO_Nightsong_SearingSmite" --> <content contentuid="h016c751ag9bf2g40ffgbef5g58ead99bb9f9" version="1">Engulf your weapon in Selûne's light, inflicting &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Flame&lt;/LSTag&gt; for [1] turns on a hit.</content>
+	<!-- "Target_Smite_Searing" --> <content contentuid="h69cc494cgac3eg4d2ag9416g424f6e8d7500" version="1">Strike with your weapon wreathed in searing hot flames, setting your target ablaze for [1] turns on a hit.</content>
+	<!-- "Target_MOO_Nightsong_SearingSmite" --> <content contentuid="h016c751ag9bf2g40ffgbef5g58ead99bb9f9" version="1">Engulf your weapon in Selûne's light, inflicting &lt;LSTag Type="Status" Tooltip="BURNING_HOLY"&gt;Holy Fire&lt;/LSTag&gt; for [1] turns on a hit.</content>
+
+	<!-- LEVEL 1 - XARARA -->
+	<!-- "Target_LunarSmite" --> <content contentuid="h395f7d95g12bfg4ae6g93f5gca6ba7f92ccd" version="1">Strike with your weapon wreathed in holy light, setting your target ablaze for [1] turns on a hit.</content>
 
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
