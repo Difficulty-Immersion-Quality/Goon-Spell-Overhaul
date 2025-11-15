@@ -291,7 +291,7 @@ data "UseCosts" "BonusActionPoint:1;SpellSlotsGroup:1:1:8"
 data "RootSpellID" "Shout_ShadowBlade_Class"
 data "PowerLevel" "8"
 
-new entry "Shout_ShadowBlade_Class_8"
+new entry "Shout_ShadowBlade_Class_9"
 type "SpellData"
 data "SpellType" "Shout"
 using "Shout_ShadowBlade_Class"
