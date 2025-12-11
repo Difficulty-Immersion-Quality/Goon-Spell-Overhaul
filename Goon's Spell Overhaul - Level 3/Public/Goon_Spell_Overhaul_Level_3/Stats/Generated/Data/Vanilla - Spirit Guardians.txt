@@ -17,6 +17,7 @@ using "Shout_SpiritGuardians"
 // data "Description" "h296479acg3e8bg4b8dg8816g9851951f2eae;2"
 // data "DescriptionParams" "DealDamage(3d8,Radiant);DealDamage(3d8,Necrotic)"
 data "DescriptionParams" "DealDamage(3d6,Radiant);DealDamage(3d6,Necrotic)"
+data "TooltipDamageList" ""
 // data "TooltipAttackSave" "Wisdom"
 // data "TooltipOnSave" "f762efbb-f8f1-493e-b248-2de1567b4bd2"
 // &lt;LSTag Type="Image" Info="SoftWarning"/&gt; Caster can't become &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt; while concentrating on this spell.
@@ -275,6 +276,23 @@ data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or St
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(4d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(4d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 4
+
+new entry "Shout_SpiritGuardians_4"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_4"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_4,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_4,100,10)"
+// data "DescriptionParams" "DealDamage(4d8,Radiant);DealDamage(4d8,Necrotic)"
+data "DescriptionParams" "DealDamage(4d6,Radiant);DealDamage(4d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(4d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(4d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_4,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_4,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:4"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "4"
+
 // ============================ Upcasting - Spirit Guardians (Radiant) - 5
 
 new entry "Shout_SpiritGuardians_Radiant_5"
@@ -358,6 +376,23 @@ data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDa
 data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(5d6,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(5d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(5d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 5
+
+new entry "Shout_SpiritGuardians_5"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_5"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_5,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_5,100,10)"
+// data "DescriptionParams" "DealDamage(5d8,Radiant);DealDamage(5d8,Necrotic)"
+data "DescriptionParams" "DealDamage(5d6,Radiant);DealDamage(5d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(5d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(5d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_5,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_5,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:5"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "5"
 
 // ============================ Upcasting - Spirit Guardians (Radiant) - 6
 
@@ -443,6 +478,23 @@ data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or St
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(6d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(6d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 6
+
+new entry "Shout_SpiritGuardians_6"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_6"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_6,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_6,100,10)"
+// data "DescriptionParams" "DealDamage(6d8,Radiant);DealDamage(6d8,Necrotic)"
+data "DescriptionParams" "DealDamage(6d6,Radiant);DealDamage(6d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(6d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(6d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_6,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_6,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:6"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "6"
+
 // ============================ Upcasting - Spirit Guardians (Radiant) - 7
 
 new entry "Shout_SpiritGuardians_Radiant_7"
@@ -526,6 +578,23 @@ data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDa
 data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(7d6,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(7d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(7d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 7
+
+new entry "Shout_SpiritGuardians_7"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_7"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_7,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_7,100,10)"
+// data "DescriptionParams" "DealDamage(7d8,Radiant);DealDamage(7d8,Necrotic)"
+data "DescriptionParams" "DealDamage(7d6,Radiant);DealDamage(7d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(7d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(7d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_7,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_7,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:7"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "7"
 
 // ============================ Upcasting - Spirit Guardians (Radiant) - 8
 
@@ -611,6 +680,23 @@ data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or St
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(8d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(8d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 8
+
+new entry "Shout_SpiritGuardians_8"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_8"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_8,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_8,100,10)"
+// data "DescriptionParams" "DealDamage(8d8,Radiant);DealDamage(8d8,Necrotic)"
+data "DescriptionParams" "DealDamage(8d6,Radiant);DealDamage(8d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(8d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(8d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_8,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_8,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:8"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "8"
+
 // ============================ Upcasting - Spirit Guardians (Radiant) - 9
 
 new entry "Shout_SpiritGuardians_Radiant_9"
@@ -694,6 +780,23 @@ data "OnApplyFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED')):DealDa
 data "OnTickSuccess" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(9d6,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 // data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(9d8/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
 data "OnTickFail" "IF(not HasStatus('SPIRIT_GUARDIANS_DAMAGE_RECEIVED') or StatusDurationLessThan(context.Source, 'SPIRIT_GUARDIANS_DAMAGE_RECEIVED', 0.1)):DealDamage(9d6/2,Necrotic,Magical);ApplyStatus(SPIRIT_GUARDIANS_DAMAGE_RECEIVED,100,1)"
+
+// ============================ Upcasting - Spirit Guardians (Sailor's Arcane Recovery) - 9
+
+new entry "Shout_SpiritGuardians_9"
+type "SpellData"
+data "SpellType" "Shout"
+// using "Shout_SpiritGuardians"
+using "Shout_SpiritGuardians_9"
+// data "SpellProperties" "IF(not HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'})):ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_9,100,10);IF(HasAnyTags({'ALIGN_EVIL','CLERIC_EVIL','PALADIN_EVIL'}) and not HasAnyTags({'ALIGN_GOOD','CLERIC_GOOD','PALADIN_GOOD','ALIGN_NEUTRAL','ALIGN_GOOD','PALADIN_GOOD'})):ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_9,100,10)"
+// data "DescriptionParams" "DealDamage(9d8,Radiant);DealDamage(9d8,Necrotic)"
+data "DescriptionParams" "DealDamage(9d6,Radiant);DealDamage(9d6,Necrotic)"
+// data "TooltipDamageList" "DealDamage(9d8,Radiant,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e);DealDamage(9d8,Necrotic,,,,ad727a13-c6f0-4b5b-aefd-aac79c6ed46e)"
+data "TooltipDamageList" ""
+// data "TooltipStatusApply" "ApplyStatus(SPIRIT_GUARDIANS_RADIANT_AURA_9,100,10);ApplyStatus(SPIRIT_GUARDIANS_NECROTIC_AURA_9,100,10)"
+// data "UseCosts" "ActionPoint:1;SpellSlotsGroup:1:1:9"
+// data "RootSpellID" "Shout_SpiritGuardians"
+// data "PowerLevel" "9"
 
 // ============================ Mortarch Gracie Scyre - Spirit Guardians (Radiant) - 4
 
