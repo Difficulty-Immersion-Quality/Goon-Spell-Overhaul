@@ -1,0 +1,12 @@
+-- ==================================== Wall of Fire ====================================
+-- Bug Fix: Kith'raki Inferno: Aura Saving Throws will never take place when they are redundant. This fix extends to level 7-9 upcasts and Mystic's Wall of Repulsion.
+
+function WallOfFireCheck(ability, dc, result)
+    result = result or false
+    hasStatus =  HasAnyStatus({'WALLOFFIRE_DAMAGE_RECEIVED', 'WALLOFFIRE_DAMAGE_RECEIVED_5', 'WALLOFFIRE_DAMAGE_RECEIVED_6', 'WALLOFFIRE_DAMAGE_RECEIVED_7', 'WALLOFFIRE_DAMAGE_RECEIVED_8', 'WALLOFFIRE_DAMAGE_RECEIVED_9','END_DRAGONFIRE_WALL_DAMAGE_RECEIVED','MYSTIC_WALLOFREPULSION_EFFECT_RECEIVED'}, {}, {})
+    if not hasStatus.Result then
+        st = ~SavingThrow(ability, dc)
+        return ConditionResult(st.Result,{},{},st.Chance)
+    end
+    return ConditionResult(result)
+end

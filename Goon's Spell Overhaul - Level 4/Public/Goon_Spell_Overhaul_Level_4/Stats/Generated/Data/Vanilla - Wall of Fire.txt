@@ -3,6 +3,7 @@
 // Bug Fix: Damage is now appropriately reduced by Evasion and Shield Master: Block.
 // Bug Fix: The Spell Save DC scales with the caster's default spellcasting modifier instead of being a fixed 10.
 // Bug Fix: Upcast descriptions displays 1d8 Fire damage instead of a raw value.
+// Bug Fix: (KHN) Kith'raki Inferno: Aura Saving Throws will never take place when they are redundant. This fix extends to level 7-9 upcasts and Mystic's Wall of Repulsion.
 
 new entry "Wall_WallOfFire"
 type "SpellData"
