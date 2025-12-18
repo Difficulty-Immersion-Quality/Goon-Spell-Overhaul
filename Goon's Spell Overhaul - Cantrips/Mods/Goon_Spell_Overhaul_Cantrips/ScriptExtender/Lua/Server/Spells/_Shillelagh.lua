@@ -1,16 +1,3 @@
-Ext.Osiris.RegisterListener("LevelGameplayStarted", 2, "after", function(level_name, is_editor_mode)
-    for i, v in ipairs(Ext.Entity.GetAllEntitiesWithComponent("ServerCharacter")) do
-        Ext.Timer.WaitFor(100, function()
-            local charID = v.Uuid and v.Uuid.EntityUuid or v  -- Ensure we get the EntityUuid if available
-            if type(charID) == "string" then
-                Osi.AddPassive(charID, "Goon_Remove_Shillelagh_Passive")
-            else
-                print("Invalid character ID for AddPassive:", charID)
-            end
-        end)
-    end
-end)
-
 -- Spell check function using regex
 function Goon_Shillelagh_Check(spell)
     local match = string.match(spell, "^Shout_Shillelagh")
@@ -20,7 +7,7 @@ end
 -- Listener for UsingSpellOnTarget
 Ext.Osiris.RegisterListener("UsingSpellOnTarget", 6, "after", function(caster, target, spell, spellType, spellElement, storyActionID)
     if Goon_Shillelagh_Check(spell) then
-        Ext.Timer.WaitFor(1000, function()
+        Ext.Timer.WaitFor(100, function()
             Osi.ApplyStatus(target, "GOON_SHILLELAGH_DUMMY_UNLOCK_REMOVAL", 1, 1, caster)
         end)
     end
