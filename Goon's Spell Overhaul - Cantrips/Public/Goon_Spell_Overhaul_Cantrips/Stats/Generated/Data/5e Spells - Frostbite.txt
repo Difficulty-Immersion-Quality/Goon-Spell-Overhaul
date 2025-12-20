@@ -1,9 +1,12 @@
 // ==================================== Frostbite ====================================
-// Bug Fix: The Frostbite condition is no longer inappropriately removed from taking actions that are not attacks.
-// Bug Fix: The Frostbite condition is no longer named "Druidcraft".
-// Changes: Creates a 1m diameter ice surface for 2 turns when targeting the ground, corpses, or objects.
+// Temporarily removed: Creates a 1m diameter ice surface for 2 turns when targeting the ground, corpses, or objects.
 // Changes: Targeting unrestricted.
 
+// TODO: Bugged stuff, target spells and surface creation are water and oil - ghetto AOE bomb
+// data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_ITEMORDEAD_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,WaterFrozen)"
+// Cause a numbing frost to form, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on a target creature's next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create an ice surface in a [1] radius for [2] turns instead.
+// data "Description" "h14b33f96gb504g4c48ga26fg049298769296;1"
+// data "DescriptionParams" "Distance(1);2"
 
 new entry "Target_Frostbite"
 type "SpellData"
@@ -11,11 +14,10 @@ data "SpellType" "Target"
 using "Target_Frostbite"
 // data "Level" "0"
 // data "SpellSchool" "Evocation"
-data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_ITEMORDEAD_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,WaterFrozen)"
 // data "TargetRadius" "18"
 // data "SpellRoll" "not SavingThrow(Ability.Constitution, SourceSpellDC())"
 // data "SpellSuccess" "DealDamage(LevelMapValue(D6Cantrip),Cold,Magical);ApplyStatus(FROSTBITE,100,1);CreateExplosion(Projectile_ColdEffect_Explosion)"
-// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D6Cantrip))/2,Cold,Magical)"
+// data "SpellFail" "IF(HasPassive('PotentCantrip',context.Source)):DealDamage((LevelMapValue(D6Cantrip))/2,Cold,Magical);ApplyStatus(SAVED_AGAINST_HOSTILE_SPELL, 100, 0)"
 // data "TargetConditions" "Character() and not Self()"
 data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 // data "Icon" "Spell_Evocation_Frostbite"
@@ -23,10 +25,8 @@ data "TargetConditions" "not Self() and (Item() or Character() or Dead())"
 // data "DisplayName" "h7cf2ef50g78eeg4426ga586g5682f2a748dc;1"
 // Cause a numbing frost to form on a creature, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on their next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
 // data "Description" "h3f10dad4g2df1g49adg83e4gb127bcf07dcb;1"
-// Cause a numbing frost to form, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on a target creature's next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create an ice surface in a [1] radius for [2] turns instead.
-data "Description" "h14b33f96gb504g4c48ga26fg049298769296;1"
 // data "DescriptionParams" "DealDamage(LevelMapValue(D6Cantrip),Cold)"
-data "DescriptionParams" "Distance(1);2"
+data "DescriptionParams" ""
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D6Cantrip),Cold)"
 // data "TooltipStatusApply" "ApplyStatus(FROSTBITE,100,1)"
 // data "TooltipAttackSave" "Constitution"
@@ -50,10 +50,9 @@ new entry "FROSTBITE"
 type "StatusData"
 data "StatusType" "BOOST"
 using "FROSTBITE"
-// Druidcraft
-// data "DisplayName" "hc2303d03g287bg48d6gbd07g3cce35798836;1"
 // Frostbite
-data "DisplayName" "h7cf2ef50g78eeg4426ga586g5682f2a748dc;1"
+// data "DisplayName" "h7cf2ef50g78eeg4426ga586g5682f2a748dc;1"
+// Has &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.
 // data "Description" "h696c4265g1adeg4fdega8b7gcd8bab434e27;1"
 // data "Icon" "Spell_Evocation_Frostbite"
 // data "FormatColor" "Water"
@@ -66,8 +65,6 @@ data "DisplayName" "h7cf2ef50g78eeg4426ga586g5682f2a748dc;1"
 // data "StackId" "FROSTBITE"
 data "OnApplyConditions" "Character(context.Source)"
 // data "Boosts" "Disadvantage(AttackRoll)"
+// data "RemoveConditions" "IsAttack()"
 // data "RemoveEvents" "OnAttack"
-data "RemoveConditions" "IsAttack()"
 // data "TickType" "EndTurn"
-// data "ManagedStatusEffectType" "Negative"
-// data "ManagedStatusEffectGroup" "6435c10a-c67d-4f79-8813-b84b0762f92b"
