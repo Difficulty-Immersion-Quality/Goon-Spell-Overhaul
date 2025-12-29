@@ -1,6 +1,7 @@
 // ==================================== Light ====================================
 // Changes: Now costs a Bonus Action instead of an Action.
 // TODO: Turn into a spell container that lets you choose what to enchant.
+// TODO: Inspiration from some Light Utility (QoL - Autolight - Toggle - Reapply - Autodim - Candlelight) design?
 
 new entry "Target_Light"
 type "SpellData"
@@ -37,9 +38,10 @@ data "UseCosts" "BonusActionPoint:1"
 // data "CastEffect" "0198563f-c48b-45e0-afb5-46ef9576adff"
 // data "TargetEffect" "b94fcfde-d824-4e7d-b9c5-833a50b66537"
 
-// new entry "LIGHT"
-// type "StatusData"
-// data "StatusType" "BOOST"
+new entry "LIGHT"
+type "StatusData"
+data "StatusType" "BOOST"
+using "LIGHT"
 // Light
 // data "DisplayName" "h69e403e3g78bbg434eg8041g7a4fc50a0c00;1"
 // This object has an aura of light with a radius of [1].
@@ -51,6 +53,7 @@ data "UseCosts" "BonusActionPoint:1"
 // data "StatusGroups" "SG_Light;SG_RemoveOnRespec"
 // data "IsUnique" "1"
 // data "StatusEffect" "9e863d8f-a1f5-4f68-88ca-ddb56828c8d8"
+data "StatusPropertyFlags" "RemoveOnLongRest"
 
 // ==================================== Guiding Light - Light
 
