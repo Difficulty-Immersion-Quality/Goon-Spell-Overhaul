@@ -1,4 +1,4 @@
-// ============================ Dash ============================
+// ==================================== Dash ====================================
 // Bug Fix: Mobile: Evade Difficult Terrain now ignores all Difficult Terrain as the tooltips stated.
 // Bug Fix: Dash: Bonus Action is now a "Dash" "SpellActionType".
 // Changes: Now stacks up to 10 times. Just to compensate for mods potentially providing more means of Dashing.

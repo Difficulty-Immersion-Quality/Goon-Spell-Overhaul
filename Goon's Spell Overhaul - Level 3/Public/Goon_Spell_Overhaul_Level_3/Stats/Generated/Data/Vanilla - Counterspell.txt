@@ -4,6 +4,8 @@
 // Changes: Can no longer interrupt spells while Blinded.
 // Changes: Can now be used by Invisible player characters.
 // Changes: If the caster is Invisible or Hidden, spells with the "Stealth" flag cannot be interrupted.
+// Changes: Can now counter spells that are also weapon attacks per RAW, e.g. Booming Blade.
+// TODO: Test appending " and HasLosToStatusSource()" to "Conditions" for line of sight.
 
 // new entry "Target_Counterspell"
 // type "SpellData"

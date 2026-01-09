@@ -1,4 +1,5 @@
 // ==================================== Thorn Whip ====================================
+// Bug Fix: Is now flagged as a harmful spell and will not ignore effects like Sanctuary.
 // Changes: Damage increased from d6 Piercing damage to d8 Piercing damage.
 // Changes: A successful cast now applies Bleeding for 1 turn.
 // Changes: Increased pull range from 3m to 5m.

@@ -40,3 +40,18 @@ data "SpellSuccess" "IF(not Ally()):Force(ShoveDistance,OriginToTarget,Aggressiv
 // data "TargetEffect" "5d8c64e3-f9ff-4ee0-b0b6-2a081c7244a8"
 // data "SpellSoundMagnitude" "Small"
 // data "Sheathing" "Sheathed"
+
+// ============================ Naaah
+// TODO: 2.1.6.3: Misc - Added a "CombatAIOverrideSpell" for Shove, removing the trajectory adjustment for AI. Probably does nothing one way or the other, but if there was any odd behaviour because of it, it's a theoretical fix.
+// TODO: Would have to view all the inheritence.
+
+// data "CombatAIOverrideSpell" "Target_Shove_AI"
+
+// new entry "Target_Shove_AI"
+// type "SpellData"
+// data "SpellType" "Target"
+// using "Target_Shove"
+// // data "SpellSuccess" "IF(not Ally()):Force(ShoveDistance,OriginToTarget,Aggressive);IF(Ally()):Force(ShoveDistance,OriginToTarget,Friendly)"
+// data "SpellSuccess" "IF(not Ally()):Force(ShoveDistance,OriginToEntity,Aggressive);IF(Ally()):Force(ShoveDistance,OriginToEntity,Friendly)"
+// // data "CombatAIOverrideSpell" "Target_Shove_AI"
+// data "CombatAIOverrideSpell" ""
