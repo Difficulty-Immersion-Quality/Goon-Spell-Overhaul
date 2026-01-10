@@ -1,7 +1,24 @@
 // ==================================== Shield ====================================
 // Bug Fix: Abjuration Wizard's Arcane Ward is fed the appropriate amount of charges based on spell level. This applies to Sorcerer and Warlock versions of the spell too.
+// Bug Fix: Added missing vanilla function to the Shield condition that provides immunity to variants of Magic Missile and not just the base spell and upcasts.
 // Bug Fix: Can be used while under the effects of more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Can now be used by Invisible player characters.
+
+new entry "SHIELD"
+type "StatusData"
+data "StatusType" "BOOST"
+using "SHIELD"
+// Shield
+// data "DisplayName" "h78836f0fg29b9g4a48gabb4g62884633dc78;2"
+// Immune to Magic Missile. &lt;LSTag Tooltip="ArmourClass"&gt;Armour Class&lt;/LSTag&gt; is increased by 5.
+// data "Description" "h9cacbac7g1ccbg4d5bg9118gf4554f12068d;1"
+// data "Icon" "Spell_Shield"
+// data "StackId" "SHIELD"
+// data "StackType" "Ignore"
+// data "Boosts" "AC(5);IF(IsSpellChildOrVariantFromContext('Projectile_MagicMissile')):DamageReduction(Force,Flat,100)"
+data "Boosts" "AC(5);IF(MagicMissileSpellCheck()):DamageReduction(Force,Flat,100)"
+// data "StatusGroups" "SG_RemoveOnRespec"
+// data "StatusEffect" "19c84d1e-8de6-4361-88ec-0f64c15d52b1"
 
 // ==================================== Wizard - Shield ====================================
 
