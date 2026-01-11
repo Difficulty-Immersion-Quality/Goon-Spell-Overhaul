@@ -1,5 +1,5 @@
 // ==================================== Opportunity Attack ====================================
-// Bug Fix: Gnoll's Sudden Rush is properly implementated in the conditions, preventing Opportunity Atacks against them.
+// Bug Fix: Gnoll's Sudden Rush is properly implemented in the conditions, preventing Opportunity Attacks against them.
 // Bug Fix: Can now be used by Invisible player characters.
 // Changes: Invisible creatures can be attacked if the entity reacting can see through invisibility.
 // Changes: Player characters can now break Sanctuary with an Opportunity Attack.
