@@ -100,6 +100,13 @@ data "StatusType" "BOOST"
 data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog;IgnoreResting;ApplyToDead"
 data "StatusGroups" "SG_RemoveOnRespec"
 
+// Redundant status that can be used to check my custom Shillelagh specifically
+new entry "GOON_SHILLELAGH"
+type "StatusData"
+data "StatusType" "BOOST"
+data "StatusPropertyFlags" "DisableOverhead;DisablePortraitIndicator;DisableCombatlog;IgnoreResting;ApplyToDead"
+data "StatusGroups" "SG_RemoveOnRespec"
+
 // ==================================== Removal stuff
 // Pending deletion with global implementation through Goon's Library
 // Custom entries for handling removal
