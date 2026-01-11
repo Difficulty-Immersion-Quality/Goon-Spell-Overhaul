@@ -1,5 +1,5 @@
 // ==================================== Hunger of Hadar ====================================
-// Changes: Added an AI version of the spell that limits the AI to only targeting enemies with the spell
+// Changes: Added an AI version of the spell that limits the AI to only targeting enemies with the spell.
 
 new entry "Target_HungerOfHadar"
 type "SpellData"
