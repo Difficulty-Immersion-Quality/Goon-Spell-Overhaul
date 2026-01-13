@@ -1,18 +1,22 @@
 // ==================================== Unique summons ====================================
+// Bonus: Support for GRYM MODEL-N from Many More Monsters.
+
+// ==================================== Find Familiar: Boo ====================================
+// Bug Fix: No longer flagged as a spell.
+// Bug Fix: No longer a part of the Conjuration Spell School.
 // Changes: No longer has a once per short rest cooldown.
-// Changes: Now has a unique stack, and can be used alongside other summons.
 // Changes: Can no longer be used inside of combat.
-// TODO: 3/4 of these aren't actually spells right?
 
 new entry "Target_FindFamiliar_Boo"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_FindFamiliar_Boo"
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" ""
 // data "ContainerSpells" ""
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
 // data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
-data "SpellProperties" "GROUND:Summon(6f65f77f-4583-4dd7-be15-b737d0175061,Permanent,,,'Goon_BooStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
 // data "TargetRadius" "18"
 // data "TargetConditions" "CanStand('6f65f77f-4583-4dd7-be15-b737d0175061') and not Character() and not Self()"
 // data "Icon" "Spell_Conjuration_FindFamiliar_Boo"
@@ -28,13 +32,16 @@ data "Requirements" "!Combat"
 // data "SpellAnimation" "85f63b1e-1fe6-4228-863d-71f43a945b46,,;,,;551b8855-805c-45fa-973f-88df0cbe646a,,;394f93b4-106a-44e4-8e08-2feae2881df1,,;db52441a-8a80-4630-bcb8-0f220e1b8323,,;,,;f588875b-9a5f-4e05-ac41-3f3e73cdb4e4,,;,,;,,"
 // data "VerbalIntent" "Summon"
 // data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
 // data "PrepareEffect" "a7a07a38-1968-4704-9dbf-550f8a4847ce"
 // data "CastEffect" "b4dcaf81-4947-41c5-a809-5c0e75570cfd"
 // data "PositionEffect" "a39ccc75-4fca-46b8-b52b-74fc4b6250ab"
 
 // ==================================== Find Familiar: Scratch
+// Bug Fix: No longer flagged as a spell.
+// Bug Fix: No longer a part of the Conjuration Spell School.
+// Bug Fix: No longer a level 1 spell.
 // Changes: No longer has a once per short rest cooldown.
-// Changes: Now has a unique stack, and can be used alongside other summons.
 // Changes: Can no longer be used inside of combat.
 
 new entry "Target_FindFamiliar_Dog"
@@ -42,11 +49,14 @@ type "SpellData"
 data "SpellType" "Target"
 // using "Target_FindFamiliar"
 using "Target_FindFamiliar_Dog"
+// data "Level" "1"
+data "Level" ""
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" ""
 // data "ContainerSpells" ""
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
 // data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
-data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Permanent,,,'Goon_ScratchStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
 // data "RequirementConditions" "not Tagged('IN_CAMP') and not HasStatus('EPI_SCRATCH_BLOCKED')"
 // data "TargetConditions" "CanStand('b5deaa14-03b5-41c6-8372-7a9d758b4dfb') and not Character() and not Self()"
 // data "Icon" "Spell_Conjuration_FindFamiliar_Dog"
@@ -62,13 +72,13 @@ data "SpellProperties" "GROUND:Summon(b5deaa14-03b5-41c6-8372-7a9d758b4dfb, Perm
 // data "RitualCosts" "ActionPoint:1"
 data "Requirements" "!Combat"
 // data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
 // data "MemoryCost" ""
 // data "PrepareEffect" "239d0263-eb26-4d7e-9683-4d7be6b6a1cf"
 // data "CastEffect" "111a8b8c-b395-46d0-b2f0-a10ac6f9731f"
 
 // ==================================== Find Familiar: Cheeky Quasit
 // Changes: No longer has a once per short rest cooldown.
-// Changes: Now has a unique stack, and can be used alongside other summons.
 // Changes: Can no longer be used inside of combat.
 
 new entry "Target_FOR_ThayanCellar_SummonQuasit"
@@ -80,7 +90,6 @@ using "Target_FOR_ThayanCellar_SummonQuasit"
 data "Cooldown" ""
 // data "SpellContainerID" ""
 // data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE)"
-data "SpellProperties" "GROUND:Summon(000c1be8-615a-4324-b59d-1f0f5637df36,  Permanent,,,'Goon_CheekyQuasitStack',UNSUMMON_ABLE)"
 // data "TargetConditions" "CanStand('000c1be8-615a-4324-b59d-1f0f5637df36') and not Character() and not Self()"
 // Find Familiar: Cheeky Quasit
 // data "DisplayName" "h2a5824beg994bg4bdcg9519gad472f453a0a;2"
@@ -90,16 +99,22 @@ data "Requirements" "!Combat"
 // data "MemoryCost" "0"
 
 // ==================================== Conjure Us
+// Bug Fix: No longer flagged as a spell.
+// Bug Fix: No longer a part of the Conjuration Spell School.
 // Changes: No longer has a once per short rest cooldown.
 // Changes: Can no longer be used inside of combat.
+// Changes: Now shares the same 'FindFamiliarStack' as the other 3.
 
 new entry "Target_ConjureIntellectDevour"
 type "SpellData"
 data "SpellType" "Target"
 using "Target_ConjureIntellectDevour"
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" ""
 // data "Cooldown" "OncePerShortRest"
 data "Cooldown" ""
 // data "SpellProperties" "GROUND:Summon(27b9089b-9aef-44e9-aaf7-100e3e320823, -1,,,'IntellectDevourStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+data "SpellProperties" "GROUND:Summon(27b9089b-9aef-44e9-aaf7-100e3e320823, Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
 // data "TargetRadius" "18"
 // data "TargetConditions" "CanStand('27b9089b-9aef-44e9-aaf7-100e3e320823') and not Character() and not Self()"
 // data "Icon" "Spell_ConjureUs"
@@ -118,5 +133,41 @@ data "Requirements" "!Combat"
 // data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;605d49b4-03b9-47f6-96e9-7f80e6be7514,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
 // data "VerbalIntent" "Summon"
 // data "SpellFlags" "HasVerbalComponent;HasSomaticComponent;IsSpell;CannotTargetItems;CannotTargetCharacter"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
 // data "PrepareEffect" "239d0263-eb26-4d7e-9683-4d7be6b6a1cf"
 // data "CastEffect" "111a8b8c-b395-46d0-b2f0-a10ac6f9731f"
+
+// ==================================== Summon GRYM MODEL-N (Many More Monsters)
+// Bug Fix: No longer flagged as a spell.
+// Bug Fix: No longer a part of the Conjuration Spell School.
+
+new entry "MMM_Target_GRYMMODELN"
+type "SpellData"
+data "SpellType" "Target"
+using "MMM_Target_GRYMMODELN"
+// data "Level" "1"
+data "Level" ""
+// data "SpellSchool" "Conjuration"
+data "SpellSchool" ""
+// data "Cooldown" "OncePerShortRest"
+data "Cooldown" ""
+// data "TargetRadius" "18"
+// data "SpellProperties" "GROUND:Summon(d218e838-3e04-4e99-b0cb-47dbb4184e3e, Permanent,,,'FindFamiliarStack',UNSUMMON_ABLE,SHADOWCURSE_SUMMON_CHECK)"
+// data "TargetConditions" "CanStand('d218e838-3e04-4e99-b0cb-47dbb4184e3e') and not Character() and not Self()"
+// data "Icon" "Spell_Conjuration_FindFamiliar"
+// Summon GRYM MODEL-N
+// data "DisplayName" "h7fed7d1dg5e9dg4c57gaf95g4950c4a6164a;1"
+// Summon a nano model of Grym.
+// data "Description" "hf1d6fa08g6659g4953g9604gbf7fb7e88eb4;1"
+// data "CastSound" "Spell_Cast_Summon_FindFamiliar_L1to3"
+// data "TargetSound" "Spell_Impact_Summon_FindFamiliar_L1to3"
+// data "UseCosts" "ActionPoint:1"
+data "Requirements" "!Combat"
+// data "RitualCosts" "ActionPoint:1"
+// data "SpellAnimation" "6f42f5f3-7a5a-4441-a02e-71b0450ac4b7,,;,,;605d49b4-03b9-47f6-96e9-7f80e6be7514,,;fbf20742-9dbf-475b-9ff5-42e4b08064ad,,;42aaefdc-cf9b-4249-b159-285041851f69,,;,,;20e11c98-fff9-4417-88de-5bcc2368a1bd,,;,,;,,"
+// data "VerbalIntent" "Summon"
+// data "SpellStyleGroup" "Class"
+// data "SpellFlags" "IsSpell;HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExtension;CannotTargetCharacter;CannotTargetItems"
+// data "PrepareEffect" "8e035a07-8928-4008-a86d-7f45ed61e39a"
+// data "CastEffect" "23d05225-027b-4656-97f8-564b185d37a2"
