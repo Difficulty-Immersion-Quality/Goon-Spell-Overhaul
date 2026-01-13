@@ -103,7 +103,7 @@ data "Requirements" "!Combat"
 // Bug Fix: No longer a part of the Conjuration Spell School.
 // Changes: No longer has a once per short rest cooldown.
 // Changes: Can no longer be used inside of combat.
-// Changes: Now shares the same 'FindFamiliarStack' as the other 3.
+// Changes: Now shares the same 'FindFamiliarStack' same as the other 3.
 
 new entry "Target_ConjureIntellectDevour"
 type "SpellData"
@@ -140,6 +140,8 @@ data "SpellFlags" "HasSomaticComponent;HasVerbalComponent;HasHighGroundRangeExte
 // ==================================== Summon GRYM MODEL-N (Many More Monsters)
 // Bug Fix: No longer flagged as a spell.
 // Bug Fix: No longer a part of the Conjuration Spell School.
+// Changes: No longer has a once per short rest cooldown.
+// Changes: Can no longer be used inside of combat.
 
 new entry "MMM_Target_GRYMMODELN"
 type "SpellData"
