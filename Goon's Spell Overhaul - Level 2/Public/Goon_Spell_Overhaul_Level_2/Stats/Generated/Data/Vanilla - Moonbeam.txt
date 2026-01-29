@@ -1,6 +1,7 @@
 // ==================================== Moonbeam ====================================
 // Bug Fix: Now functions with Evocation Wizard's Sculpt Spells feature.
 // Bug Fix: Move Moonbeam from upcasts of level 4 and above are no longer granted with Wisdom designated as the spell modifier.
+// Bug Fix: Move Moonbeam's tooltip now display a Constitution Saving Throw.
 // Bug Fix: Expansion's 7-9 upcasts are now flagged as concentration spells.
 
 // new entry "Target_Moonbeam"
@@ -40,10 +41,11 @@
 // data "PositionEffect" "942910fa-d929-4d6b-956e-13befd2cab41"
 // data "DamageType" "Radiant"
 
-// new entry "Target_Moonbeam_Move"
-// type "SpellData"
-// data "SpellType" "Target"
+new entry "Target_Moonbeam_Move"
+type "SpellData"
+data "SpellType" "Target"
 // using "Target_Moonbeam"
+using "Target_Moonbeam_Move"
 // data "ConcentrationSpellID" ""
 // data "SpellProperties" "GROUND:Summon(09e375ca-21cb-4c29-9c0a-2346f00fb2f2, 10,,true,'MoonbeamStack',MOONBEAM_AURA)"
 // data "TargetConditions" ""
@@ -54,6 +56,7 @@
 // data "Description" "hfc7ff423gc4e2g408fg8cccg19a80c0e74dd;2"
 // data "DescriptionParams" "Distance(18)"
 // data "TooltipAttackSave" ""
+data "TooltipAttackSave" "Constitution"
 // data "CastSound" "Spell_Cast_Damage_MoveMoobeam_L1to3"
 // data "TargetSound" "Spell_Impact_Damage_MoveMoobeam_L1to3"
 // data "UseCosts" "ActionPoint:1"
