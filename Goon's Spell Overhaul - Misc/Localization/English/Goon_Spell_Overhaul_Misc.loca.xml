@@ -3,7 +3,8 @@
 	<!-- "Shout_Dash" --> <content contentuid="h2a75359bgcb09g45aagbbf8g1c0994bb70f8" version="1">Cover more distance this turn: double your &lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt;.</content>
 	<!-- "DASH" --> <content contentuid="h5e59f401g38feg4baagbf36ga8d3d8479b90" version="1">&lt;LSTag Tooltip="MovementSpeed"&gt;Movement Speed&lt;/LSTag&gt; is doubled.</content>
 
-	<!-- "" --> <content contentuid="" version="1"></content>
+	<!-- "Target_Shove" --> <content contentuid="h6901a618geab4g4091g9034g2db059c7ae7f" version="1">Try to push a target away. Your chances depend on your Athletics, and are higher if you're &lt;LSTag Type="Status" Tooltip="HIDDEN"&gt;Hidden&lt;/LSTag&gt; or &lt;LSTag Type="Status" Tooltip="INVISIBLE"&gt;Invisible&lt;/LSTag&gt;.</content>
+
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
 	<!-- "" --> <content contentuid="" version="1"></content>
