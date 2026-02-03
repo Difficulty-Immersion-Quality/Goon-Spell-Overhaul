@@ -20,7 +20,7 @@ data "Requirements" ""
 // data "Description" "h7e76b086ga975g58c9g946fgb834f7ea1cf2;1"
 // Touch a creature to stimulate its natural healing ability, healing it immediately and causing it to regain [1] at the start of its turns.
 data "Description" "hea3d30c7g7916g44a7gb245g64f5db015085;1"
-data "DescriptionParams" "RegainHitPoints(4d8+15);RegainHitPoints(1)"
+data "DescriptionParams" "RegainHitPoints(1)"
 // The target's severed body parts, if any, are also restored.
 data "ExtraDescription" "h445e8155gbbd3g4ff5ga071gd33141144e57;1"
 // data "TooltipDamageList" "RegainHitPoints(4d8+15)"
