@@ -9,12 +9,25 @@ data "SpellType" "Projectile"
 using "Projectile_Jump"
 data "SpellActionTypePriority" "1"
 
+// Mobility Overhaul
+new entry "MO_Projectile_Jump_Dex"
+type "SpellData"
+// using "Projectile_Jump"
+using "MO_Projectile_Jump_Dex"
+// Agile Jump
+// data "DisplayName" "f35bd55190ea40479db2eb7585d0fb90;4"
+// Jump without breaking &lt;LSTag Type="Status" Tooltip="SNEAKING"&gt;Sneak&lt;/LSTag&gt; or any risk to become &lt;LSTag Type="Status" Tooltip="GOB_LOSTBALANCE"&gt;Off Balanced&lt;/LSTag&gt;. Your &lt;LSTag Tooltip="Dexterity"&gt;Dexterity&lt;/LSTag&gt; affects how far you can jump.
+// data "Description" "88bf3dd679a34eaf8dd9625bedd6cacc;4"
+// data "AddRangeFromAbility" "Dexterity,1"
+// data "SpellProperties" ""
+data "SpellActionTypePriority" "2"
+
 new entry "Projectile_Fly"
 type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Jump"
 using "Projectile_Fly"
-data "SpellActionTypePriority" "2"
+data "SpellActionTypePriority" "3"
 
 // WSO_Projectile_Fly_Bird
 
@@ -37,7 +50,7 @@ type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Fly"
 using "Projectile_TAD_Levitate"
-data "SpellActionTypePriority" "3"
+data "SpellActionTypePriority" "4"
 
 new entry "Siael_IllithidFly"
 type "SpellData"
@@ -58,14 +71,14 @@ using "Siael_IllithidFly"
 // data "TargetRadius" "6"
 // data "TargetCeiling" "6"
 // data "SpellFlags" "Temporary;IsJump;HasHighGroundRangeExtension;IgnoreVisionBlock;RangeIgnoreVerticalThreshold;Stealth;Invisible;CannotTargetCharacter;CannotTargetItems;NoAOEDamageOnLand"
-data "SpellActionTypePriority" "3"
+data "SpellActionTypePriority" "5"
 
 new entry "Projectile_Levitate_Mindflayer_Player"
 type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Levitate_Mindflayer"
 using "Projectile_Levitate_Mindflayer_Player"
-data "SpellActionTypePriority" "4"
+data "SpellActionTypePriority" "6"
 
 // Has Wildshape SpellFlags
 new entry "Projectile_Fly_Spell"
@@ -75,7 +88,7 @@ data "SpellType" "Projectile"
 using "Projectile_Fly_Spell"
 // data "SpellActionType" ""
 data "SpellActionType" "Jump"
-data "SpellActionTypePriority" "5"
+data "SpellActionTypePriority" "6"
 
 // Shorter range, but no movement cost and ignores difficult terrain
 new entry "Projectile_Fly_WrithingTide_Bee"
@@ -83,14 +96,14 @@ type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Fly"
 using "Projectile_Fly_WrithingTide_Bee"
-data "SpellActionTypePriority" "6"
+data "SpellActionTypePriority" "7"
 
 new entry "Projectile_Fly_WrithingTide_Bee_Temp"
 type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Fly_WrithingTide_Bee"
 using "Projectile_Fly_WrithingTide_Bee_Temp"
-data "SpellActionTypePriority" "7"
+data "SpellActionTypePriority" "8"
 
 // Shorter range, but no movement cost and ignores AOO
 new entry "Projectile_Fly_TempestuousMagic"
@@ -98,4 +111,4 @@ type "SpellData"
 data "SpellType" "Projectile"
 // using "Projectile_Fly"
 using "Projectile_Fly_TempestuousMagic"
-data "SpellActionTypePriority" "8"
+data "SpellActionTypePriority" "9"
