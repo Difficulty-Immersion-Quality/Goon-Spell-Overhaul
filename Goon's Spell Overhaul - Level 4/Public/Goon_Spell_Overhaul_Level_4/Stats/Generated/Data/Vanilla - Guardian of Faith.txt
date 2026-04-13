@@ -52,7 +52,7 @@
 
 // ==================================== Guardian of Faith (Summon)
 // Note: The following changes are all entirely redundant:
-// Bug Fix: The guardian being under the effects of a Polymorph no longer circumvents Blinded conditions disabling the Divine Retaliation interrupt.
+// Bug Fix: The guardian being under the effects of a Polymorph no longer circumvents Blinded conditions disabling the Divine Retaliation Interrupt.
 // Bug Fix: Divine Retaliation now works with more non-hostile and non-spellcasting restricted Polymorphs.
 // Changes: Divine Retaliation can now be used while Invisible.
 

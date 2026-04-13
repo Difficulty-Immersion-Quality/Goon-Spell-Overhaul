@@ -1,5 +1,5 @@
 // ==================================== Hold Person ====================================
-// Bug Fix: Added missing "AdvantageOnParalyzed" function to Saving Throws against the spell and condition, allowing effect like Duergar Resilience and Incapacitation Ward to function.
+// Bug Fix: Added missing "AdvantageOnParalyzed" function to Saving Throws against the spell and condition, allowing effects like Duergar Resilience and Incapacitation Ward to function.
 // Note: Monk version inherits these changes just fine.
 
 new entry "Target_HoldPerson"
