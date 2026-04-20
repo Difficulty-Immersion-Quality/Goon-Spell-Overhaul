@@ -4,7 +4,7 @@
 
 // TODO: Bugged stuff, target spells and surface creation are water and oil - ghetto AOE bomb
 // data "SpellProperties" "ApplyStatus(SELF,GOON_SURFACE_CHECK,100,0);IF(Goon_IsItemOrDead()):ApplyStatus(SELF,GOON_ITEMORDEAD_CHECK,100,0);GROUND:IF(Goon_CreateSurfaceSpellCheck()):CreateSurface(1,2,WaterFrozen)"
-// Cause a numbing frost to form, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on a target creature's next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If your target is an object, dead, or the ground, create an ice surface in a [1] radius for [2] turns instead.
+// Cause a numbing frost to form, possibly imposing &lt;LSTag Tooltip="Disadvantage"&gt;Disadvantage&lt;/LSTag&gt; on a target creature's next &lt;LSTag Tooltip="AttackRoll"&gt;Attack Roll&lt;/LSTag&gt;.&lt;br&gt;&lt;br&gt;If your target is not a creature, create an ice surface in a [1] radius for [2] turns instead.
 // data "Description" "h14b33f96gb504g4c48ga26fg049298769296;1"
 // data "DescriptionParams" "Distance(1);2"
 
