@@ -90,7 +90,7 @@ data "TargetConditions" "not Self()"
 // data "DisplayName" "hee8ed7f6g8973g4669g833fg99b4e7fcaf25;2"
 // Hurl the conjured flame in your hand at a target and let it sizzle out.
 // data "Description" "h4505ac3dg66edg4954gb6b5g4455b4c1d951;8"
-// Hurl the conjured flame in your hand &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burning&lt;/LSTag&gt; target creatures for [1] turn, and creating a fire surface in a [2] radius for [3] turns.
+// Hurl the conjured flame in your hand &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burning&lt;/LSTag&gt; your target for [1] turn, and creating a fire surface in a [2] radius for [3] turns.
 data "Description" "hfecd7851g15e9g4e85g8d10gfbe63f65fcd7;1"
 data "DescriptionParams" "1;Distance(2);2"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Fire)"

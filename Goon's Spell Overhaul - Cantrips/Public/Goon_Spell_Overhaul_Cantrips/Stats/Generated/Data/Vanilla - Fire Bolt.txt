@@ -26,9 +26,9 @@ data "TargetConditions" "not Self()"
 // data "DisplayName" "h7fddad46g70f6g4c7dg8109gab93722b0495;1"
 // Hurl a mote of fire.
 // data "Description" "h111ae255g55f1g4a55gb958g517af226971b;4"
-// Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is not a creature, create a fire surface in a [1] radius for [2] turns instead.
+// Hurl a mote of fire that &lt;LSTag Type="Status" Tooltip="BURNING"&gt;Burns&lt;/LSTag&gt; your target for [1] turn.&lt;br&gt;&lt;br&gt;If your target is not a creature, create a fire surface in a [2] radius for [3] turns instead.
 data "Description" "ha1cfd424g8e33g4f1dga602g1a4b9eaa5fcf;1"
-data "DescriptionParams" "Distance(1);2"
+data "DescriptionParams" "1;Distance(2);2"
 // data "TooltipDamageList" "DealDamage(LevelMapValue(D10Cantrip),Fire)"
 data "TooltipDamageList" "DealDamage(LevelMapValue(D8Cantrip),Fire)"
 data "TooltipStatusApply" "ApplyStatus(BURNING,100,1)"
