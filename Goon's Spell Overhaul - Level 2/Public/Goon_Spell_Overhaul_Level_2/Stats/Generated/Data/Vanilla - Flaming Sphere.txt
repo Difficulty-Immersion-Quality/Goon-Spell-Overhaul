@@ -1,0 +1,22 @@
+// ==================================== Flaming Sphere ====================================
+// Bug Fix: The sphere's status is now flagged to ignore Opportunity Attacks.
+
+new entry "FLAMING_SPHERE_AURA"
+type "StatusData"
+data "StatusType" "BOOST"
+using "FLAMING_SPHERE_AURA"
+// // Flaming Sphere
+// data "DisplayName" "h390f11bfg3652g4665gaaefg00d422d45fa6;2"
+// // Enemies and objects within [2] of the sphere at the end of their turn take [1]. On a successful save, they still take half damage.
+// data "Description" "h0a8a104ag8233g4b7dgaeebgfcca20a499d4;4"
+// data "DescriptionParams" "DealDamage(2d6,Fire);Distance(1.5)"
+// data "Icon" "Spell_Conjuration_FlamingSphere"
+// data "StackId" "FLAMING_SPHERE_AURA"
+// data "AuraRadius" "2"
+// data "AuraStatuses" "IF(not Dead() and not Ally()):ApplyStatus(FLAMING_SPHERE,100,-1)"
+// data "SurfaceChange" "Ignite"
+// data "Boosts" "GameplayLight(5,false,0.1)"
+// data "TooltipSave" "Dexterity"
+// data "StatusPropertyFlags" "DisableOverhead;DisableCombatlog;InitiateCombat;BringIntoCombat"
+data "StatusGroups" "SG_Ignore_AOO"
+// data "StatusEffect" "50ee8bfd-b791-4657-afa8-0feb5b256451"

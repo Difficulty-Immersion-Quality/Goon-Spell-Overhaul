@@ -68,6 +68,7 @@ data "DisplayName" "hb41c9704g1462g4e03g8b47gb2cf82470b0d;1"
 // data "TickFunctors" "IF(not Dead()):RegainHitPoints(1)"
 data "TickFunctors" "IF(not Dead() and HasHPPercentageWithoutTemporaryHPLessThan(100)):RegainHitPoints(1)"
 // data "StatusGroups" "SG_RemoveOnRespec"
+data "HitAnimationType" "None"
 
 // ============================ Upcasting - Regenerate - 8
 
